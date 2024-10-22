@@ -1,0 +1,130 @@
+@import "mixin";
+
+* {
+  box-sizing: border-box;
+}
+
+.dark {
+  background: #0f0f0f;
+}
+
+input,
+button,
+textarea {
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  @media (max-width: rem(992)) {
+  }
+  &.no-scroll {
+    overflow: hidden;
+    //padding-right: rem(5);
+    @media (max-width: rem(992)) {
+      padding-right: 0;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: rem(10);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #171717;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #a225ee;
+    border-radius: rem(100);
+  }
+}
+* {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  outline: none !important;
+  @media (max-width: rem(992)) {
+    outline: none !important;
+  }
+}
+
+.section-title {
+  color: var(--2, #282828);
+  font-size: rem(48);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  margin: 0;
+  @media (max-width: rem(992)) {
+    font-size: rem(40);
+  }
+}
+
+@media screen and (min-width: rem(992)) {
+  /*html, body{
+		overflow-x:hidden;
+	}*/
+  .dt-hidden {
+    display: none !important;
+  }
+}
+@media screen and (max-width: rem(992)) {
+  .iti.iti--container {
+    z-index: 1999999999 !important;
+  }
+  .mob-hidden {
+    display: none !important;
+  }
+}
+
+._container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  padding: 0 rem(16);
+  width: 100%;
+  @media (max-width: rem(1375)) {
+    max-width: $md1 + px;
+  }
+  /*@media (min-width: rem(1600)) {
+    max-width: $maxWidth;
+  }*/
+}
+
+.site {
+  position: relative;
+  //overflow: hidden;
+  > .react-parallax {
+    @media (max-width: rem(992)) {
+      border-radius: 0 !important;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+  @media (max-width: rem(992)) {
+    animation-range: entry 0% cover 20%;
+  }
+}

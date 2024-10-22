@@ -1,6 +1,7 @@
+import { Ubuntu } from "next/font/google";
+import "@/styles/base.scss";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { Ubuntu } from "next/font/google";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
