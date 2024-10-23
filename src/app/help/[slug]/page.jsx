@@ -18,9 +18,30 @@ const BlogInner = () => {
     }
   }, [slug]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!singlePost) return <p>Post not found</p>;
+  if (loading)
+    return (
+      <section className="blog-inner">
+        <div className="_container">
+          <div className="blog-inner__body">
+            <h1>Loading</h1>
+          </div>
+        </div>
+      </section>
+    );
+  if (error) return (<section className="blog-inner">
+    <div className="_container">
+      <div className="blog-inner__body">
+        <h1>Error</h1>
+      </div>
+    </div>
+  </section>);
+  if (!singlePost) return (<section className="blog-inner">
+    <div className="_container">
+      <div className="blog-inner__body">
+        <h1></h1>
+      </div>
+    </div>
+  </section>);
 
   return (
     <>
