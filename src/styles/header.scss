@@ -4,9 +4,19 @@ header {
   position: fixed;
   left: 0;
   top: 0;
-  padding: rem(30) 0;
+  /* padding: rem(30) 0; */
+  padding: 70px 0 35px 0;
   width: 100%;
   z-index: 99;
+
+  &._active {
+    padding: 35px 0;
+  }
+
+  @media(max-width: 767px) { 
+    padding: 55px 0 35px 0;
+  }
+
   .menu-row {
     background: #ffffff;
     padding: rem(10) rem(40);
@@ -15,6 +25,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1361px;
+    margin: 0 auto;
+
+    @media(max-width: 992px) {
+      max-width: 95%;
+    }
+
     a {
       display: flex;
       &:hover {

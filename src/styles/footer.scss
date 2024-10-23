@@ -1,1 +1,233 @@
 @import "mixin";
+
+.footer {
+    background-color: #0d0d0d;
+    padding: 48px 0 0 0;
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden;
+    @media(max-width: 767px) { 
+        padding: 62px 0 0 0;
+    }
+    &__container {
+    }
+
+    &__body {
+    }
+
+    &__row-01 {
+    }
+
+    &__row-02 {
+        position: relative;
+        margin: 67px 0 0 0;
+        &::before { 
+            content: '';
+            position: absolute;
+            width: 150vw;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, 0);
+            background-color: #000000;
+            border-top: 1px solid #2c2c2c;
+        }
+    }
+
+    &__row-03 {
+        position: relative;
+        &::before { 
+            content: '';
+            position: absolute;
+            width: 150vw;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, 0);
+            background-color: #000000;
+            border-top: 1px solid #2c2c2c;
+        }
+    }
+
+    &__col-01 {
+        min-width: 300px;
+
+        @media(max-width: 992px) { 
+            min-width: 100%;
+            margin: 0 0 58px 0;
+        }
+    }
+
+    &__col-02 {
+        width: 100%;
+        @media(max-width: 992px) { 
+            margin: 0 0 16px 0;
+        }
+    }
+
+    &__col-03 {
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        @include adaptiv-value('gap', 100, 0, 1);
+        margin: 28px 0 0 0;
+
+        @media(max-width: 992px) { 
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        img { 
+            width: 127px;
+            object-fit: cover;
+        }
+    }
+
+    &__title {
+        font-size: 20px;
+        line-height: normal;
+        font-weight: 500;
+        color: #fff;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    &__text {
+        margin: 24px 0 0 0;
+        font-size: 16px;
+        line-height: normal;
+        color: #fff;
+        max-width: 270px;
+        width: 100%;
+    }
+
+    &__nav {
+        width: 100%;
+    }
+
+    &__menu-list {
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: minmax(auto, 25%) minmax(auto, 25%) minmax(auto, 25%) minmax(auto, 25%);
+        gap: 24px;
+
+        @media(max-width: 767px) { 
+            grid-template-columns: minmax(auto, 50%) minmax(auto, 50%);
+            justify-content: space-between;
+            column-gap: 32px;
+            row-gap: 16px;
+        }
+    }
+
+    &__menu-item {
+        list-style: none;
+        padding: 0;
+    }
+
+    &__menu-link {
+        font-size: 16px;
+        line-height: normal;
+        color: #fff;
+        font-family: 'Urbanist', sans-serif;
+        transition: all 0.3s ease 0s;
+
+        &:hover { 
+            color: #1FA169;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__contact {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+        line-height: normal;
+        color: #fff;
+        font-weight: 500;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    &__link {
+        font-size: 16px;
+        line-height: normal;
+        color: #fff;
+        font-family: 'Urbanist', sans-serif;
+        transition: all 0.3s ease 0s;
+
+        &:hover { 
+            color: #1FA169;
+        }
+    }
+
+    &__policy {
+        position: relative;
+        z-index: 30;
+    }
+
+    &__policy-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: fit-content;
+        column-gap: 72px;
+        margin: 0 auto;
+        padding: 15px 0;
+
+        @media(max-width: 767px) { 
+            display: grid;
+            grid-template-columns: minmax(auto, 50%) minmax(auto, 50%);
+            justify-content: space-between;
+            align-items: center;
+            row-gap: 10px;
+            column-gap: 32px;
+            max-width: 100%;
+            width: 100%;
+            padding: 18px 0;
+        }
+    }
+
+    &__policy-item {
+
+        @media(max-width: 767px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__policy-link {
+        font-size: 16px;
+        line-height: normal;
+        font-family: 'Urbanist', sans-serif;
+        color: #808080;
+        transition: all 0.3s ease 0s;
+
+        &:hover { 
+            color: #1FA169;
+        }
+    }
+
+    &__copy {
+        position: relative;
+        z-index: 30;
+        font-size: 16px;
+        line-height: normal;
+        font-family: 'Urbanist', sans-serif;
+        color: #808080;
+        padding: 15px 0;
+        text-align: center;
+    }
+}

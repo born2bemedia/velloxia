@@ -1,48 +1,17 @@
-import "@/styles/home.scss";
+import HomeBusiness from "./_components/HomeBusiness";
+import HomeHelp from "./_components/HomeHelp";
+import HomeHero from "./_components/HomeHero";
+import HomeMarketing from "./_components/HomeMarketing";
+import HomeSolutions from "./_components/HomeSolutions";
 
 export default function Home() {
   return (
     <>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <HomeHero />
+      <HomeBusiness />
+      <HomeMarketing />
+      <HomeSolutions />
+      <HomeHelp />
     </>
   );
 }
