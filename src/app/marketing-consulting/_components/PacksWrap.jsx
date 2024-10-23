@@ -85,7 +85,7 @@ const PacksWrap = ({ products, title }) => {
         </div>
 
         <div className="buttons fadeInUp">
-          <Link href="#">Download Price List</Link>
+        <Link target="_blank" href="/marketing_consulting_price_list.pdf">Download Price List</Link>
           <Link href="#">Contact</Link>
         </div>
       </div>
