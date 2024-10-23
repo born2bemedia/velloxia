@@ -1,13 +1,16 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useCartStore from "@/stores/cartStore"; // Використовуємо Zustand для кошика
 import OrderIcon from "@/icons/OrderIcon"; // Іконка для кнопки
 
 const AddToCartButton = ({ product }) => {
   const { cart, addToCart } = useCartStore(); // Отримуємо стан кошика і функцію додавання товару
+  const inCart = cart.some((item) => item.id === product.id);
+  const [isInCart, setIsInCart] = useState(false);
 
-  // Перевіряємо, чи вже є товар у кошику
-  const isInCart = cart.some((item) => item.id === product.id);
+  useEffect(() => {
+    setIsInCart(inCart);
+  }, [cart]);
 
   const handleAddToCart = () => {
     if (!isInCart) {
