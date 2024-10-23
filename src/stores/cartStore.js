@@ -44,6 +44,52 @@ const useCartStore = create((set, get) => ({
     localStorage.removeItem('cart');
     localStorage.removeItem('totalAmount');
   },
+
+  increaseQuantity: (productId) => {
+    const { cart, totalAmount } = get();
+    const updatedCart = cart.map((item) => {
+      if (item.id === productId) {
+        const newQuantity = item.quantity + 1;
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+
+    const newTotalAmount = updatedCart.reduce(
+      (total, item) => total + item.attributes.price * item.quantity,
+      0
+    );
+
+    set({
+      cart: updatedCart,
+      totalAmount: newTotalAmount,
+    });
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    localStorage.setItem('totalAmount', JSON.stringify(newTotalAmount));
+  },
+
+  decreaseQuantity: (productId) => {
+    const { cart, totalAmount } = get();
+    const updatedCart = cart.map((item) => {
+      if (item.id === productId && item.quantity > 1) {
+        const newQuantity = item.quantity - 1;
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+
+    const newTotalAmount = updatedCart.reduce(
+      (total, item) => total + item.attributes.price * item.quantity,
+      0
+    );
+
+    set({
+      cart: updatedCart,
+      totalAmount: newTotalAmount,
+    });
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    localStorage.setItem('totalAmount', JSON.stringify(newTotalAmount));
+  },
 }));
 
 export default useCartStore;
