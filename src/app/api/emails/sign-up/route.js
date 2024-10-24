@@ -21,7 +21,7 @@ export async function POST(request) {
 
     // Set up email data for the client
     const mailOptionsClient = {
-      from: '"Quorixia" <noreply@quorixia.com>', // Sender address
+      from: '"Velloxia" <noreply@velloxia.com>', // Sender address
       to: email, // Client's email
       subject: "Your account has been created",
       html: `
@@ -29,7 +29,7 @@ export async function POST(request) {
           <thead>
             <tr>
               <td>
-                <img style="width: 100%" src="https://quorixia.com/images/email_header.png" alt="Quorixia Header" />
+                <img style="width: 100%" src="https://velloxia.com/images/email_header.png" alt="Velloxia Header" />
               </td>
             </tr>
           </thead>
@@ -38,10 +38,10 @@ export async function POST(request) {
               <td style="padding: 40px">
                 <h2 style="text-align: left; font-size: 20px">Dear ${firstName} ${lastName},</h2>
                 <p style="text-align: left; font-size: 16px">
-                  Thanks for creating an account on Quorixia
+                  Thanks for creating an account on Velloxia
                 </p>
                 <p style="text-align: left; font-size: 16px; font-weight: 600;">
-                  Order Summary:
+                  Details:
                 </p>
                 <ul style="text-align: left; font-size: 16px;">
                   <li>Login: <b>${email}</b></li>
@@ -49,11 +49,11 @@ export async function POST(request) {
                 </ul>
                 <p style="text-align: left; font-size: 16px">
                   You can access your account area to view orders, change your password, and more at 
-                  <a href="https://quorixia.com/" style="text-align: left; font-size: 16px;color:#A225EE;">quorixia.com</a>
+                  <a href="https://velloxia.com/" style="text-align: left; font-size: 16px;color:#A225EE;">velloxia.com</a>
                 </p>
                 <h2 style="text-align: left; font-size: 16px">
                   Best regards,<br />
-                  The Quorixia Team
+                  The Velloxia Team
                 </h2>
               </td>
             </tr>
@@ -61,7 +61,7 @@ export async function POST(request) {
           <tfoot>
             <td style="padding: 24px; background-color: #A225EE; color: #fff; font-size: 20px; text-align: center; font-weight: 600;">
               Thanks for using
-              <a href="https://quorixia.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">quorixia.com</a>
+              <a href="https://velloxia.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">velloxia.com</a>
             </td>
           </tfoot>
         </table>

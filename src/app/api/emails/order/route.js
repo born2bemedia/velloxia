@@ -37,8 +37,8 @@ export async function POST(request) {
     });
 
     const mailOptionsRecipient = {
-      from: '"Quorixia" <noreply@quorixia.com>', // Sender address
-      to: "noreply@quorixia.com", // Change to your recipient's email
+      from: '"Velloxia" <noreply@velloxia.com>', // Sender address
+      to: "noreply@velloxia.com", // Change to your recipient's email
       subject: "Order Form Submission",
       html: `
       <table style="border-collapse: collapse;font-style: sans-serif">
@@ -64,7 +64,7 @@ export async function POST(request) {
 
     // Set up email data for the client
     const mailOptionsClient = {
-      from: '"Quorixia" <noreply@quorixia.com>', // Sender address
+      from: '"Velloxia" <noreply@velloxia.com>', // Sender address
       to: email, // Client's email
       subject: "Thank You for Your Order - Order Confirmation Inside",
       html: `
@@ -72,7 +72,7 @@ export async function POST(request) {
           <thead>
             <tr>
               <td>
-                <img style="width: 100%" src="https://quorixia.com/images/email_header.png" alt="Quorixia Header" />
+                <img style="width: 100%" src="https://velloxia.com/images/email_header.png" alt="Velloxia Header" />
               </td>
             </tr>
           </thead>
@@ -81,7 +81,7 @@ export async function POST(request) {
               <td style="padding: 40px">
                 <h2 style="text-align: left; font-size: 20px">Dear ${firstName} ${lastName},</h2>
                 <p style="text-align: left; font-size: 16px">
-                  Thank you for placing your order with Quorixia! We appreciate your trust in us to support your career growth. Below are the details of your order:
+                  Thank you for placing your order with Velloxia! We appreciate your trust in us to support your career growth. Below are the details of your order:
                 </p>
                 <p style="text-align: left; font-size: 16px; font-weight: 600;">
                   Order Summary:
@@ -96,11 +96,11 @@ export async function POST(request) {
                   We will send you the necessary payment details shortly. If you have any questions or need further assistance, please don’t hesitate to contact us.
                 </p>
                 <p style="text-align: left; font-size: 16px">
-                  Thank you once again for choosing Quorixia. We’re excited to work with you and help you reach your professional goals.
+                  Thank you once again for choosing Velloxia. We’re excited to work with you and help you reach your professional goals.
                 </p>
                 <h2 style="text-align: left; font-size: 16px">
                   Best regards,<br />
-                  The Quorixia Team
+                  The Velloxia Team
                 </h2>
               </td>
             </tr>
@@ -108,7 +108,7 @@ export async function POST(request) {
           <tfoot>
             <td style="padding: 24px; background-color: #A225EE; color: #fff; font-size: 20px; text-align: center; font-weight: 600;">
               Thanks for using
-              <a href="https://quorixia.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">quorixia.com</a>
+              <a href="https://velloxia.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">velloxia.com</a>
             </td>
           </tfoot>
         </table>

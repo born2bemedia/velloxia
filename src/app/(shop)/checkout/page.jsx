@@ -159,13 +159,13 @@ const CartPage = () => {
           userId = registerResult.user.id;
           localStorage.setItem("jwt", registerResult.jwt);
           fetchCurrentUser();
-          /*await fetch("/api/emails/sign-up", {
+          await fetch("/api/emails/sign-up", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify(registerData),
-          });*/
+          });
         } else {
           throw new Error("User registration failed.");
         }
@@ -217,9 +217,8 @@ const CartPage = () => {
       };
 
       await createOrder(orderData);
-      
 
-      /*await fetch("/api/emails/order", {
+      await fetch("/api/emails/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -230,7 +229,7 @@ const CartPage = () => {
           lastName: values.lastName,
           amount: totalAmount,
         }),
-      });*/
+      });
 
       router.push("/thankyou");
       clearCart();
