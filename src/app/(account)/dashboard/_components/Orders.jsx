@@ -85,7 +85,7 @@ function Orders() {
                   </td>
                   <td>
                     {order.invoice ? (
-                     <Link href={`${process.env.NEXT_PUBLIC_CMS_URL}${order.invoice.url}`}><img src="/images/download.svg"/></Link>
+                     <Link href={`${order.invoice.url}`} target="_blank"><img src="/images/download.svg"/></Link>
                     ) : (
                      <span><img src="/images/inactive.svg"/></span>
                     )}

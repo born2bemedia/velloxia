@@ -70,11 +70,11 @@ function AvailableFiles() {
                       <td>{formatDate(order.createdAt)}</td>
 
                       <td>
-                        {order.files.map((file) => (
-                          <span className="files-col">
+                        {order.files.map((file, index) => (
+                          <span key={index} className="files-col">
                             <Link
                               key={file.id}
-                              href={`${process.env.NEXT_PUBLIC_CMS_URL}${file.url}`}
+                              href={`${file.url}`}
                               target="_blank"
                             >
                               <img src="/images/download.svg" />
