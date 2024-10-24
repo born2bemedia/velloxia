@@ -11,10 +11,9 @@ export async function POST(request) {
     lastName,
     email,
     phone,
-    street,
-    address,
+    addressLine1,
+    addressLine2,
     city,
-    state,
     zip,
     country,
     userId,
@@ -27,10 +26,9 @@ export async function POST(request) {
       lastName,
       email,
       phone,
-      street, // Assuming these fields map to Strapi fields
-      address,
+      addressLine1,
+      addressLine2,
       city,
-      state,
       zip,
       country: country, // Ensure the correct format for Strapi
     };
@@ -60,7 +58,10 @@ export async function POST(request) {
       }
     );
   } catch (error) {
-    console.error("An error occurred:", error.response ? error.response : error.message);
+    console.error(
+      "An error occurred:",
+      error.response ? error.response : error.message
+    );
 
     return new Response(
       JSON.stringify({

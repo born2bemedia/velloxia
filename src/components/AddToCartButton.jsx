@@ -16,6 +16,7 @@ const AddToCartButton = ({ product }) => {
     if (!isInCart) {
       addToCart({
         id: product.id,
+        documentId: product.documentId,
         name: product.title,
         quantity: 1,
         attributes: { price: product.price },

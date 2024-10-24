@@ -15,7 +15,7 @@ const ProductsWrap = ({ products, title }) => {
         {/* Desktop layout - Flex row */}
         <div className="products-wrap__body desktop">
           {products.map((product, index) => (
-            <div key={product.id} className="product-item fadeInUp">
+            <div key={product.id} id={`${product.documentId}-product`} className="product-item fadeInUp">
               <div className="slider-inner">
                 <div>
                   <span>{String(index + 1).padStart(2, "0")}.</span>

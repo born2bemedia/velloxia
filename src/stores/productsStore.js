@@ -10,10 +10,21 @@ const useProductStore = create((set, get) => ({
       const response = await axiosClient.get(
         `products?` +
           qs.stringify({
-            fields: ['id', 'slug', 'title', 'description', 'price', 'category'],
+            fields: ['id', 'slug', 'title', 'description', 'price', 'category', 'documentId'],
             pagination: { pageSize: 9999 },
           })
       );
+
+      const products = response.data.data.map((product) => ({
+        id: product.id, // Use the correct `id` from Strapi
+        slug: product.slug, // Access slug and other attributes directly
+        title: product.title,
+        description: product.description,
+        price: product.price,
+        category: product.category,
+      }));
+
+      console.log(response.data);
       set({ products: response.data.data });
     } catch (error) {
       console.error('Error fetching products:', error);
