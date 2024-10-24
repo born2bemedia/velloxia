@@ -8,6 +8,8 @@ import countryList from "react-select-country-list";
 import useAuthStore from "@/stores/authStore";
 import { useRouter } from "next/navigation";
 import ChangePassword from "./ChangePassword";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const getCountryOptionByCode = (code) => {
   const countries = countryList().getData();
@@ -146,7 +148,9 @@ const PersonalData = () => {
         const updatedUser = await response.json();
         setCurrentUser(updatedUser);
         localStorage.setItem("user", JSON.stringify(updatedUser));
-        setBillingSuccess("Your personal information has been updated successfully.");
+        setBillingSuccess(
+          "Your personal information has been updated successfully."
+        );
         //window.location.reload();
       } else {
         const errorData = await response.json();
@@ -227,20 +231,19 @@ const PersonalData = () => {
                       />
                     </div>
                     <div>
-                      <label>
-                        <Field
-                          placeholder="Phone"
-                          type="text"
-                          name="phone"
-                          className={
-                            touched.phone && errors.phone ? "invalid" : ""
-                          }
-                        />
-                      </label>
+                      <PhoneInput
+                        country={"us"}
+                        value={values.phone}
+                        placeholder="Phone Number"
+                        onChange={(phone) => setFieldValue("phone", phone)}
+                        className={
+                          touched.phone && errors.phone ? "invalid" : ""
+                        }
+                      />
                       <ErrorMessage
-                        className="error"
                         name="phone"
                         component="div"
+                        className="error"
                       />
                     </div>
                     <div>
@@ -277,7 +280,9 @@ const PersonalData = () => {
                           placeholder="City"
                           type="text"
                           name="city"
-                          className={touched.city && errors.city ? "invalid" : ""}
+                          className={
+                            touched.city && errors.city ? "invalid" : ""
+                          }
                         />
                       </label>
                       <ErrorMessage
