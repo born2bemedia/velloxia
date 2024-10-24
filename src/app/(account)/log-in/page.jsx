@@ -1,14 +1,15 @@
 "use client";
+import "@/styles/login.scss";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import useAuthStore from "@/stores/authStore"; 
+import useAuthStore from "@/stores/authStore";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 
 export default function SignIn() {
   const router = useRouter();
-  const { fetchCurrentUser, currentUser } = useAuthStore(); 
+  const { fetchCurrentUser, currentUser } = useAuthStore();
 
   useEffect(() => {
     if (currentUser) {
@@ -47,7 +48,7 @@ export default function SignIn() {
 
       if (data.user.jwt) {
         localStorage.setItem("jwt", data.user.jwt);
-        fetchCurrentUser(); 
+        fetchCurrentUser();
         console.log("logged in");
         router.push("/dashboard");
       } else {
@@ -64,14 +65,8 @@ export default function SignIn() {
   return (
     <section className="log-in">
       <div className="_container">
-        <h1>Welcome Back to Quorixia!</h1>
-        <h2>
-          Log in to your account by entering your username or email and
-          password.
-          <br />
-          If you’ve forgotten your password, use the “Forgot password?” link to
-          reset it.
-        </h2>
+        <h1>Log In</h1>
+        <h2></h2>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -110,9 +105,9 @@ export default function SignIn() {
               >
                 <span>Log in</span>
               </button>
-              <Link className="reset" href="/reset-password">
+              {/*<Link className="reset" href="/reset-password">
                 Forgot password?
-              </Link>
+              </Link> */}
             </Form>
           )}
         </Formik>
