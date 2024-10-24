@@ -61,12 +61,10 @@ function AvailableFiles() {
                       <td>
                         {order.order_status !== "cancelled" &&
                           order.products.map((product) => (
-                            <>
-                              <span key={product.id}>
+                            <span key={product.id}>
                                 {product.title}
                                 <br />
                               </span>
-                            </>
                           ))}
                       </td>
                       <td>{formatDate(order.createdAt)}</td>
