@@ -148,10 +148,11 @@ const PersonalData = () => {
         const updatedUser = await response.json();
         setCurrentUser(updatedUser);
         localStorage.setItem("user", JSON.stringify(updatedUser));
+        fetchCurrentUser();
         setBillingSuccess(
           "Your personal information has been updated successfully."
         );
-        //window.location.reload();
+        
       } else {
         const errorData = await response.json();
         setBillingError(errorData.message);
