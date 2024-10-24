@@ -31,8 +31,8 @@ export async function POST(request) {
 
     // Set up email data for the recipient
     const mailOptionsRecipient = {
-      from: '"Quorixia" <noreply@quorixia.com>', // Sender address
-      to: "noreply@quorixia.com", // Change to your recipient's email
+      from: '"Velloxia" <noreply@velloxia.com>', // Sender address
+      to: "noreply@velloxia.com", // Change to your recipient's email
       subject: "New Request Form Submission",
       text: `
         Name: ${fullName}
@@ -49,16 +49,16 @@ export async function POST(request) {
     // Uncomment and modify as necessary to send a confirmation email to the user
 
     const mailOptionsClient = {
-      from: '"Quorixia" <noreply@quorixia.com>', // Sender address
+      from: '"Velloxia" <noreply@velloxia.com>', // Sender address
       to: email, // Client's email
       subject:
-        "We’ve Received Your Message – Thank You for Reaching Out to Quorixia!",
+        "We’ve Received Your Message – Thank You for Reaching Out to Velloxia!",
       html: `
         <table width="640" style="border-collapse: collapse; margin: 0 auto; font-family: Arial, sans-serif">
           <thead>
             <tr>
               <td>
-                <img style="width: 100%" src="https://quorixia.com/images/email_header.png" alt="Quorixia Header" />
+                <img style="width: 100%" src="https://velloxia.com/images/email_header.png" alt="Velloxia Header" />
               </td>
             </tr>
           </thead>
@@ -67,19 +67,19 @@ export async function POST(request) {
               <td style="padding: 40px">
                 <h2 style="text-align: left; font-size: 20px;color:#202020;">Dear ${fullName},</h2>
                 <p style="text-align: left; font-size: 16px;color:#202020;">
-                 Thank you for contacting Quorixia. We’ve received your inquiry and will be in touch shortly to provide the assistance you need.
+                 Thank you for contacting Velloxia. We’ve received your inquiry and will be in touch shortly to provide the assistance you need.
                 </p>
                 <p style="text-align: left; font-size: 16px;color:#202020;">
                 We appreciate your interest in our services and look forward to supporting you on your career journey.
                 </p>
-                <h2 style="text-align: left; font-size: 20px;color:#202020;"> Best regards,<br /> The Quorixia Team</h2>
+                <h2 style="text-align: left; font-size: 20px;color:#202020;"> Best regards,<br /> The Velloxia Team</h2>
               </td>
             </tr>
           </tbody>
           <tfoot>
             <td style="padding: 24px; background-color: #A225EE; color: #fff; font-size: 20px; text-align: center; font-weight: 600;">
               Thanks for using
-              <a href="https://quorixia.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">quorixia.com</a>
+              <a href="https://velloxia.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">velloxia.com</a>
             </td>
           </tfoot>
         </table>

@@ -1,87 +1,49 @@
-"use client";
 import "@/styles/help.scss";
-import React, { useEffect } from "react";
-import { usePathname } from "next/navigation";
-import ReactMarkdown from "react-markdown";
-import usePostStore from "@/stores/blogStore";
-import Head from "next/head";
-import Link from "next/link";
+import BlogInnerClient from "../_components/BlogInnerClient";
+import axiosClient from "@/app/api/GlobalApi";
 
-const BlogInner = () => {
-  const pathname = usePathname();
-  const slug = pathname.split("/").pop();
-  const { fetchPostBySlug, singlePost, loading, error } = usePostStore();
+// Use server-side data fetching to get the post by slug
+const fetchPostBySlugServer = async (slug) => {
+  const url = `posts?filters[slug][$eq]=${slug}&populate=*`; // Adjust your API query here
+  const response = await axiosClient.get(url);
+  const post = response.data.data[0]; // Assuming the response returns a single post
 
-  useEffect(() => {
-    if (slug) {
-      fetchPostBySlug(slug);
-    }
-  }, [slug]);
+  return post
+    ? {
+        id: post.id,
+        slug: post.slug,
+        title: post.title,
+        content: post.content,
+        image: post.image,
+        mobile_image: post.mobile_image,
+        seo_title: post.seo_title,
+        seo_description: post.seo_description,
+      }
+    : null;
+};
 
-  if (loading)
-    return (
-      <section className="blog-inner">
-        <div className="_container">
-          <div className="blog-inner__body">
-            <h1>Loading</h1>
-          </div>
-        </div>
-      </section>
-    );
-  if (error) return (<section className="blog-inner">
-    <div className="_container">
-      <div className="blog-inner__body">
-        <h1>Error</h1>
-      </div>
-    </div>
-  </section>);
-  if (!singlePost) return (<section className="blog-inner">
-    <div className="_container">
-      <div className="blog-inner__body">
-        <h1></h1>
-      </div>
-    </div>
-  </section>);
+// Metadata generation for SEO
+export async function generateMetadata({ params }) {
+  const awaitedParams = await params; // Await the params
+  const { slug } = awaitedParams;
+  const post = await fetchPostBySlugServer(slug);
 
-  return (
-    <>
-      <Head>
-        <title>{singlePost.seo_title || singlePost.title}</title>
-        <meta
-          name="description"
-          content={singlePost.seo_description || "Default description"}
-        />
-      </Head>
-      <section className="blog-inner">
-        <div className="_container">
-          <div className="blog-inner__body">
-            <div className="top">
-              <div className="img-wrap">
-                <img src={singlePost.image?.url} alt={singlePost.title} />
-                <img
-                  src={singlePost.mobile_image?.url}
-                  alt={`Mobile ${singlePost.title}`}
-                />
-              </div>
-              <h1>{singlePost.title}</h1>
-            </div>
-            <article>
-              <ReactMarkdown>{singlePost.content}</ReactMarkdown>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section className="more-insights">
-        <div className="_container">
-          <div className="more-insights__body">
-            <img src="/images/help/lamp.png" />
-            <img src="/images/arrowRight.svg" />
-            <Link href="/help">More Insights</Link>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+  return {
+    title: post?.seo_title || post?.title || "Default Title",
+    description: post?.seo_description || "Default description",
+  };
+}
+
+const BlogInner = async ({ params }) => {
+  const awaitedParams = await params; // Await the params
+  const { slug } = awaitedParams;
+  const singlePost = await fetchPostBySlugServer(slug);
+
+  if (!singlePost) {
+    return <div>Post not found</div>; // Handle post not found
+  }
+
+  return <BlogInnerClient singlePost={singlePost} />;
 };
 
 export default BlogInner;

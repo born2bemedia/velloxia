@@ -41,7 +41,7 @@ const usePostStore = create((set) => ({
       const response = await axiosClient.get(url);
 
       const posts = response.data.data.map((post) => {
-        const imageUrl = post.image?.url;
+        /*const imageUrl = post.image?.url;
         const mobileImageUrl = post.mobile_image?.url;
 
         if (imageUrl) {
@@ -49,7 +49,7 @@ const usePostStore = create((set) => ({
         }
         if (mobileImageUrl) {
           post.mobile_image.url = `${cmsUrl}${mobileImageUrl}`;
-        }
+        }*/
         return {
           id: post.id,
           slug: post.slug,
@@ -99,7 +99,7 @@ const usePostStore = create((set) => ({
       const post = response.data.data.find((post) => post.slug === slug);
 
       if (post) {
-        const imageUrl = post.image?.url;
+        /*const imageUrl = post.image?.url;
         const mobileImageUrl = post.mobile_image?.url;
 
         if (imageUrl) {
@@ -107,7 +107,7 @@ const usePostStore = create((set) => ({
         }
         if (mobileImageUrl) {
           post.mobile_image.url = `${cmsUrl}${mobileImageUrl}`;
-        }
+        }*/
 
         const processedPost = {
           id: post.id,
