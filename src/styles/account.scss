@@ -255,6 +255,66 @@
           @media (max-width: rem(992)) {
             width: 100%;
           }
+
+          .react-tel-input {
+            .country-list {
+              width: rem(255);
+              background: #f2f2f2;
+              li {
+                color: #1e1e1e;
+                &.highlight,
+                &:hover {
+                  background: #1fa169;
+                  color: #fff;
+                }
+              }
+              &::-webkit-scrollbar {
+                background: transparent;
+                width: rem(5);
+              }
+  
+              &::-webkit-scrollbar-track {
+                background: #ffffff0d;
+              }
+  
+              &::-webkit-scrollbar-thumb {
+                background-color: #1fa169;
+                border-radius: 100px;
+              }
+            }
+            input {
+              font-size: rem(16);
+              width: 100%;
+              height: rem(50);
+              color: #333;
+              padding: 0 rem(20) 0 rem(40);
+              background-color: #f3f3f3;
+              border-radius: 0;
+              border: 1px solid #f3f3f3;
+              font-weight: 500;
+              border-radius: rem(30);
+            }
+            &.invalid {
+              input {
+                border: 1px solid #ee342a;
+              }
+              & + span {
+                color: #ee342a;
+                position: absolute;
+                font-size: 11px;
+                line-height: 1;
+              }
+            }
+            .flag-dropdown {
+              border: none !important;
+              background: transparent !important;
+            }
+            .selected-flag {
+              border: none !important;
+              background: transparent !important;
+            }
+          }
+
           .error {
             position: absolute;
             left: 0;

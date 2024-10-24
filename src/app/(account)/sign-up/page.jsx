@@ -2,16 +2,18 @@
 import "@/styles/login.scss";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import useAuthStore from "@/stores/authStore"; // Використання Zustand
+import useAuthStore from "@/stores/authStore";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import Link from "next/link"; // Використовуємо Next.js Link
+import Link from "next/link";
 import CheckboxIcon from "@/icons/CheckboxIcon";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 export default function SignUp() {
   const [thanksPopupShow, setThanksPopupShow] = useState(false);
   const router = useRouter();
-  const { fetchCurrentUser } = useAuthStore(); // Використання стору для аутентифікації
+  const { fetchCurrentUser } = useAuthStore();
 
   const initialValues = {
     firstName: "",
@@ -98,7 +100,7 @@ export default function SignUp() {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            {({ isSubmitting, touched, errors }) => (
+            {({ isSubmitting, touched, errors, values }) => (
               <Form>
                 {/* Form Fields */}
                 <div>
@@ -147,10 +149,11 @@ export default function SignUp() {
                   />
                 </div>
                 <div>
-                  <Field
-                    type="text"
-                    name="phone"
-                    placeholder="Phone number"
+                  <PhoneInput
+                    country={"us"}
+                    value={values.phone}
+                    placeholder="Phone Number"
+                    onChange={(phone) => setFieldValue("phone", phone)}
                     className={touched.phone && errors.phone ? "invalid" : ""}
                   />
                   <ErrorMessage
