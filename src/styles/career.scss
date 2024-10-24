@@ -1,0 +1,309 @@
+@import "mixin.scss";
+
+.career-hero {
+    margin-top: 34px;
+    &__container {
+    }
+
+    &__body {
+        @include adaptiv-value("padding-top", 200, 160, 1);
+        background-color: #f3f3f3;
+        border-radius: 30px;
+        background-image: url("/images/career/career-back-01.png");
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: contain;
+        padding-left: 14px;
+        padding-right: 14px;
+
+        @media (max-width: 767px) {
+            background-image: url("/images/career/career-back-02.png");
+        }
+    }
+
+    &__title {
+        @include adaptiv-value("font-size", 70, 28, 1);
+        line-height: normal;
+        text-align: center;
+        max-width: 1064px;
+        margin: 0 auto;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 800;
+
+        span {
+            color: #1fa169;
+        }
+
+        @media (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            span {
+                display: flex;
+                font-size: 36px;
+                text-align: center;
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        gap: 48px;
+        max-width: 850px;
+        margin: 0 auto;
+        padding: 100px 0 65px 0;
+        position: relative;
+
+        @media (max-width: 992px) {
+            flex-direction: column-reverse;
+            gap: 32px;
+            align-items: center;
+            padding: 20px 0 65px 0;
+        }
+    }
+
+    &__img-01 {
+        max-width: 470px;
+        height: fit-content;
+        width: 100%;
+        object-fit: contain;
+
+        @media (max-width: 767px) {
+            max-width: 300px;
+        }
+    }
+
+    &__img-02 {
+        max-width: 360px;
+        width: 100%;
+        height: fit-content;
+        object-fit: contain;
+
+        @media (max-width: 767px) {
+            max-width: 180px;
+            margin-left: auto;
+        }
+    }
+}
+
+.career-apply {
+    @include adaptiv-value('padding-top', 230, 120, 1);
+    @include adaptiv-value('padding-bottom', 200, 120, 1);
+    background-image: url('/images/career/career-back-03.png');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: contain;
+    &__container {
+    }
+
+    &__body {
+        @include adaptiv-value("padding-top", 115, 70, 1);
+        @include adaptiv-value("padding-bottom", 115, 70, 1);
+        background-color: #0a0a0a;
+        border-radius: 30px;
+        background-image: url("/images/career/career-back-04.png");
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: cover;
+        position: relative;
+
+        @media(max-width: 992px) { 
+            padding: 42px 0 236px 0;
+        }
+
+        @media (max-width: 767px) {
+            background-image: url("/images/career/career-back-05.png");
+        }
+    }
+
+    &__img-01 {
+        position: absolute;
+        bottom: 0;
+        @include adaptiv-value('left', 200, 0, 1);
+        max-width: 502px;
+        object-fit: cover;
+
+        @media(max-width: 992px) { 
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 100%;
+        }
+    }
+
+    &__img-02 {
+        position: absolute;
+        top: 50%;
+        left: 53%;
+        transform: translate(-50%, -50%);
+        @media(max-width: 992px) { 
+            display: none;
+        }
+    }
+
+    &__link {
+        @include adaptiv-value('margin-right', 280, 0, 1);
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 24px;
+        width: 100%;
+        max-width: 246px;
+        border-radius: 100px;
+        background-color: #fff;
+        transition: all 0.3s ease 0s;
+
+        color: #333333;
+        font-size: 20px;
+        line-height: normal;
+        font-family: "Ubuntu", sans-serif;
+
+        @media(max-width: 992px) { 
+            margin: 0 auto;
+            max-width: 304px;
+        }
+
+        &:hover {
+            background-color: #1FA169;
+            color: #fff;
+        }
+    }
+}
+
+.career-why {
+    @include adaptiv-value('padding-top', 200, 120, 1);
+    &__container { 
+
+    }
+
+    &__body {
+
+    }
+
+    &__title { 
+        margin-top: 0;
+        @include adaptiv-value('margin-bottom', 80, 50, 1);
+        @include adaptiv-value('font-size', 48, 32, 1);
+        line-height: normal;
+        text-align: center;
+        color: #333333;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: 'Ubuntu', sans-serif;
+    }
+}
+
+.career-why-slider { 
+    
+    .swiper-wrapper { 
+        display: flex;
+        align-items: stretch;
+    }
+
+    &__item { 
+        height: auto !important;
+    }
+
+    &__wrapper {
+        background-color: #F3F3F3;
+        border-radius: 30px;
+        padding: 40px 20px 40px 35px;
+        height: 100%;
+    }
+
+    &__icon { 
+
+    }
+
+    &__title { 
+        margin: 30px 0 0 0;
+        color: #333333;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        @include adaptiv-value('font-size', 26, 22, 1);
+    }
+
+    &__text { 
+        max-width: 399px;
+        margin: 25px 0 0 0;
+        font-size: 19px;
+        line-height: 29px;
+        font-weight: 300;
+
+        @media(max-width: 767px) { 
+            margin: 20px 0 0 0;
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    &__buttons { 
+        @include adaptiv-value('margin-top', 70, 40, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+    }
+
+    &__prev {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+
+        svg { 
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            circle { 
+                transition: all 0.3s ease 0s;
+            }
+            path { 
+                transition: all 0.3s ease 0s;
+            }
+        }
+
+        &:hover { 
+            svg { 
+                circle { 
+                    stroke: #1FA169;
+                }
+                path { 
+                    stroke: #1FA169;
+                }
+            }
+        }
+    }
+
+    &__next { 
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+
+        svg { 
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            circle { 
+                transition: all 0.3s ease 0s;
+            }
+            path { 
+                transition: all 0.3s ease 0s;
+            }
+        }
+
+        &:hover { 
+            svg { 
+                circle { 
+                    stroke: #1FA169;
+                }
+                path { 
+                    stroke: #1FA169;
+                }
+            }
+        }
+    }
+}
