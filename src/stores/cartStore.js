@@ -16,6 +16,7 @@ const useCartStore = create((set, get) => ({
         cart: [...state.cart, product],
         totalAmount: newTotalAmount,
         cartQuantity: state.cartQuantity + product.quantity,
+        documentId: product.l3sa5guqewi4vox2q7zr1192,
       }));
       localStorage.setItem('cart', JSON.stringify([...cart, product]));
       localStorage.setItem('totalAmount', JSON.stringify(newTotalAmount));
