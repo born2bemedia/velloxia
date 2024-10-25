@@ -6,6 +6,7 @@ import useAuthStore from "@/stores/authStore";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
+import SignUp from "./_components/SignUp";
 
 export default function SignIn() {
   const router = useRouter();
@@ -62,55 +63,62 @@ export default function SignIn() {
   };
 
   return (
-    <section className="log-in">
-      <div className="_container">
-        <h1>Log In</h1>
-        <h2></h2>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting, touched, errors }) => (
-            <Form>
-              <div>
-                <Field
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className={touched.email && errors.email ? "invalid" : ""}
-                />
-                <ErrorMessage name="email" component="div" className="error" />
-              </div>
-              <div>
-                <Field
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  className={
-                    touched.password && errors.password ? "invalid" : ""
-                  }
-                />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className="error"
-                />
-              </div>
-              <button
-                className="main-button"
-                type="submit"
-                disabled={isSubmitting}
-              >
-                <span>Log in</span>
-              </button>
-              <Link className="reset" href="/reset-password">
-                Forgot password?
-              </Link> 
-            </Form>
-          )}
-        </Formik>
-      </div>
-    </section>
+    <>
+      <section className="log-in">
+        <div className="_container">
+          <h1>Welcome to Velloxia</h1>
+          <h2>Please sign in to your account</h2>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting, touched, errors }) => (
+              <Form>
+                <div>
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className={touched.email && errors.email ? "invalid" : ""}
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div>
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    className={
+                      touched.password && errors.password ? "invalid" : ""
+                    }
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <button
+                  className="main-button"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
+                  <span>Log in</span>
+                </button>
+                <Link className="reset" href="/reset-password">
+                  Forgot password?
+                </Link>
+              </Form>
+            )}
+          </Formik>
+          <SignUp />
+        </div>
+      </section>
+    </>
   );
 }

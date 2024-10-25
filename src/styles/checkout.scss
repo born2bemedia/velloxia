@@ -19,6 +19,25 @@
     text-align: center;
   }
 
+  .success {
+    color: #1fa169;
+    font-size: rem(16);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    margin: 30px 0 0 0;
+    text-align: center;
+  }
+  .error {
+    color: #f00;
+    font-size: rem(16);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    margin: 30px 0 0 0;
+    text-align: center;
+  }
+
   form {
     max-width: rem(532);
     margin: 0 auto;

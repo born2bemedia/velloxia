@@ -44,7 +44,7 @@ export default function PasswordResetRequest() {
   return (
     <section className="log-in ">
       <div className="_container">
-        <h1>Forgot Your Password?</h1>
+        <h1>Access Recovery Request</h1>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -70,7 +70,11 @@ export default function PasswordResetRequest() {
               </button>
               {status && status.success && (
                 <div className="success">
-                  <p>Reset link was sent to your email!</p>
+                  <p>
+                    A link to reset your password has been sent to your email.
+                    Please check your inbox and follow the instructions to
+                    proceed.
+                  </p>
                 </div>
               )}
               {status && status.success === false && (
