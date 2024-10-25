@@ -2,45 +2,44 @@
 
 .home-hero {
     margin-top: 34px;
-    &__container { 
-        
+    &__container {
     }
 
-    &__body { 
-        @include adaptiv-value('padding-top', 200, 160, 1);
-        background-color: #F3F3F3;
+    &__body {
+        @include adaptiv-value("padding-top", 200, 160, 1);
+        background-color: #f3f3f3;
         border-radius: 30px;
-        background-image: url('/images/home/home-back-01.png');
+        background-image: url("/images/home/home-back-01.png");
         background-repeat: no-repeat;
         background-position: center bottom;
         background-size: contain;
         padding-left: 14px;
         padding-right: 14px;
-        
-        @media(max-width: 767px){ 
-            background-image: url('/images/home/home-back-02.png');
+
+        @media (max-width: 767px) {
+            background-image: url("/images/home/home-back-02.png");
         }
     }
 
-    &__title { 
-        @include adaptiv-value('font-size', 70, 28, 1);
+    &__title {
+        @include adaptiv-value("font-size", 70, 28, 1);
         line-height: normal;
         text-align: center;
         max-width: 1064px;
         margin: 0 auto;
-        font-family: 'Ubuntu', sans-serif;
+        font-family: "Ubuntu", sans-serif;
         font-weight: 800;
 
-        span { 
-            color: #1FA169;
+        span {
+            color: #1fa169;
         }
 
-        @media(max-width: 767px) { 
+        @media (max-width: 767px) {
             display: flex;
             flex-direction: column;
             align-items: center;
 
-            span { 
+            span {
                 display: flex;
                 font-size: 36px;
                 text-align: center;
@@ -48,7 +47,7 @@
         }
     }
 
-    &__content { 
+    &__content {
         display: flex;
         justify-content: space-between;
         gap: 48px;
@@ -57,7 +56,7 @@
         padding: 100px 0 65px 0;
         position: relative;
 
-        @media(max-width: 992px){ 
+        @media (max-width: 992px) {
             flex-direction: column-reverse;
             gap: 32px;
             align-items: center;
@@ -65,12 +64,12 @@
         }
     }
 
-    &__image-arrow { 
+    &__image-arrow {
         position: absolute;
         top: 16px;
         left: 100px;
 
-        @media(max-width: 767px) { 
+        @media (max-width: 767px) {
             top: 55px;
             left: 30px;
         }
@@ -82,7 +81,7 @@
         width: 100%;
         object-fit: contain;
 
-        @media(max-width: 767px) { 
+        @media (max-width: 767px) {
             max-width: 300px;
         }
     }
@@ -93,37 +92,36 @@
         height: fit-content;
         object-fit: contain;
 
-        @media(max-width: 767px) { 
+        @media (max-width: 767px) {
             max-width: 180px;
             margin-left: auto;
         }
     }
 }
 
-.home-help { 
-    @include adaptiv-value('padding-top', 200, 120, 1);
-    @include adaptiv-value('padding-bottom', 200, 120, 1);
-    &__container { 
-
+.home-help {
+    @include adaptiv-value("padding-top", 200, 120, 1);
+    @include adaptiv-value("padding-bottom", 200, 120, 1);
+    &__container {
     }
 
-    &__body { 
-        @include adaptiv-value('padding-top', 115, 70, 1);
-        @include adaptiv-value('padding-bottom', 115, 70, 1);
+    &__body {
+        @include adaptiv-value("padding-top", 115, 70, 1);
+        @include adaptiv-value("padding-bottom", 115, 70, 1);
         background-color: #0a0a0a;
         border-radius: 30px;
-        background-image: url('/images/home/home-help-back-01.png');
+        background-image: url("/images/home/home-help-back-01.png");
         background-repeat: no-repeat;
         background-position: bottom center;
         background-size: cover;
 
-        @media(max-width: 767px) { 
-            background-image: url('/images/home/home-help-back-02.png');
+        @media (max-width: 767px) {
+            background-image: url("/images/home/home-help-back-02.png");
         }
     }
 
-    &__title { 
-        @include adaptiv-value('font-size', 48, 32, 1);
+    &__title {
+        @include adaptiv-value("font-size", 48, 32, 1);
         line-height: normal;
         font-weight: 800;
         text-transform: uppercase;
@@ -132,14 +130,14 @@
         margin: 0;
     }
 
-    &__buttons { 
+    &__buttons {
         margin: 45px auto 0 auto;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 32px;
 
-        @media(max-width: 767px) { 
+        @media (max-width: 767px) {
             flex-direction: column;
             gap: 22px;
             max-width: 302px;
@@ -147,7 +145,7 @@
         }
     }
 
-    &__link { 
+    &__link {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -161,91 +159,522 @@
         color: #333333;
         font-size: 20px;
         line-height: normal;
-        font-family: 'Ubuntu', sans-serif;
+        font-family: "Ubuntu", sans-serif;
 
-        @media(max-width: 767px) { 
+        @media (max-width: 767px) {
             max-width: 100%;
         }
     }
 }
 
-.home-business { 
-    @include adaptiv-value('padding-top', 200, 120, 1);
-    &__container { 
-
+.home-business {
+    @include adaptiv-value("padding-top", 200, 120, 1);
+    &__container {
     }
 
-    &__body { 
-
+    &__body {
     }
 
-    &__title { 
-        @include adaptiv-value('font-size', 48, 30, 1);
+    &__title {
+        @include adaptiv-value("font-size", 48, 30, 1);
         line-height: normal;
         font-weight: 800;
         text-transform: uppercase;
         text-align: center;
-        font-family: 'Ubuntu', sans-serif;
-        span { 
-            color: #1FA169;
+        font-family: "Ubuntu", sans-serif;
+        span {
+            color: #1fa169;
         }
     }
 
     &__content {
-        @include adaptiv-value('margin-top', 70, 50, 1);
+        @include adaptiv-value("margin-top", 70, 50, 1);
     }
 }
 
-.home-marketing { 
-    @include adaptiv-value('padding-top', 200, 120, 1);
-    &__container { 
-
+.home-solutions {
+    @include adaptiv-value("padding-top", 200, 120, 1);
+    &__container {
     }
 
-    &__body { 
-
+    &__body {
     }
 
-    &__title { 
-        @include adaptiv-value('font-size', 48, 30, 1);
+    &__title {
+        @include adaptiv-value("font-size", 48, 30, 1);
         line-height: normal;
         font-weight: 800;
         text-transform: uppercase;
         text-align: center;
-        font-family: 'Ubuntu', sans-serif;
-        span { 
-            color: #1FA169;
+        font-family: "Ubuntu", sans-serif;
+        span {
+            color: #1fa169;
         }
     }
 
     &__content {
-        @include adaptiv-value('margin-top', 70, 50, 1);
+        @include adaptiv-value("margin-top", 70, 50, 1);
     }
 }
 
-.home-solutions { 
-    @include adaptiv-value('padding-top', 200, 120, 1);
-    &__container { 
-
+.home-marketing {
+    @include adaptiv-value("padding-top", 200, 120, 1);
+    overflow: hidden;
+    &__container {
     }
 
-    &__body { 
-
+    &__body {
     }
 
-    &__title { 
-        @include adaptiv-value('font-size', 48, 30, 1);
+    &__title {
+        @include adaptiv-value("font-size", 48, 30, 1);
         line-height: normal;
         font-weight: 800;
         text-transform: uppercase;
         text-align: center;
-        font-family: 'Ubuntu', sans-serif;
-        span { 
-            color: #1FA169;
+        font-family: "Ubuntu", sans-serif;
+        span {
+            color: #1fa169;
         }
     }
 
     &__content {
-        @include adaptiv-value('margin-top', 70, 50, 1);
+        @include adaptiv-value("margin-top", 70, 50, 1);
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__col-01 {
+        width: 100%;
+    }
+
+    &__col-02 {
+        width: 344px;
+        min-width: 344px;
+        @media (max-width: 992px) {
+            display: none;
+        }
+    }
+
+    &__banner { 
+        display: flex;
+        height: 100%;
+        background-color: #1fa169;
+        border-radius: 30px;
+        background-image: url('/images/home/home-img-03.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    &__more { 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 24px;
+        border-radius: 100px;
+        background-color: #fff;
+        font-size: 24px;
+        line-height: normal;
+        font-weight: 300;
+        color: #333333;
+        font-family: 'Ubuntu', sans-serif;
+        height: fit-content;
+        margin: 55px auto 0 auto;
+        width: 100%;
+        max-width: 230px;
+        transition: all 0.3s ease 0s;
+
+        &:hover { 
+            background-color: #0a0a0a;
+            color: #fff;
+        }
+    }
+}
+
+.home-marketing-slider {
+    .swiper-wrapper {
+        display: flex;
+        align-items: stretch;
+    }
+
+    &__item {
+        height: auto !important;
+        max-width: 344px;
+        width: 100%;
+
+        @media (max-width: 992px) {
+            max-width: 100%;
+        }
+    }
+
+    &__wrapper {
+        max-width: 344px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 30px;
+        background-color: #f3f3f3;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: 992px) {
+            max-width: 100%;
+        }
+    }
+
+    &__number {
+        font-size: 36px;
+        line-height: normal;
+        color: #1fa169;
+        font-weight: 400;
+    }
+
+    &__title {
+        font-size: 22px;
+        line-height: normal;
+        font-weight: 600;
+        color: #333333;
+    }
+
+    &__text {
+        font-family: "Ubuntu", sans-serif;
+        font-size: 18px;
+        line-height: 26px;
+        color: #333333;
+        font-weight: 300;
+    }
+
+    &__bottom {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+        margin: 0 0 45px 0;
+    }
+
+    &__price {
+        font-size: 26px;
+        line-height: normal;
+        font-weight: 500;
+        font-family: "Ubuntu", sans-serif;
+        color: #1fa169;
+    }
+
+    &__order {
+        font-size: 24px;
+        line-height: normal;
+        font-weight: 300;
+        color: #333333;
+        font-family: "Ubuntu", sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__buttons {
+        @media (min-width: 992px) {
+            display: none;
+        }
+        @include adaptiv-value("margin-top", 70, 40, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+    }
+
+    &__prev {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+
+        svg {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            circle {
+                transition: all 0.3s ease 0s;
+            }
+            path {
+                transition: all 0.3s ease 0s;
+            }
+        }
+
+        &:hover {
+            svg {
+                circle {
+                    stroke: #1fa169;
+                }
+                path {
+                    stroke: #1fa169;
+                }
+            }
+        }
+    }
+
+    &__next {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+
+        svg {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            circle {
+                transition: all 0.3s ease 0s;
+            }
+            path {
+                transition: all 0.3s ease 0s;
+            }
+        }
+
+        &:hover {
+            svg {
+                circle {
+                    stroke: #1fa169;
+                }
+                path {
+                    stroke: #1fa169;
+                }
+            }
+        }
+    }
+}
+
+.home-business {
+    @include adaptiv-value("padding-top", 200, 120, 1);
+    overflow: hidden;
+    &__container {
+    }
+
+    &__body {
+    }
+
+    &__title {
+        @include adaptiv-value("font-size", 48, 30, 1);
+        line-height: normal;
+        font-weight: 800;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: "Ubuntu", sans-serif;
+        span {
+            color: #1fa169;
+        }
+    }
+
+    &__content {
+        @include adaptiv-value("margin-top", 70, 50, 1);
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__col-01 {
+        width: 100%;
+    }
+
+    &__col-02 {
+        width: 344px;
+        min-width: 344px;
+        @media (max-width: 992px) {
+            display: none;
+        }
+    }
+
+    &__banner { 
+        display: flex;
+        height: 100%;
+        background-color: #1fa169;
+        border-radius: 30px;
+        background-image: url('/images/home/home-img-04.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    &__more { 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 24px;
+        border-radius: 100px;
+        background-color: #fff;
+        font-size: 24px;
+        line-height: normal;
+        font-weight: 300;
+        color: #333333;
+        font-family: 'Ubuntu', sans-serif;
+        height: fit-content;
+        margin: 55px auto 0 auto;
+        width: 100%;
+        max-width: 230px;
+        transition: all 0.3s ease 0s;
+
+        &:hover { 
+            background-color: #0a0a0a;
+            color: #fff;
+        }
+    }
+}
+
+.home-business-slider {
+    .swiper-wrapper {
+        display: flex;
+        align-items: stretch;
+    }
+
+    &__item {
+        height: auto !important;
+        max-width: 344px;
+        width: 100%;
+
+        @media (max-width: 992px) {
+            max-width: 100%;
+        }
+    }
+
+    &__wrapper {
+        max-width: 344px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 30px;
+        background-color: #f3f3f3;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: 992px) {
+            max-width: 100%;
+        }
+    }
+
+    &__number {
+        font-size: 36px;
+        line-height: normal;
+        color: #1fa169;
+        font-weight: 400;
+    }
+
+    &__title {
+        font-size: 22px;
+        line-height: normal;
+        font-weight: 600;
+        color: #333333;
+    }
+
+    &__text {
+        font-family: "Ubuntu", sans-serif;
+        font-size: 18px;
+        line-height: 26px;
+        color: #333333;
+        font-weight: 300;
+        margin: 0 0 45px 0;
+    }
+
+    &__bottom {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+    }
+
+    &__price {
+        font-size: 26px;
+        line-height: normal;
+        font-weight: 500;
+        font-family: "Ubuntu", sans-serif;
+        color: #1fa169;
+    }
+
+    &__order {
+        font-size: 24px;
+        line-height: normal;
+        font-weight: 300;
+        color: #333333;
+        font-family: "Ubuntu", sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__buttons {
+        @media (min-width: 992px) {
+            display: none;
+        }
+        @include adaptiv-value("margin-top", 70, 40, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+    }
+
+    &__prev {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+
+        svg {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            circle {
+                transition: all 0.3s ease 0s;
+            }
+            path {
+                transition: all 0.3s ease 0s;
+            }
+        }
+
+        &:hover {
+            svg {
+                circle {
+                    stroke: #1fa169;
+                }
+                path {
+                    stroke: #1fa169;
+                }
+            }
+        }
+    }
+
+    &__next {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+
+        svg {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            circle {
+                transition: all 0.3s ease 0s;
+            }
+            path {
+                transition: all 0.3s ease 0s;
+            }
+        }
+
+        &:hover {
+            svg {
+                circle {
+                    stroke: #1fa169;
+                }
+                path {
+                    stroke: #1fa169;
+                }
+            }
+        }
     }
 }
