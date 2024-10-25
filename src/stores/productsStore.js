@@ -34,6 +34,17 @@ const useProductStore = create((set, get) => ({
       (product) => product.category === category
     );
   },
+  getProductByCategoryHome: (category, count = 9999) => {
+    const products = get().products.filter(
+      (product) => product.category === category
+    );
+    console.log(products);
+    if (count) {
+      return products.slice(0, count);
+    }
+
+    return products;
+  },
   getProductBySlug: (slug) => {
     return get().products.find((product) => product.attributes.slug === slug);
   },

@@ -135,3 +135,29 @@ a {
     animation-range: entry 0% cover 20%;
   }
 }
+
+.add-to-cart {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: rem(10);
+  color: #333333;
+  font-size: rem(24);
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: left;
+  background: transparent;
+  padding: 0;
+  border: none;
+  &:hover {
+    svg {
+      rect {
+        fill: #1fa169;
+        stroke: #1fa169;
+      }
+      path {
+        fill: #fff;
+      }
+    }
+  }
+}
