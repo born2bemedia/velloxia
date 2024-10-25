@@ -105,9 +105,9 @@ export default function SignIn() {
               >
                 <span>Log in</span>
               </button>
-              {/*<Link className="reset" href="/reset-password">
+              <Link className="reset" href="/reset-password">
                 Forgot password?
-              </Link> */}
+              </Link> 
             </Form>
           )}
         </Formik>
