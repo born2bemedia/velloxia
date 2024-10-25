@@ -23,7 +23,8 @@ export async function POST(request) {
     const mailOptionsClient = {
       from: '"Velloxia" <noreply@velloxia.com>', // Sender address
       to: email, // Client's email
-      subject: "Your account has been created",
+      subject:
+        "Welcome to Velloxia – Your Account Has Been Successfully Created!",
       html: `
         <table width="640" style="border-collapse: collapse; margin: 0 auto; font-style: sans-serif">
           <thead>
@@ -38,28 +39,28 @@ export async function POST(request) {
               <td style="padding: 40px">
                 <h2 style="text-align: left; font-size: 20px">Dear ${firstName} ${lastName},</h2>
                 <p style="text-align: left; font-size: 16px">
-                  Thanks for creating an account on Velloxia
+                  We are excited to welcome you to the Velloxia community! Your account has been successfully created, and you are now part of a platform dedicated to providing top-notch business and marketing consulting services.
                 </p>
                 <p style="text-align: left; font-size: 16px; font-weight: 600;">
-                  Details:
+                  Your Account Details:
                 </p>
                 <ul style="text-align: left; font-size: 16px;">
-                  <li>Login: <b>${email}</b></li>
+                  <li>Email: <b>${email}</b></li>
                   <li>Password: <b>${password}</b></li>
                 </ul>
                 <p style="text-align: left; font-size: 16px">
-                  You can access your account area to view orders, change your password, and more at 
-                  <a href="https://velloxia.com/" style="text-align: left; font-size: 16px;color:#A225EE;">velloxia.com</a>
+                  To get started, we recommend you log in to your account. If you have any questions or need assistance, our support team is here to help.
                 </p>
+                <p style="text-align: left; font-size: 16px">Thank you for choosing Velloxia. We look forward to supporting you on your business journey!</p>
                 <h2 style="text-align: left; font-size: 16px">
                   Best regards,<br />
-                  The Velloxia Team
+                  Velloxia Team
                 </h2>
               </td>
             </tr>
           </tbody>
           <tfoot>
-            <td style="padding: 24px; background-color: #A225EE; color: #fff; font-size: 20px; text-align: center; font-weight: 600;">
+            <td style="padding: 24px; background-color: #333333; color: #fff; font-size: 20px; text-align: center; font-weight: 600;">
               Thanks for using
               <a href="https://velloxia.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">velloxia.com</a>
             </td>

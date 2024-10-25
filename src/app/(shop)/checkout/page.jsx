@@ -132,13 +132,24 @@ const CartPage = () => {
     ),
   });
 
+  const generateRandomPassword = (length = 12) => {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+    let password = "";
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      password += characters[randomIndex];
+    }
+    return password;
+  };
+
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       let userId = currentUser?.id;
       if (!userId) {
         const registerData = {
           email: values.email,
-          password: "defaultPassword",
+          password: generateRandomPassword(),
           firstName: values.firstName,
           lastName: values.lastName,
           username: values.email,
@@ -218,17 +229,26 @@ const CartPage = () => {
 
       await createOrder(orderData);
 
+      const emailOrderData = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        phone: values.phone,
+        addressLine1: values.addressLine1,
+        addressLine2: values.addressLine2,
+        city: values.city,
+        zip: values.zip,
+        country: values.country,
+        cart, // Pass the cart items to the email endpoint
+        totalAmount, // Include total amount in the email
+      };
+
       await fetch("/api/emails/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email: values.email,
-          firstName: values.firstName,
-          lastName: values.lastName,
-          amount: totalAmount,
-        }),
+        body: JSON.stringify(emailOrderData),
       });
 
       router.push("/thankyou");
