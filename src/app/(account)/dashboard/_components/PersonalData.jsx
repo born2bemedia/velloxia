@@ -90,7 +90,6 @@ const PersonalData = () => {
   useEffect(() => {
     fetchCurrentUser();
     setIsMounted(true);
-    console.log(currentUser);
   }, []);
 
   const initialValues = {

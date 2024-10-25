@@ -7,7 +7,6 @@ const InsightsWrap = () => {
   const { posts, fetchPosts, loading, error } = usePostStore();
   useEffect(() => {
     fetchPosts();
-    console.log(posts);
   }, []);
   return (
     <div className="posts-row">
