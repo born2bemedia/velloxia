@@ -26,7 +26,7 @@ const AddToCartButton = ({ product }) => {
   };
 
   return (
-    <button onClick={handleAddToCart} disabled={isInCart}>
+    <button className="add-to-cart" onClick={handleAddToCart} disabled={isInCart}>
       {isInCart ? "In Cart" : "Order"}
       <OrderIcon />
     </button>
