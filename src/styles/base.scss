@@ -37,7 +37,7 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #1FA169;
+    background-color: #1fa169;
     border-radius: rem(100);
   }
 }
@@ -97,6 +97,13 @@ a {
   /*@media (min-width: rem(1600)) {
     max-width: $maxWidth;
   }*/
+}
+
+.container {
+  max-width: 1095px;
+  width: 100%;
+  padding: 0 rem(16);
+  margin: 0 auto;
 }
 
 .site {
