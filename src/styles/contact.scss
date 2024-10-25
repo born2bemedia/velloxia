@@ -347,6 +347,259 @@
     }
 
     &__form {
+        .request-form {
+            .wrapper {
+                .form {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    column-gap: 22px;
+                    row-gap: 30px;
+                    position: relative;
+
+                    .row {
+                        width: 100%;
+                        display: flex;
+                        input {
+                            padding: 18px 20px;
+                            border: 1px solid #fff;
+                            background-color: #fff;
+                            border-radius: 100px;
+                            font-family: "Ubuntu", sans-serif;
+                            color: #232323;
+                            width: 100%;
+                            transition: all 0.3s ease 0s;
+
+                            &::placeholder {
+                                color: #a8a8a8;
+                                font-size: 16px;
+                                line-height: normal;
+                                font-family: "Ubuntu", sans-serif;
+                            }
+
+                            &.invalid { 
+                                border-color: #ff0000;
+                            }
+                        }
+
+                        .react-tel-input {
+                            width: 100%;
+
+                            &.invalid {
+                                input {
+                                    border-color: #ff0000;
+                                }
+                            }
+
+                            .flag-dropdown {
+                                width: fit-content;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                border: none;
+                                background: transparent;
+                                &:hover {
+                                    background-color: transparent !important;
+                                }
+
+                                &.open {
+                                    width: 100%;
+                                }
+
+                                .selected-flag {
+                                    position: absolute;
+                                    height: 50px;
+                                    top: 0;
+                                    left: 0;
+                                    padding-left: 16px;
+                                    background-color: transparent;
+
+                                    .iti-arrow {
+                                        right: -5px;
+                                    }
+
+                                    .selected-dial-code {
+                                        color: #959595;
+                                        font-family: "Ununtu", sans-serif;
+                                        font-size: 16px;
+                                        font-style: normal;
+                                        font-weight: 300;
+                                        line-height: normal;
+                                    }
+                                }
+
+                                .country-list {
+                                    width: 100%;
+                                    top: 30px;
+                                    border-radius: 10px;
+                                    &::-webkit-scrollbar {
+                                        background: transparent !important;
+                                        width: 0px !important;
+                                    }
+
+                                    &::-webkit-scrollbar-track {
+                                        background: transparent !important;
+                                    }
+
+                                    &::-webkit-scrollbar-thumb {
+                                        background-color: transparent !important;
+                                        opacity: 0 !important;
+                                    }
+
+                                    li {
+                                        color: var(--6, #0b1d20);
+                                        font-family: "Urbanist", sans-serif;
+                                        font-size: 16px;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: 120%;
+                                    }
+                                }
+                            }
+
+                            input {
+                                padding: 16px 20px 16px 65px !important;
+                                height: 50px;
+                                transition: all 0.3s ease 0s;
+                            }
+                        }
+
+                        .custom-select__control {
+                            border: none;
+                            border-radius: 100px;
+                            padding: 7px 16px 7px 24px;
+                            transition: all 0.3s ease 0s;
+                            cursor: pointer;
+
+                            .custom-select__value-container {
+                                padding: 0;
+                            }
+
+                            .custom-select__indicator-separator { 
+                                display: none;
+                            }
+
+                            .custom-select__indicator {
+                                border: none;
+                                svg {
+                                    path {
+                                        fill: #1FA169;
+                                    }
+                                }
+                            }
+                        }
+
+                        .css-b62m3t-container { 
+                            width: 100%;
+                        }
+
+                        &._policy {
+                            grid-column-start: span 2;
+
+                            label { 
+                                position: relative;
+                                display: flex;
+                                padding-left: 30px;
+                                cursor: pointer;
+                                max-width: 450px;
+                                margin-top: -15px;
+
+                                &.invalid {
+
+                                    &::before { 
+                                        border-color: #ff0000;
+                                    }
+                                }
+                                input { 
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    z-index: -1;
+                                }
+                                span { 
+                                    font-size: 14px;
+                                    line-height: normal;
+                                    font-family: 'Ubuntu', sans-serif;
+                                    color: #fff;
+                                    font-weight: 300;
+                                    a { 
+                                        color: #fff;
+                                        transition: all 0.3s ease 0s;
+                                        &:hover { 
+                                            color: #1FA169;
+                                            text-decoration: underline;
+                                        }
+                                    }
+                                }
+
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 2px;
+                                    left: 0;
+                                    width: 15px;
+                                    height: 16px;
+                                    border: 1px solid #fff;
+                                    border-radius: 3px;
+                                    background-color: #fff;
+                                }
+
+                                &::after { 
+                                    content: '';
+                                    position: absolute;
+                                    top: 5px;
+                                    left: 3px;
+                                    width: 10px;
+                                    height: 10px;
+                                    border-radius: 2px;
+                                    background-color: #1fa169;
+                                    transition: all 0.3s ease 0s;
+                                    opacity: 0;
+                                    visibility: hidden;
+                                }
+
+                                &._active { 
+
+                                    &::after { 
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                }
+                            }
+                        }
+
+                        &._textarea {
+                            grid-column-start: span 2;
+                        }
+                    }
+
+                    .button {
+                        grid-column-start: span 2;
+                        background-color: #1FA169;
+                        padding: 10px 24px;
+                        border-radius: 100px;
+                        font-size: 20px;
+                        line-height: 34px;
+                        color: #fff;
+                        font-weight: 400;
+                        font-family: 'Ubuntu', sans-serif;
+                        border: none;
+                        cursor: pointer;
+                        transition: all 0.3s ease 0s;
+
+                        &:hover { 
+                            background-color: #0b1d20;
+                        }
+                    }
+                    .general-error {
+                        position: absolute;
+                        bottom: -30px; 
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        display: none;
+                    }
+                }
+            }
+        }
     }
 
     &__col-01 {
