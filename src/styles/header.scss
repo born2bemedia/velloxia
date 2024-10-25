@@ -8,6 +8,7 @@ header {
   padding: 70px 0 35px 0;
   width: 100%;
   z-index: 99;
+  transition: all 0.3s ease 0s;
 
   &._active {
     padding: 35px 0;
