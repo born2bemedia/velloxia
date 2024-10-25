@@ -84,7 +84,7 @@ const customStyles = {
 
 const CartPage = () => {
   const { cart, clearCart, totalAmount } = useCartStore();
-  const { currentUser, setCurrentUser, getToken, fetchCurrentUser } =
+  const { currentUser, setCurrentUser, getToken, fetchCurrentUser, loading } =
     useAuthStore();
   const { createOrder } = useOrderStore();
   const router = useRouter();
@@ -97,11 +97,23 @@ const CartPage = () => {
     setIsMounted(true);
   }, []);
 
+  if (loading || !isMounted) {
+    return (
+      <div>
+        <section className="checkout-wrap" style={{ minHeight: "100vh" }}>
+          <div className="_container">
+            <div></div>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   const initialValues = {
     firstName: currentUser?.firstName || "",
     lastName: currentUser?.lastName || "",
-    addressLine1: currentUser?.street || "",
-    addressLine2: currentUser?.address || "",
+    addressLine1: currentUser?.addressLine1 || "",
+    addressLine2: currentUser?.addressLine2 || "",
     city: currentUser?.city || "",
     zip: currentUser?.zip || "",
     country: getCountryOptionByCode(currentUser?.country) || null,
