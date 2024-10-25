@@ -89,10 +89,11 @@ const CartPage = () => {
   const { createOrder } = useOrderStore();
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fetchCurrentUser();
-
+    console.log(currentUser);
     setIsMounted(true);
   }, []);
 
@@ -144,6 +145,7 @@ const CartPage = () => {
   };
 
   const handleSubmit = async (values, { setSubmitting }) => {
+    setIsLoading(true);
     try {
       let userId = currentUser?.id;
       if (!userId) {
@@ -250,7 +252,7 @@ const CartPage = () => {
         },
         body: JSON.stringify(emailOrderData),
       });
-
+      setIsLoading(false);
       router.push("/thankyou");
       clearCart();
     } catch (error) {
@@ -564,6 +566,12 @@ const CartPage = () => {
                               <span>Submit</span>
                             </button>
                           </div>
+
+                          {isLoading && (
+                            <div className="loading">
+                              <img src="/images/loading.svg" />
+                            </div>
+                          )}
 
                           {/*status?.success && (
                             <p className="success-message">

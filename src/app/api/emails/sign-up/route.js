@@ -64,7 +64,7 @@ export async function POST(request) {
               Thanks for using
               <a href="https://velloxia.com/" style="text-decoration: underline; color: #fff; font-size: 20px; font-weight: 600;">velloxia.com</a>
             </td>
-          </tfoot>
+          </tfoot>f
         </table>
       `,
     };

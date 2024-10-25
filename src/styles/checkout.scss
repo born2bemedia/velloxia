@@ -435,6 +435,15 @@
   }
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-top: rem(30);
+  img {
+    width: rem(30);
+  }
+}
+
 .cart-wrap.empty {
   ._container {
     display: flex;
