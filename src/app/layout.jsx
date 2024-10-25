@@ -2,6 +2,7 @@ import { Ubuntu } from "next/font/google";
 import "@/styles/base.scss";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { ToastContainer } from "react-toastify";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main className="site">{children}</main>
         <Footer />
+        <ToastContainer />
       </body>
     </html>
   );
