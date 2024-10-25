@@ -24,7 +24,6 @@ const useProductStore = create((set, get) => ({
         category: product.category,
       }));
 
-      console.log(response.data);
       set({ products: response.data.data });
     } catch (error) {
       console.error('Error fetching products:', error);

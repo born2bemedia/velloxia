@@ -49,7 +49,6 @@ export default function SignIn() {
       if (data.user.jwt) {
         localStorage.setItem("jwt", data.user.jwt);
         fetchCurrentUser();
-        console.log("logged in");
         router.push("/dashboard");
       } else {
         throw new Error("JWT not found");

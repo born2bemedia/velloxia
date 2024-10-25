@@ -93,7 +93,6 @@ const CartPage = () => {
 
   useEffect(() => {
     fetchCurrentUser();
-    console.log(currentUser);
     setIsMounted(true);
   }, []);
 
@@ -180,7 +179,6 @@ const CartPage = () => {
 
         if (registerResponse.ok) {
           const registerResult = await registerResponse.json();
-          console.log("registerResult", registerResult);
           userId = registerResult.user.id;
           localStorage.setItem("jwt", registerResult.jwt);
           fetchCurrentUser();
@@ -230,7 +228,6 @@ const CartPage = () => {
       const productIds = cart.map((product) => product.documentId);
       //const products = cart.map((product) => ({ id: product.id }));
 
-      //console.log("products", products);
       const orderData = {
         data: {
           email: values.email,
