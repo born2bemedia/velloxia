@@ -68,7 +68,7 @@ const HomeTab2 = () => {
                         575: { slidesPerView: 1 },
                         767: { slidesPerView: 3 },
                         1200: { slidesPerView: 4 },
-                    }}
+                    }} 
                 >
                     {slidesForLoop.map((slide, index) => (
                         <SwiperSlide key={index} className="home-solutions-slider__item">
