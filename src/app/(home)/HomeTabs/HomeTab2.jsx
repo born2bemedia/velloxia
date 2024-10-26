@@ -115,7 +115,7 @@ const HomeTab2 = () => {
             ))}
             <SwiperSlide className="home-solutions-slider__item">
               <div className="home-solutions-slider__custom">
-                <Link href="/business-consulting/" className="custom-link">
+                <Link href="/marketing-consulting" className="custom-link">
                   Top marketing packs
                 </Link>
               </div>
