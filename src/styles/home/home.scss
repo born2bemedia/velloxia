@@ -856,13 +856,16 @@
     }
 
     &__text {
-        font-family: "Ubuntu", sans-serif;
-        font-size: 20px;
-        line-height: 30px;
-        color: #333333;
-        font-weight: 300;
-        margin: 10px 0 45px 0;
-        padding: 0 0 0 20px;
+        
+        ul { 
+            font-family: "Ubuntu", sans-serif;
+            font-size: 20px;
+            line-height: 30px;
+            color: #333333;
+            font-weight: 300;
+            margin: 10px 0 45px 0;
+            padding: 0 0 0 20px;
+        }
     }
 
     &__bottom {
