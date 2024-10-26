@@ -78,48 +78,55 @@ const HomeTab1 = () => {
     <div className="tabs-home__tab tab1">
       <div className="tabs-home__wrapper">
         <h3 className="tabs-home__label">Top business packs</h3>
-        <Swiper
-          className="home-solutions-slider"
-          ref={swiperRef}
-          spaceBetween={30}
-          loop={true}
-          breakpoints={{
-            575: { slidesPerView: 1 },
-            767: { slidesPerView: 3 },
-            1200: { slidesPerView: 4 },
-          }}
-        >
-          {productsArray.map((product, index) => (
-            <SwiperSlide key={index} className="home-solutions-slider__item">
-              <div className="home-solutions-slider__wrapper">
-                <div className="home-solutions-slider__number">
-                  {String(index + 1).padStart(2, "0")}.
-                </div>
-                <h3 className="home-solutions-slider__title">
-                  {product.title}
-                </h3>
-                <p className="home-solutions-slider__label">Includes:</p>
-                <div
-                  className="home-solutions-slider__text"
-                  dangerouslySetInnerHTML={{ __html: product.description }}
-                />
-                <div className="home-solutions-slider__bottom">
-                  <div className="home-solutions-slider__price">
-                    €{product.price}
+        {productsArray.length > 0 ? (
+          <Swiper
+            className="home-solutions-slider"
+            ref={swiperRef}
+            spaceBetween={30}
+            loop={false}
+            breakpoints={{
+              575: { slidesPerView: 1 },
+              767: { slidesPerView: 3 },
+              1200: { slidesPerView: 3 },
+            }}
+            effect="slide"
+            
+          >
+            {productsArray.map((product, index) => (
+              <SwiperSlide key={index} className="home-solutions-slider__item">
+                <div className="home-solutions-slider__wrapper">
+                  <div className="home-solutions-slider__number">
+                    {String(index + 1).padStart(2, "0")}.
                   </div>
-                  <AddToCartButton product={product} />
+                  <h3 className="home-solutions-slider__title">
+                    {product.title}
+                  </h3>
+                  <p className="home-solutions-slider__label">Includes:</p>
+                  <div
+                    className="home-solutions-slider__text"
+                    dangerouslySetInnerHTML={{ __html: product.description }}
+                  />
+                  <div className="home-solutions-slider__bottom">
+                    <div className="home-solutions-slider__price">
+                      €{product.price}
+                    </div>
+                    <AddToCartButton product={product} />
+                  </div>
                 </div>
+              </SwiperSlide>
+            ))}
+            <SwiperSlide className="home-solutions-slider__item">
+              <div className="home-solutions-slider__custom">
+                <Link href="/business-consulting/" className="custom-link">
+                  More business packs
+                </Link>
               </div>
             </SwiperSlide>
-          ))}
-          <SwiperSlide className="home-solutions-slider__item">
-            <div className="home-solutions-slider__custom">
-              <Link href="/business-consulting/" className="custom-link">
-                More business packs
-              </Link>
-            </div>
-          </SwiperSlide>
-        </Swiper>
+          </Swiper>
+        ) : (
+          <div>Loading...</div>
+        )}
+
         <div className="home-solutions-slider__buttons">
           <button onClick={prevSlide} className="home-solutions-slider__prev">
             <ArrowLeft />
