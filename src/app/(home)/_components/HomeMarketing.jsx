@@ -83,53 +83,59 @@ const HomeMarketing = () => {
           <div className="home-marketing__content">
             <div className="home-marketing__wrapper">
               <div className="home-marketing__col-01">
-                <Swiper
-                  className="home-business-slider"
-                  ref={swiperRef}
-                  modules={[Navigation]}
-                  spaceBetween={20}
-                  loop={true}
-                  onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
-                  breakpoints={{
-                    575: {
-                      slidesPerView: 1,
-                    },
-                    767: {
-                      slidesPerView: 2,
-                    },
-                    1200: {
-                      slidesPerView: 3,
-                    },
-                  }}
-                >
-                  {productsArray.map((product, index) => (
-                    <SwiperSlide
-                      key={index}
-                      className="home-business-slider__item"
-                    >
-                      <div className="home-business-slider__wrapper">
-                        <div className="home-business-slider__number">
-                          {String(index + 1).padStart(2, "0")}.
-                        </div>
-                        <h3 className="home-business-slider__title">
-                          {product.title}
-                        </h3>
-                        <div
-                          className="home-business-slider__text"
-                          dangerouslySetInnerHTML={{
-                            __html: product.description,
-                          }}
-                        />
-                        <div className="home-business-slider__bottom">
-                          <div className="home-business-slider__price">
-                            €{product.price}
+                {productsArray.length > 0 ? (
+                  <Swiper
+                    className="home-business-slider"
+                    ref={swiperRef}
+                    modules={[Navigation]}
+                    spaceBetween={20}
+                    loop={true}
+                    onSlideChange={(swiper) =>
+                      setCurrentSlide(swiper.realIndex)
+                    }
+                    breakpoints={{
+                      575: {
+                        slidesPerView: 1,
+                      },
+                      767: {
+                        slidesPerView: 2,
+                      },
+                      1200: {
+                        slidesPerView: 3,
+                      },
+                    }}
+                  >
+                    {productsArray.map((product, index) => (
+                      <SwiperSlide
+                        key={index}
+                        className="home-business-slider__item"
+                      >
+                        <div className="home-business-slider__wrapper">
+                          <div className="home-business-slider__number">
+                            {String(index + 1).padStart(2, "0")}.
                           </div>
-                          <AddToCartButton product={product} />
+                          <h3 className="home-business-slider__title">
+                            {product.title}
+                          </h3>
+                          <div
+                            className="home-business-slider__text"
+                            dangerouslySetInnerHTML={{
+                              __html: product.description,
+                            }}
+                          />
+                          <div className="home-business-slider__bottom">
+                            <div className="home-business-slider__price">
+                              €{product.price}
+                            </div>
+                            <AddToCartButton product={product} />
+                          </div>
                         </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                ) : (
+                  <div>Loading...</div>
+                )}
               </div>
               <div className="home-marketing__col-02">
                 <div className="home-marketing__banner">
