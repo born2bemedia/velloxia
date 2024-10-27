@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 /* import { GoogleAnalytics } from "@next/third-parties/google"; */
 import { PopupsProvider } from "@/context/PopupsContext";
 import CareerPopup from "@/components/CareerPopup";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify"; 
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
