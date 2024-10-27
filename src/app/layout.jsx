@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 /* import { GoogleAnalytics } from "@next/third-parties/google"; */
 import { PopupsProvider } from "@/context/PopupsContext";
 import CareerPopup from "@/components/CareerPopup";
+import { ToastContainer } from "react-toastify";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
           <Header />
           <main className="site">{children}</main>
           <Footer />
+          <ToastContainer />
           <CareerPopup />
         </PopupsProvider>
       </body>

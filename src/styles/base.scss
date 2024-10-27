@@ -108,7 +108,6 @@ a {
 
 .site {
   position: relative;
-  //overflow: hidden;
   > .react-parallax {
     @media (max-width: rem(992)) {
       border-radius: 0 !important;
@@ -158,7 +157,7 @@ a {
     max-width: 654px;
     width: 100%;
     max-height: 95vh;
-    padding: 0 16px;
+    padding: 0 16px; 
     overflow: auto;
   }
 
@@ -200,5 +199,32 @@ a {
 
   &__form {
     @include adaptiv-value("margin-top", 65, 40, 1);
+
+  }
+}
+
+.add-to-cart {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: rem(10);
+  color: #333333;
+  font-size: rem(24);
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: left;
+  background: transparent;
+  padding: 0;
+  border: none;
+  &:hover {
+    svg {
+      rect {
+        fill: #1fa169;
+        stroke: #1fa169;
+      }
+      path {
+        fill: #fff;
+      }
+    }
   }
 }
