@@ -94,7 +94,33 @@ function CareerForm() {
             >
                 {({ isSubmitting, setFieldValue, status, errors, touched }) => (
                     <div className="wrapper">
-                        <Form className="form _career">
+                        <Form className="form__career">
+
+                            <div className={`row _file ${fileSelected ? "_active" : ""} ${touched.file && errors.file ? "_error" : ""}`}>
+                                <input
+                                    type="file"
+                                    name="file"
+                                    onChange={(event) => {
+                                        setFieldValue("file", event.currentTarget.files[0]);
+                                        setFileSelected(true);
+                                    }}
+                                />
+                            </div>
+
+                            {fileSelected && (
+                                <div className="row _remove">
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setFieldValue("file", null);
+                                            setFileSelected(false);
+                                        }}
+                                    >
+                                        Remove File
+                                    </button>
+                                </div>
+                            )}
+
                             <div className="row">
                                 <Field name="yourName">
                                     {({ field, form }) => (
@@ -122,46 +148,21 @@ function CareerForm() {
                             <div className="row">
                                 <Field name="phone">
                                     {({ field, form }) => (
-                                        <div>
-                                            <PhoneInput
-                                                country={countryCode}
-                                                value={field.value}
-                                                onChange={(value) => form.setFieldValue("phone", value)}
-                                                placeholder="Your phone"
-                                                className={
-                                                    form.touched.phone && form.errors.phone
-                                                        ? "invalid"
-                                                        : ""
-                                                }
-                                            />
-                                        </div>
+                                        <PhoneInput
+                                            country={countryCode}
+                                            value={field.value}
+                                            onChange={(value) => form.setFieldValue("phone", value)}
+                                            placeholder="Your phone"
+                                            className={
+                                                form.touched.phone && form.errors.phone
+                                                    ? "invalid"
+                                                    : ""
+                                            }
+                                        />
                                     )}
                                 </Field>
                             </div>
-                            <div className={`row _file ${fileSelected ? "_active" : ""} ${touched.file && errors.file ? "_error" : ""}`}>
-                                <input
-                                    type="file"
-                                    name="file"
-                                    onChange={(event) => {
-                                        setFieldValue("file", event.currentTarget.files[0]);
-                                        setFileSelected(true);
-                                    }}
-                                />
-                            </div>
 
-                            {fileSelected && (
-                                <div className="row _remove">
-                                    <button
-                                        type="button"
-                                        onClick={() => {
-                                            setFieldValue("file", null);
-                                            setFileSelected(false);
-                                        }}
-                                    >
-                                        Remove File
-                                    </button>
-                                </div>
-                            )}
                             <div className="row">
                                 <Field name="link1">
                                     {({ field, form }) => (
@@ -187,18 +188,15 @@ function CareerForm() {
                                 </Field>
                             </div>
                             <div className="row _textarea">
-                                <div className="textarea-container">
-                                    <label>Brief Introduction</label>
-                                    <Field name="explanation">
-                                        {({ field, form }) => (
-                                            <textarea
-                                                {...field}
-                                                placeholder="Explain why you want to join our team."
-                                                className={form.touched.explanation && form.errors.explanation ? "invalid" : ""}
-                                            />
-                                        )}
-                                    </Field>
-                                </div>
+                                <Field name="explanation">
+                                    {({ field, form }) => (
+                                        <textarea
+                                            {...field}
+                                            placeholder="Additional Information:"
+                                            className={form.touched.explanation && form.errors.explanation ? "invalid" : ""}
+                                        />
+                                    )}
+                                </Field>
                             </div>
                             <div className="row _policy">
                                 <Field name="agreeToPolicy">
@@ -222,7 +220,7 @@ function CareerForm() {
                                 className="request-button"
                                 disabled={isSubmitting}
                             >
-                                Submit Request
+                                Submit Application
                             </button>
                             {Object.keys(errors).length > 0 && touched && (
                                 <span className="general-error">
