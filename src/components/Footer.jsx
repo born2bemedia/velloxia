@@ -19,28 +19,28 @@ const Footer = () => {
                 <nav className="footer__nav">
                   <ul className="footer__menu-list">
                     <li className="footer__menu-item">
-                      <Link href="#" className="footer__menu-link">Business Consulting</Link>
+                      <Link href="/business-consulting" className="footer__menu-link">Business Consulting</Link>
                     </li>
                     <li className="footer__menu-item">
-                      <Link href="#" className="footer__menu-link">Account</Link>
+                      <Link href="/log-in" className="footer__menu-link">Account</Link>
                     </li>
                     <li className="footer__menu-item">
-                      <Link href="#" className="footer__menu-link">FAQ</Link>
+                      <Link href="/help" className="footer__menu-link">FAQ</Link>
                     </li>
                     <li className="footer__menu-item">
                       <Link href="#" className="footer__menu-link">Our Approach</Link>
                     </li>
                     <li className="footer__menu-item">
-                      <Link href="#" className="footer__menu-link">Marketing Consulting</Link>
+                      <Link href="/marketing-consulting" className="footer__menu-link">Marketing Consulting</Link>
                     </li>
                     <li className="footer__menu-item">
-                      <Link href="#" className="footer__menu-link">Your Cart</Link>
+                      <Link href="/cart" className="footer__menu-link">Your Cart</Link>
                     </li>
                     <li className="footer__menu-item">
-                      <Link href="#" className="footer__menu-link">Insights</Link>
+                      <Link href="/insights" className="footer__menu-link">Insights</Link>
                     </li>
                     <li className="footer__menu-item">
-                      <Link href="#" className="footer__menu-link">Contact</Link>
+                      <Link href="/contact" className="footer__menu-link">Contact</Link>
                     </li>
                   </ul>
                 </nav>

@@ -9,13 +9,11 @@ import MenuClose from "@/icons/MenuClose";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
-  const [scrolling, setScrolling] = useState(false); // Для отслеживания скролла
-
+  const [scrolling, setScrolling] = useState(false);
   const toggleMenu = () => {
     setIsActive(!isActive);
   };
 
-  // Обработчик скролла
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setScrolling(true);
@@ -47,25 +45,25 @@ const Header = () => {
             <nav className={`header__nav ${isActive ? '_active' : ''}`}>
               <ul className="header__menu">
                 <li className="header__item">
-                  <Link href="#" className="header__link">Business Consulting</Link>
+                  <Link href="/business-consulting" className="header__link">Business Consulting</Link>
                 </li>
                 <li className="header__item">
-                  <Link href="#" className="header__link">Marketing Consulting</Link>
+                  <Link href="/marketing-consulting" className="header__link">Marketing Consulting</Link>
                 </li>
                 <li className="header__item">
-                  <Link href="#" className="header__link">Help</Link>
+                  <Link href="/help" className="header__link">Help</Link>
                 </li>
                 <li className="header__item">
-                  <Link href="#" className="header__link">Our Approach</Link>
+                  <Link href="/our-approach" className="header__link">Our Approach</Link>
                 </li>
                 <li className="header__item">
-                  <Link href="#" className="header__link">Career</Link>
+                  <Link href="/career" className="header__link">Career</Link>
                 </li>
                 <li className="header__item">
-                  <Link href="#" className="header__link">Contact</Link>
+                  <Link href="/contact" className="header__link">Contact</Link>
                 </li>
                 <li className="header__item">
-                  <Link href="#" className="header__link _account">Account</Link>
+                  <Link href="/log-in" className="header__link _account">Account</Link>
                 </li>
               </ul>
             </nav>
