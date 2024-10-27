@@ -8,7 +8,6 @@ export async function POST(request) {
     const bodyJSON = JSON.parse(requestBody);
     const { email, password } = bodyJSON;
 
-    console.log('Parsed Body:', bodyJSON);
 
     try {
         const response = await axios.post(`${apiUrl}auth/local`, {

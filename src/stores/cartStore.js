@@ -16,6 +16,7 @@ const useCartStore = create((set, get) => ({
         cart: [...state.cart, product],
         totalAmount: newTotalAmount,
         cartQuantity: state.cartQuantity + product.quantity,
+        documentId: product.l3sa5guqewi4vox2q7zr1192,
       }));
       localStorage.setItem('cart', JSON.stringify([...cart, product]));
       localStorage.setItem('totalAmount', JSON.stringify(newTotalAmount));
@@ -43,6 +44,52 @@ const useCartStore = create((set, get) => ({
     set({ cart: [], totalAmount: 0, cartQuantity: 0 });
     localStorage.removeItem('cart');
     localStorage.removeItem('totalAmount');
+  },
+
+  increaseQuantity: (productId) => {
+    const { cart, totalAmount } = get();
+    const updatedCart = cart.map((item) => {
+      if (item.id === productId) {
+        const newQuantity = item.quantity + 1;
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+
+    const newTotalAmount = updatedCart.reduce(
+      (total, item) => total + item.attributes.price * item.quantity,
+      0
+    );
+
+    set({
+      cart: updatedCart,
+      totalAmount: newTotalAmount,
+    });
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    localStorage.setItem('totalAmount', JSON.stringify(newTotalAmount));
+  },
+
+  decreaseQuantity: (productId) => {
+    const { cart, totalAmount } = get();
+    const updatedCart = cart.map((item) => {
+      if (item.id === productId && item.quantity > 1) {
+        const newQuantity = item.quantity - 1;
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+
+    const newTotalAmount = updatedCart.reduce(
+      (total, item) => total + item.attributes.price * item.quantity,
+      0
+    );
+
+    set({
+      cart: updatedCart,
+      totalAmount: newTotalAmount,
+    });
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    localStorage.setItem('totalAmount', JSON.stringify(newTotalAmount));
   },
 }));
 

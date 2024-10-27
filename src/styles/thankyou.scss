@@ -1,0 +1,30 @@
+@use "mixin" as *;
+
+.thankyou {
+  padding: rem(220) 0 rem(170) 0;
+  position: relative;
+  background: #f3f3f3;
+  background-position: left top;
+  background-size: cover;
+  @media (max-width: rem(992)) {
+    padding: rem(170) 0 rem(100) 0;
+  }
+
+  h1 {
+    color: #1fa169;
+    font-size: rem(42);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0 0 35px 0;
+    text-align: center;
+  }
+  p {
+    color: #333333;
+    font-size: rem(26);
+    font-weight: 300;
+    line-height: 1.4;
+    text-align: center;
+    margin: 0;
+  }
+}

@@ -1,0 +1,277 @@
+@use "mixin" as *;
+
+.consulting-hero {
+  margin: rem(30) 0 rem(200) 0;
+  @media (max-width: rem(992)) {
+    margin-bottom: rem(100);
+  }
+  &__body {
+    background-image: url(/images/marketing-consulting/heroBack.svg);
+    background-position: center;
+    background-size: cover;
+    background-color: #f3f3f3;
+    border-radius: rem(30);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(50);
+    padding: rem(200) 0 rem(80) 0;
+    @media (max-width: rem(992)) {
+      padding: rem(130) 0 rem(80) 0;
+    }
+    h1 {
+      color: #333333;
+      font-size: rem(70);
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      margin: 0;
+      span {
+        display: block;
+        color: #1fa169;
+      }
+      @media (max-width: rem(992)) {
+        font-size: rem(40);
+      }
+    }
+    > img {
+      @media (max-width: rem(992)) {
+        display: none;
+      }
+    }
+    .images {
+      display: flex;
+      align-items: center;
+      gap: rem(180);
+      margin-top: -60px;
+      position: relative;
+      @media (max-width: rem(992)) {
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: rem(24);
+        gap: rem(80);
+      }
+      .arrowDownMob {
+        display: none;
+        @media (max-width: rem(992)) {
+          display: block;
+          position: absolute;
+          left: rem(50);
+          top: rem(10);
+        }
+      }
+      img {
+        filter: drop-shadow(12px 3px 23.3px #0000000d);
+        &:last-child {
+          transform: rotate(15.59deg);
+          @media (max-width: rem(992)) {
+            max-width: 100%;
+            height: auto;
+            padding: 0 rem(20);
+          }
+        }
+        &:nth-child(2) {
+          transform: rotate(-6.24deg);
+          @media (max-width: rem(992)) {
+            max-width: 55%;
+            height: auto;
+            margin-right: rem(20);
+          }
+        }
+      }
+    }
+  }
+}
+.packs-wrap{
+    margin-top: 0!important;
+}
+.products-wrap,
+.packs-wrap {
+  margin: rem(200) 0 0 0;
+  padding-bottom: rem(200);
+  background-image: url(/images/business-consulting/back.svg);
+  background-size: 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
+  @media (max-width: rem(992)) {
+    margin: rem(100) 0 0 0;
+    padding-bottom: rem(100);
+    background-image: none;
+  }
+  h2 {
+    color: #333333;
+    font-size: rem(48);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    margin: 0 0 rem(70) 0;
+    text-transform: uppercase;
+    text-align: center;
+    @media (max-width: rem(992)) {
+        margin-bottom: rem(50);
+        font-size: rem(32);
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: rem(30);
+    justify-content: center;
+    margin-top: rem(100);
+    @media (max-width: rem(992)) {
+        flex-direction: column;
+        align-items: center;
+        gap: rem(20);
+    }
+    a {
+      color: #ffffff;
+      font-size: rem(20);
+      font-weight: 400;
+      line-height: 1.2;
+      text-align: left;
+      height: rem(54);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1fa169;
+      border-radius: rem(30);
+      width: rem(300);
+      &:hover{
+        background-color: #000000;
+      }
+    }
+  }
+
+  &__body {
+    .slider-inner {
+      height: 100%;
+      padding: rem(30);
+      background: #f3f3f3;
+      border-radius: rem(30);
+      display: flex;
+      flex-direction: column;
+      gap: rem(40);
+      justify-content: space-between;
+      > div {
+        span {
+          color: #1fa169;
+          font-size: rem(36);
+          font-weight: 400;
+          line-height: 1.2;
+          letter-spacing: -0.07em;
+          text-align: left;
+        }
+        h3 {
+          color: #333333;
+          font-size: rem(22);
+          font-weight: 500;
+          line-height: 1.2;
+          text-align: left;
+          margin: rem(30) 0 rem(24) 0;
+        }
+        h4 {
+          color: #1fa169;
+          font-size: rem(20);
+          font-style: italic;
+          font-weight: 700;
+          line-height: 1.2;
+          text-align: left;
+          margin: 0 0 rem(24) 0;
+        }
+        .description {
+          color: #333333;
+          font-size: rem(18);
+          font-weight: 300;
+          line-height: 1.2;
+          text-align: left;
+        }
+
+        &.bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .price {
+            color: #1fa169;
+            font-size: rem(26);
+            font-weight: 500;
+            line-height: 1.2;
+            text-align: left;
+          }
+          button {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+            color: #333333;
+            font-size: rem(24);
+            font-weight: 300;
+            line-height: 1.2;
+            text-align: left;
+            background: transparent;
+            padding: 0;
+            border: none;
+            &:hover {
+              svg {
+                rect {
+                  fill: #1fa169;
+                  stroke: #1fa169;
+                }
+                path {
+                  fill: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.desktop {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: rem(20);
+      @media (max-width: rem(992)) {
+        display: none;
+      }
+      .product-item {
+        width: calc(25% - rem(16));
+      }
+    }
+
+    &.packs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: rem(20);
+      @media (max-width: rem(992)) {
+        display: none;
+      }
+      .product-item {
+        width: calc(33.33% - rem(20));
+      }
+    }
+
+    &.mobile {
+      display: none;
+      @media (max-width: rem(992)) {
+        display: block;
+      }
+    }
+    .arrows {
+      display: none;
+      @media (max-width: rem(992)) {
+        display: flex;
+        justify-content: center;
+        gap: rem(20);
+        margin-top: rem(40);
+      }
+    }
+    .swiper-wrapper {
+      align-items: stretch;
+      .swiper-slide {
+        height: auto;
+      }
+    }
+  }
+}

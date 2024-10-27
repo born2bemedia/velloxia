@@ -1,14 +1,16 @@
 "use client";
+import "@/styles/login.scss";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import useAuthStore from "@/stores/authStore"; 
+import useAuthStore from "@/stores/authStore";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
+import SignUp from "./_components/SignUp";
 
 export default function SignIn() {
   const router = useRouter();
-  const { fetchCurrentUser, currentUser } = useAuthStore(); 
+  const { fetchCurrentUser, currentUser } = useAuthStore();
 
   useEffect(() => {
     if (currentUser) {
@@ -47,8 +49,7 @@ export default function SignIn() {
 
       if (data.user.jwt) {
         localStorage.setItem("jwt", data.user.jwt);
-        fetchCurrentUser(); 
-        console.log("logged in");
+        fetchCurrentUser();
         router.push("/dashboard");
       } else {
         throw new Error("JWT not found");
@@ -62,61 +63,62 @@ export default function SignIn() {
   };
 
   return (
-    <section className="log-in">
-      <div className="_container">
-        <h1>Welcome Back to Quorixia!</h1>
-        <h2>
-          Log in to your account by entering your username or email and
-          password.
-          <br />
-          If you’ve forgotten your password, use the “Forgot password?” link to
-          reset it.
-        </h2>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting, touched, errors }) => (
-            <Form>
-              <div>
-                <Field
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className={touched.email && errors.email ? "invalid" : ""}
-                />
-                <ErrorMessage name="email" component="div" className="error" />
-              </div>
-              <div>
-                <Field
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  className={
-                    touched.password && errors.password ? "invalid" : ""
-                  }
-                />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className="error"
-                />
-              </div>
-              <button
-                className="main-button"
-                type="submit"
-                disabled={isSubmitting}
-              >
-                <span>Log in</span>
-              </button>
-              <Link className="reset" href="/reset-password">
-                Forgot password?
-              </Link>
-            </Form>
-          )}
-        </Formik>
-      </div>
-    </section>
+    <>
+      <section className="log-in">
+        <div className="_container">
+          <h1>Welcome to Velloxia</h1>
+          <h2>Please sign in to your account</h2>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting, touched, errors }) => (
+              <Form>
+                <div>
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className={touched.email && errors.email ? "invalid" : ""}
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <div>
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    className={
+                      touched.password && errors.password ? "invalid" : ""
+                    }
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+                <button
+                  className="main-button"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
+                  <span>Log in</span>
+                </button>
+                <Link className="reset" href="/reset-password">
+                  Forgot password?
+                </Link>
+              </Form>
+            )}
+          </Formik>
+          <SignUp />
+        </div>
+      </section>
+    </>
   );
 }

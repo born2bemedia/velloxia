@@ -1,15 +1,19 @@
 "use client";
+import "@/styles/login.scss";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import useAuthStore from "@/stores/authStore"; // Використання Zustand
+import useAuthStore from "@/stores/authStore";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import Link from "next/link"; // Використовуємо Next.js Link
+import Link from "next/link";
+import CheckboxIcon from "@/icons/CheckboxIcon";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 export default function SignUp() {
   const [thanksPopupShow, setThanksPopupShow] = useState(false);
   const router = useRouter();
-  const { fetchCurrentUser } = useAuthStore(); // Використання стору для аутентифікації
+  const { fetchCurrentUser } = useAuthStore();
 
   const initialValues = {
     firstName: "",
@@ -76,7 +80,10 @@ export default function SignUp() {
         router.push("/dashboard");
       }, 3000);
     } catch (error) {
-      console.error("Registration failed", error.response?.data || error.message);
+      console.error(
+        "Registration failed",
+        error.response?.data || error.message
+      );
       setFieldError("email", "An account with this email already exists");
     } finally {
       setSubmitting(false);
@@ -85,15 +92,15 @@ export default function SignUp() {
 
   return (
     <>
-      <section>
-        <div>
+      <section className="sign-up">
+        <div className="_container">
           <h1>Join us</h1>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            {({ isSubmitting, touched, errors }) => (
+            {({ isSubmitting, touched, errors, values }) => (
               <Form>
                 {/* Form Fields */}
                 <div>
@@ -101,36 +108,59 @@ export default function SignUp() {
                     type="text"
                     name="firstName"
                     placeholder="First name"
-                    className={touched.firstName && errors.firstName ? "invalid" : ""}
+                    className={
+                      touched.firstName && errors.firstName ? "invalid" : ""
+                    }
                   />
-                  <ErrorMessage name="firstName" component="div" className="error" />
+                  <ErrorMessage
+                    name="firstName"
+                    component="div"
+                    className="error"
+                  />
                 </div>
                 <div>
                   <Field
                     type="text"
                     name="lastName"
                     placeholder="Last name"
-                    className={touched.lastName && errors.lastName ? "invalid" : ""}
+                    className={
+                      touched.lastName && errors.lastName ? "invalid" : ""
+                    }
                   />
-                  <ErrorMessage name="lastName" component="div" className="error" />
+                  <ErrorMessage
+                    name="lastName"
+                    component="div"
+                    className="error"
+                  />
                 </div>
                 <div>
                   <Field
                     type="text"
                     name="username"
                     placeholder="Username"
-                    className={touched.username && errors.username ? "invalid" : ""}
+                    className={
+                      touched.username && errors.username ? "invalid" : ""
+                    }
                   />
-                  <ErrorMessage name="username" component="div" className="error" />
+                  <ErrorMessage
+                    name="username"
+                    component="div"
+                    className="error"
+                  />
                 </div>
                 <div>
-                  <Field
-                    type="text"
-                    name="phone"
-                    placeholder="Phone number"
+                  <PhoneInput
+                    country={"us"}
+                    value={values.phone}
+                    placeholder="Phone Number"
+                    onChange={(phone) => setFieldValue("phone", phone)}
                     className={touched.phone && errors.phone ? "invalid" : ""}
                   />
-                  <ErrorMessage name="phone" component="div" className="error" />
+                  <ErrorMessage
+                    name="phone"
+                    component="div"
+                    className="error"
+                  />
                 </div>
                 <div>
                   <Field
@@ -139,7 +169,11 @@ export default function SignUp() {
                     placeholder="Email"
                     className={touched.email && errors.email ? "invalid" : ""}
                   />
-                  <ErrorMessage name="email" component="div" className="error" />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error"
+                  />
                 </div>
 
                 {/* Password and Confirm Password */}
@@ -148,22 +182,36 @@ export default function SignUp() {
                     type="password"
                     name="password"
                     placeholder="Password"
-                    className={touched.password && errors.password ? "invalid" : ""}
+                    className={
+                      touched.password && errors.password ? "invalid" : ""
+                    }
                   />
-                  <ErrorMessage name="password" component="div" className="error" />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="error"
+                  />
                 </div>
                 <div>
                   <Field
                     type="password"
                     name="confirmPassword"
                     placeholder="Confirm password"
-                    className={touched.confirmPassword && errors.confirmPassword ? "invalid" : ""}
+                    className={
+                      touched.confirmPassword && errors.confirmPassword
+                        ? "invalid"
+                        : ""
+                    }
                   />
-                  <ErrorMessage name="confirmPassword" component="div" className="error" />
+                  <ErrorMessage
+                    name="confirmPassword"
+                    component="div"
+                    className="error"
+                  />
                 </div>
 
                 {/* Terms, Privacy, Age */}
-                <div>
+                <div className="checkbox">
                   <Field
                     type="checkbox"
                     name="terms"
@@ -171,27 +219,43 @@ export default function SignUp() {
                     id="terms"
                   />
                   <label htmlFor="terms">
+                    <CheckboxIcon />
                     <span>
-                      I agree to the <Link href="/terms-and-conditions">Terms and Conditions</Link>
+                      I agree to the{" "}
+                      <Link href="/terms-and-conditions">
+                        Terms and Conditions
+                      </Link>
                     </span>
                   </label>
-                  <ErrorMessage name="terms" component="div" className="error" />
+                  <ErrorMessage
+                    name="terms"
+                    component="div"
+                    className="error"
+                  />
                 </div>
-                <div>
+                <div className="checkbox">
                   <Field
                     type="checkbox"
                     name="privacy"
-                    className={touched.privacy && errors.privacy ? "invalid" : ""}
+                    className={
+                      touched.privacy && errors.privacy ? "invalid" : ""
+                    }
                     id="privacy"
                   />
                   <label htmlFor="privacy">
+                    <CheckboxIcon />
                     <span>
-                      I agree to the <Link href="/privacy-policy">Privacy Policy</Link>.
+                      I agree to the{" "}
+                      <Link href="/privacy-policy">Privacy Policy</Link>.
                     </span>
                   </label>
-                  <ErrorMessage name="privacy" component="div" className="error" />
+                  <ErrorMessage
+                    name="privacy"
+                    component="div"
+                    className="error"
+                  />
                 </div>
-                <div>
+                <div className="checkbox">
                   <Field
                     type="checkbox"
                     name="age"
@@ -199,8 +263,10 @@ export default function SignUp() {
                     id="age"
                   />
                   <label htmlFor="age">
+                    <CheckboxIcon />
                     <span>
-                      I am over 18 years old, and I have read and accepted all of the above
+                      I am over 18 years old, and I have read and accepted all
+                      of the above
                     </span>
                   </label>
                   <ErrorMessage name="age" component="div" className="error" />
@@ -209,7 +275,7 @@ export default function SignUp() {
                 {/* Submit Button */}
                 <div>
                   <button type="submit" disabled={isSubmitting}>
-                    Join Quorixia
+                    Join us
                   </button>
                 </div>
               </Form>
@@ -224,7 +290,8 @@ export default function SignUp() {
             <div>
               <h3>Congratulations!</h3>
               <p>
-                Your account has been successfully created. A confirmation email has been sent to your inbox.
+                Your account has been successfully created. A confirmation email
+                has been sent to your inbox.
                 <br />
                 Welcome aboard!
               </p>

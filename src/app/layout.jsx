@@ -8,6 +8,7 @@ import { PopupsProvider } from "@/context/PopupsContext";
 import CareerPopup from "@/components/CareerPopup";
 import { ToastContainer } from "react-toastify"; 
 
+
 const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
