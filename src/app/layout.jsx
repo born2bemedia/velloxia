@@ -2,6 +2,10 @@ import { Ubuntu } from "next/font/google";
 import "@/styles/base.scss";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+/* import Preloader from "@/components/Preloader"; */
+/* import { GoogleAnalytics } from "@next/third-parties/google"; */
+import { PopupsProvider } from "@/context/PopupsContext";
+import CareerPopup from "@/components/CareerPopup";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -17,9 +21,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={ubuntu.className}>
-        <Header />
-        <main className="site">{children}</main>
-        <Footer />
+        {/*  <GoogleAnalytics gaId="" /> */}
+        <PopupsProvider>
+          {/*  <Preloader /> */}
+          <Header />
+          <main className="site">{children}</main>
+          <Footer />
+          <CareerPopup />
+        </PopupsProvider>
       </body>
     </html>
   );

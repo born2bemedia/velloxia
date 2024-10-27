@@ -57,7 +57,7 @@ function FormContacts() {
 
   const handleSubmit = async (values, { setSubmitting, resetForm, setStatus }) => {
     try {
-      const response = await fetch("/api/emails/request", {
+      const response = await fetch("/api/emails/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

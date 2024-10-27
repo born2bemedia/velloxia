@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "@/styles/career.scss";
 import { fadeInUp } from "@/utils/animations";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import CareerButton from "@/components/CareerButton";
 
 const CareerApply = () => {
 
@@ -18,7 +18,7 @@ const CareerApply = () => {
                     className="career-apply__body">
                     <img src="/images/career/career-img-03.png" alt="image" className="career-apply__img-01" />
                     <img src="/images/career/career-arrow.svg" alt="arrow" className="career-apply__img-02" />
-                    <Link href="#" className="career-apply__link">Apply Now</Link>
+                    <CareerButton />
                 </motion.div>
             </div>
         </section>
