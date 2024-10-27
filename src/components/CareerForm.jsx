@@ -3,9 +3,18 @@ import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import PhoneInput from "react-phone-input-2";
-import useCountryCode from "@/utils/useCountryCode"; 
+import useCountryCode from "@/utils/useCountryCode";
 import "react-phone-input-2/lib/style.css";
-import Link from "next/link"; 
+import Link from "next/link";
+
+const readFileAsBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+        reader.readAsDataURL(file);
+    });
+};
 
 function CareerForm() {
     const [fileSelected, setFileSelected] = useState(false);
