@@ -188,18 +188,10 @@ a {
   }
 
   &__title {
-    margin: 0;
-    font-family: "Ubuntu", sans-serif;
-    text-align: center;
-    font-weight: 600;
-    color: #fff;
-    font-size: 32px;
-    line-height: normal;
+   
   }
 
   &__form {
-    @include adaptiv-value("margin-top", 65, 40, 1);
-
     .request-form {
       .wrapper {
         .form {
@@ -216,9 +208,9 @@ a {
             .row {
               width: 100%;
               display: flex;
-              >.div {
+              > .div {
                 display: flex;
-                width: 100%; 
+                width: 100%;
               }
               input {
                 padding: 16px 20px;
@@ -290,7 +282,7 @@ a {
 
                   .country-list {
                     width: 100%;
-                    top: 30px;
+                    top: 40px;
                     border-radius: 10px;
                     &::-webkit-scrollbar {
                       background: transparent !important;
@@ -454,6 +446,82 @@ a {
               }
 
               &._file {
+                input[type="file"] {
+                  font-size: 0;
+                  position: relative;
+                  cursor: pointer;
+                  transition: all 0.3s ease 0s;
+                  &::file-selector-button {
+                    display: none;
+                  }
+
+                  &::before {
+                    content: "Your CV";
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    left: 16px;
+                    color: #a8a8a8;
+                    font-size: 16px;
+                    line-height: normal;
+                    font-weight: 500;
+                    font-family: "Urbanist", sans-serif;
+                  }
+
+                  &::after {
+                    content: "Attach file";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 130px;
+                    height: 100%;
+                    text-align: center;
+                    font-family: "Urbanist", sans-serif;
+                    font-size: 16px;
+                    line-height: normal;
+                    font-style: italic;
+                    color: #333333;
+                    background-color: transparent;
+                    font-weight: 600;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 8px;
+                    transition: all 0.3s ease 0s;
+                    background-image: url("/images/icon-cv.png");
+                    background-repeat: no-repeat;
+                    background-size: 8px;
+                    background-position: 90% center;
+                  }
+                }
+                &._active {
+                  input[type="file"] {
+                    font-size: 16px;
+                    &::before {
+                      display: none;
+                    }
+
+                    &::after {
+                      opacity: 0;
+                      visibility: hidden;
+                    }
+                  }
+                }
+
+                &._error {
+                  input {
+                    border-color: #ff0000;
+                  }
+                }
+              }
+
+              &._remove {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                opacity: 0;
+                visibility: hidden;
               }
             }
 
@@ -475,7 +543,44 @@ a {
                 background-color: #0b1d20;
               }
             }
+
+            .general-error {
+              grid-column-start: span 2;
+              text-align: center;
+              color: #ff0000;
+            }
           }
+
+          &__title { 
+            grid-column-start: span 2;
+            margin-top: 0;
+            @include adaptiv-value("margin-bottom", 35, 10, 1);
+            font-family: "Ubuntu", sans-serif;
+            text-align: center;
+            font-weight: 600;
+            color: #fff;
+            font-size: 32px;
+            line-height: normal;
+          }
+        }
+      }
+
+      .success-message {
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 300;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        row-gap: 55px;
+
+        span {
+          font-weight: 700;
+          color: #1fa169;
+          font-size: 32px;
+          line-height: normal;
+          text-transform: uppercase;
         }
       }
     }

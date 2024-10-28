@@ -27,9 +27,9 @@ const HomeHelp = () => {
                             variants={fadeInUp}
                             custom={0.2}
                             className="home-help__buttons">
-                            <Link href="#" className="home-help__link">Visit Help Section</Link>
-                            <Link href="#" className="home-help__link">Contact</Link>
-                        </motion.div>
+                            <Link href="/help" className="home-help__link">Visit Help Section</Link>
+                            <Link href="/contact" className="home-help__link">Contact</Link>
+                        </motion.div> 
                     </div>
                 </div>
             </div>

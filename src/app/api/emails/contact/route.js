@@ -9,7 +9,7 @@ export async function POST(request) {
       yourName,
       email,
       phone,
-      urgency,
+      sphere,
       agreeToPolicy,
     } = bodyJSON;
 
@@ -32,7 +32,7 @@ export async function POST(request) {
       text: `Name: ${yourName}
 Email: ${email}
 Phone: ${phone}
-Urgency: ${urgency}`,
+sphere: ${sphere}`,
     };
 
     // Настройка электронной почты для клиента
@@ -52,7 +52,7 @@ Urgency: ${urgency}`,
                   <td style="padding: 50px 40px; font-family: Roboto, sans-serif; color:#0A0A0A;">
                       <h2 style="text-align: left; font-size: 20px;">Dear ${yourName},</h2>
                       <p style="font-size: 16px; line-height: 19px;">Thank you for submitting your request for a consultation with Velloxia. We appreciate your interest in discussing how we can help your business grow.</p>
-                      <p style="font-size: 16px; line-height: 19px;">Our team is currently reviewing your request and will reach out to you soon to discuss your specific challenges and how we can address them. Your urgency level has been noted as <span style="color: #008967; font-weight: 600;">${urgency}</span>.</p>
+                      <p style="font-size: 16px; line-height: 19px;">Our team is currently reviewing your request and will reach out to you soon to discuss your specific challenges and how we can address them. Your sphere level has been noted as <span style="color: #008967; font-weight: 600;">${sphere}</span>.</p>
                       <p style="font-size: 16px; line-height: 19px;">If you have any immediate questions or additional information to share, please don't hesitate to contact us at <a href="mailto:info@velloxia.com" style="color: #008967; font-weight: 600;text-decoration: underline;">info@velloxia.com</a>.</p>
                       <p style="font-size: 16px; line-height: 19px; font-weight: 600;">
                           Best regards,

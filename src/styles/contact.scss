@@ -376,7 +376,7 @@
                                 font-family: "Ubuntu", sans-serif;
                             }
 
-                            &.invalid { 
+                            &.invalid {
                                 border-color: #ff0000;
                             }
                         }
@@ -474,7 +474,7 @@
                                 padding: 0;
                             }
 
-                            .custom-select__indicator-separator { 
+                            .custom-select__indicator-separator {
                                 display: none;
                             }
 
@@ -482,20 +482,20 @@
                                 border: none;
                                 svg {
                                     path {
-                                        fill: #1FA169;
+                                        fill: #1fa169;
                                     }
                                 }
                             }
                         }
 
-                        .css-b62m3t-container { 
+                        .css-b62m3t-container {
                             width: 100%;
                         }
 
                         &._policy {
                             grid-column-start: span 2;
 
-                            label { 
+                            label {
                                 position: relative;
                                 display: flex;
                                 padding-left: 30px;
@@ -504,35 +504,34 @@
                                 margin-top: -15px;
 
                                 &.invalid {
-
-                                    &::before { 
+                                    &::before {
                                         border-color: #ff0000;
                                     }
                                 }
-                                input { 
+                                input {
                                     position: absolute;
                                     top: 0;
                                     left: 0;
                                     z-index: -1;
                                 }
-                                span { 
+                                span {
                                     font-size: 14px;
                                     line-height: normal;
-                                    font-family: 'Ubuntu', sans-serif;
+                                    font-family: "Ubuntu", sans-serif;
                                     color: #fff;
                                     font-weight: 300;
-                                    a { 
+                                    a {
                                         color: #fff;
                                         transition: all 0.3s ease 0s;
-                                        &:hover { 
-                                            color: #1FA169;
+                                        &:hover {
+                                            color: #1fa169;
                                             text-decoration: underline;
                                         }
                                     }
                                 }
 
                                 &::before {
-                                    content: '';
+                                    content: "";
                                     position: absolute;
                                     top: 2px;
                                     left: 0;
@@ -543,11 +542,11 @@
                                     background-color: #fff;
                                 }
 
-                                &::after { 
-                                    content: '';
+                                &::after {
+                                    content: "";
                                     position: absolute;
-                                    top: 5px;
-                                    left: 3px;
+                                    top: 6px;
+                                    left: 4px;
                                     width: 10px;
                                     height: 10px;
                                     border-radius: 2px;
@@ -557,9 +556,8 @@
                                     visibility: hidden;
                                 }
 
-                                &._active { 
-
-                                    &::after { 
+                                &._active {
+                                    &::after {
                                         opacity: 1;
                                         visibility: visible;
                                     }
@@ -574,29 +572,48 @@
 
                     .button {
                         grid-column-start: span 2;
-                        background-color: #1FA169;
+                        background-color: #1fa169;
                         padding: 10px 24px;
                         border-radius: 100px;
                         font-size: 20px;
                         line-height: 34px;
                         color: #fff;
                         font-weight: 400;
-                        font-family: 'Ubuntu', sans-serif;
+                        font-family: "Ubuntu", sans-serif;
                         border: none;
                         cursor: pointer;
                         transition: all 0.3s ease 0s;
 
-                        &:hover { 
+                        &:hover {
                             background-color: #0b1d20;
                         }
                     }
                     .general-error {
                         position: absolute;
-                        bottom: -30px; 
+                        bottom: -30px;
                         left: 50%;
                         transform: translate(-50%, 0);
                         display: none;
                     }
+                }
+            }
+
+            .success-message {
+                font-size: 24px;
+                line-height: 36px;
+                font-weight: 300;
+                color: #fff;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                row-gap: 30px;
+
+                span {
+                    font-weight: 700;
+                    color: #1fa169;
+                    font-size: 32px;
+                    line-height: normal;
+                    text-transform: uppercase;
                 }
             }
         }

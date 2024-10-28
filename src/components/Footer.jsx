@@ -28,7 +28,7 @@ const Footer = () => {
                       <Link href="/help" className="footer__menu-link">FAQ</Link>
                     </li>
                     <li className="footer__menu-item">
-                      <Link href="#" className="footer__menu-link">Our Approach</Link>
+                      <Link href="/our-approach" className="footer__menu-link">Our Approach</Link>
                     </li>
                     <li className="footer__menu-item">
                       <Link href="/marketing-consulting" className="footer__menu-link">Marketing Consulting</Link>
@@ -37,7 +37,7 @@ const Footer = () => {
                       <Link href="/cart" className="footer__menu-link">Your Cart</Link>
                     </li>
                     <li className="footer__menu-item">
-                      <Link href="/insights" className="footer__menu-link">Insights</Link>
+                      <Link href="/help" className="footer__menu-link">Insights</Link>
                     </li>
                     <li className="footer__menu-item">
                       <Link href="/contact" className="footer__menu-link">Contact</Link>
