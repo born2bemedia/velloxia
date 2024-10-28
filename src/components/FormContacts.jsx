@@ -36,6 +36,7 @@ const CustomSelect = ({ name, options, ...props }) => {
 function FormContacts() {
   const countryCode = useCountryCode();
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(true);
 
   const validationSchema = Yup.object({
     yourName: Yup.string().required("The field is required."),
@@ -43,7 +44,7 @@ function FormContacts() {
       .email("Please enter a valid email address.")
       .required("The field is required."),
     phone: Yup.string().required("The field is required."),
-    ///urgency: Yup.string().required("Select an option."),
+    sphere: Yup.string(),
     agreeToPolicy: Yup.boolean().oneOf([true], "You must agree to the Privacy Policy."),
   });
 
@@ -51,7 +52,7 @@ function FormContacts() {
     yourName: "",
     email: "",
     phone: "",
-    urgency: "",
+    sphere: "",
     agreeToPolicy: false,
   };
 
@@ -70,6 +71,7 @@ function FormContacts() {
           resetForm();
           setStatus({ success: true });
           setIsSuccess(true);
+          setIsFormVisible(false);
         }, 400);
       } else {
         setStatus({ success: false });
@@ -82,110 +84,116 @@ function FormContacts() {
   };
 
   const options = [
-    { value: "", label: "Select Urgency:" },
-    { value: "low", label: "Low" },
-    { value: "medium", label: "Medium" },
-    { value: "high", label: "High" },
+    { value: "", label: "Sphere of Interest:" },
+    { value: "business", label: "Business" },
+    { value: "marketing", label: "Marketing" },
+    { value: "both", label: "Both" },
   ];
 
   return (
     <div className="request-form">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ isSubmitting, status, errors, touched }) => (
-          <div className="wrapper">
-            <Form className="form">
-              {Object.keys(errors).length > 0 && touched && (
-                <span className="general-error">
-                  This field is required.
-                </span>
-              )}
+      {isFormVisible ? (
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting, status, errors, touched }) => (
+            <div className="wrapper">
+              <Form className="form">
+                {Object.keys(errors).length > 0 && touched && (
+                  <span className="general-error">
+                    This field is required.
+                  </span>
+                )}
 
-              <div className="row">
-                <Field name="yourName">
-                  {({ field, form }) => (
-                    <input
-                      {...field}
-                      type="text"
-                      placeholder="Full name:"
-                      className={form.touched.yourName && form.errors.yourName ? "invalid" : ""}
-                    />
-                  )}
-                </Field>
-              </div>
-
-              <div className="row">
-                <Field name="email">
-                  {({ field, form }) => (
-                    <input
-                      {...field}
-                      type="email"
-                      placeholder="Email:"
-                      className={form.touched.email && form.errors.email ? "invalid" : ""}
-                    />
-                  )}
-                </Field>
-              </div>
-
-              <div className="row">
-                <Field name="phone">
-                  {({ field, form }) => (
-                    <PhoneInput
-                      country={countryCode}
-                      value={field.value}
-                      onChange={(value) => form.setFieldValue("phone", value)}
-                      placeholder="Phone:"
-                      className={form.touched.phone && form.errors.phone ? "invalid" : ""}
-                    />
-                  )}
-                </Field>
-              </div>
-
-              <div className="row _select">
-                <Field name="urgency">
-                  {({ field, form }) => (
-                    <CustomSelect
-                      {...field}
-                      options={options}
-                      className={form.touched.urgency && form.errors.urgency ? "invalid" : ""}
-                    />
-                  )}
-                </Field>
-              </div>
-
-              <div className="row _policy">
-                <Field name="agreeToPolicy">
-                  {({ field, form }) => (
-                    <label className={`checkbox-label ${field.value ? "_active" : ""} ${form.touched.agreeToPolicy && form.errors.agreeToPolicy ? "invalid" : ""}`}>
+                <div className="row">
+                  <Field name="yourName">
+                    {({ field, form }) => (
                       <input
                         {...field}
-                        type="checkbox"
-                        checked={field.value}
-                        className={form.touched.agreeToPolicy && form.errors.agreeToPolicy ? "invalid" : ""}
+                        type="text"
+                        placeholder="Full name:"
+                        className={form.touched.yourName && form.errors.yourName ? "invalid" : ""}
                       />
-                      <span>
-                        I agree to the processing of my data in accordance with the <Link href="/privacy-policy">Privacy Policy</Link> and <Link href="/terms-and-conditions">Terms and Conditions</Link>.
-                      </span>
-                    </label>
-                  )}
-                </Field>
-              </div>
+                    )}
+                  </Field>
+                </div>
 
-              <button type="submit" className="button" disabled={isSubmitting}>
-                Submit
-              </button>
-            </Form>
-            {isSuccess && (
-              <div className="success-message">
-                <span>Thank you!</span> Your request has been successfully submitted. We’ll get back to you within 1 business day. If you have any urgent questions, please contact us at <a href="mailto:noreply@nexoria.ai">noreply@nexoria.ai</a>.
-              </div>
-            )}
-          </div>
-        )}
-      </Formik>
+                <div className="row">
+                  <Field name="email">
+                    {({ field, form }) => (
+                      <input
+                        {...field}
+                        type="email"
+                        placeholder="Email:"
+                        className={form.touched.email && form.errors.email ? "invalid" : ""}
+                      />
+                    )}
+                  </Field>
+                </div>
+
+                <div className="row">
+                  <Field name="phone">
+                    {({ field, form }) => (
+                      <PhoneInput
+                        country={countryCode}
+                        value={field.value}
+                        onChange={(value) => form.setFieldValue("phone", value)}
+                        placeholder="Phone:"
+                        className={form.touched.phone && form.errors.phone ? "invalid" : ""}
+                      />
+                    )}
+                  </Field>
+                </div>
+
+                <div className="row _select">
+                  <Field name="sphere">
+                    {({ field, form }) => (
+                      <CustomSelect
+                        {...field}
+                        options={options}
+                        className={form.touched.sphere && form.errors.sphere ? "invalid" : ""}
+                      />
+                    )}
+                  </Field>
+                </div>
+
+                <div className="row _policy">
+                  <Field name="agreeToPolicy">
+                    {({ field, form }) => (
+                      <label className={`checkbox-label ${field.value ? "_active" : ""} ${form.touched.agreeToPolicy && form.errors.agreeToPolicy ? "invalid" : ""}`}>
+                        <input
+                          {...field}
+                          type="checkbox"
+                          checked={field.value}
+                          className={form.touched.agreeToPolicy && form.errors.agreeToPolicy ? "invalid" : ""}
+                        />
+                        <span>
+                          I agree to the processing of my data in accordance with the <Link href="/privacy-policy">Privacy Policy</Link> and <Link href="/terms-and-conditions">Terms and Conditions</Link>.
+                        </span>
+                      </label>
+                    )}
+                  </Field>
+                </div>
+
+                <button type="submit" className="button" disabled={isSubmitting}>
+                  Submit
+                </button>
+              </Form>
+              {isSuccess && (
+                <div className="success-message">
+                  <span>Thank you!</span> Your submission has been received. We will get back to you shortly, so please check your email for our response.
+                </div>
+              )}
+            </div>
+          )}
+        </Formik>
+      ) : (
+        <div className="success-message">
+          <span>Thank you!</span> Your submission has been received. We will get back to you shortly, so please check your email for our response.
+        </div>
+      )}
     </div>
   );
 }

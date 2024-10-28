@@ -53,20 +53,37 @@ export async function POST(request) {
         const mailOptionsClient = {
             from: '"Velloxia" <noreply@velloxia.com>',
             to: email, 
-            subject: 'Thank you for your submission',
+            subject: 'Thanks for your resume',
             html: `
-        <p>Dear ${yourName},</p>
-        <p>Thank you for your submission. We have received your application and will get back to you soon.</p>
-        <p>Here are the details of your submission:</p>
-        <ul>
-          <li><strong>Name:</strong> ${yourName}</li>
-          <li><strong>Email:</strong> ${email}</li>
-          <li><strong>Phone:</strong> ${phone}</li>
-          <li><strong>Explanation:</strong> ${explanation}</li>
-          <li><strong>Link 1:</strong> ${link1}</li>
-          <li><strong>Link 2:</strong> ${link2}</li>
-        </ul>
-        <p>Best regards,<br>Velloxia Team</p>
+ <table width="640" style="border-collapse: collapse; margin: 0 auto; font-style: sans-serif; border-right: 1px solid #222222; border-left: 1px solid #222222;">
+    <thead>
+        <tr>
+            <th style="background-image: url('https://velloxia.com/images/letter-top.png'); background-size: cover;background-position: center center; background-repeat: no-repeat; height: 117px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 50px 40px; font-family: Roboto, sans-serif; color:#0A0A0A;">
+                <h2 style="text-align: left; font-size: 20px;">Dear ${yourName},</h2>
+                <p style="font-size: 16px; line-height: 19px;">Thank you for submitting your application! We have successfully received your information and will review it shortly.</p>
+                <p style="font-size: 16px; line-height: 19px;">Rest assured, we will contact you regarding our decision, regardless of the outcome.</p>
+                <p style="font-size: 16px; line-height: 19px;">We appreciate your interest in joining our team!</p>
+                <p style="font-size: 16px; line-height: 19px; font-weight: 600;">
+                    Best regards,
+                    <br>
+                    Velloxia
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td style="background-color: #333333; font-weight: 600; font-family: Roboto, sans-serif;padding: 30px 0;">
+                <a href="https://velloxia.com/"><img src="https://velloxia.com/images/letter-bottom.png" alt="Velloxia"></a>
+            </td>
+        </tr>
+    </tfoot>
+</table>
       `,
         };
 

@@ -3,6 +3,17 @@ import ContactContact from "./_components/ContactContact";
 import ContactHero from "./_components/ContactHero";
 import ContactLocation from "./_components/ContactLocation";
 
+export const metadata = {
+    title: "Contact | Velloxia",
+    description:
+        "Reach out to Velloxia for any inquiries or support. We're here to assist you with your business needs. Contact us today!",
+    openGraph: {
+        title: "Contact | Velloxia",
+        description:
+            "Reach out to Velloxia for any inquiries or support. We're here to assist you with your business needs. Contact us today!",
+        images: "https://velloxia.com/images/meta.png",
+    },
+};
 
 export default function Contact() {
     return (

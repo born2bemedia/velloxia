@@ -15,7 +15,6 @@ const CareerPopup = () => {
             <div className="popup__container">
                 <div className="popup__body">
                     <div className="popup__content">
-                        <h2 className="popup__title">SUBMIT YOUR APPLICATION</h2>
                         <div className="popup__form">
                             <CareerForm />
                         </div>

@@ -19,6 +19,7 @@ const readFileAsBase64 = (file) => {
 function CareerForm() {
     const [fileSelected, setFileSelected] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [isFormVisible, setIsFormVisible] = useState(true);
     const [phoneCountryCode, setPhoneCountryCode] = useState("us");
     const countryCode = useCountryCode();
 
@@ -30,7 +31,7 @@ function CareerForm() {
         explanation: Yup.string(),
         link1: Yup.string().url("Please enter a valid URL."),
         link2: Yup.string().url("Please enter a valid URL."),
-        agreeToPolicy: Yup.bool().oneOf([true], "You must agree to the policies.")
+        agreeToPolicy: Yup.bool().oneOf([true], "You must agree to the policies."),
     });
 
     const initialValues = {
@@ -69,6 +70,7 @@ function CareerForm() {
                 resetForm();
                 setStatus({ success: true });
                 setIsSuccess(true);
+                setIsFormVisible(false);
                 document.querySelector('input[type="file"]').value = "";
                 setFileSelected(false);
             } else {
@@ -87,155 +89,161 @@ function CareerForm() {
 
     return (
         <div className="request-form">
-            <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
-            >
-                {({ isSubmitting, setFieldValue, status, errors, touched }) => (
-                    <div className="wrapper">
-                        <Form className="form__career">
-
-                            <div className={`row _file ${fileSelected ? "_active" : ""} ${touched.file && errors.file ? "_error" : ""}`}>
-                                <input
-                                    type="file"
-                                    name="file"
-                                    onChange={(event) => {
-                                        setFieldValue("file", event.currentTarget.files[0]);
-                                        setFileSelected(true);
-                                    }}
-                                />
-                            </div>
-
-                            {fileSelected && (
-                                <div className="row _remove">
-                                    <button
-                                        type="button"
-                                        onClick={() => {
-                                            setFieldValue("file", null);
-                                            setFileSelected(false);
+            {isFormVisible ? ( 
+                <Formik
+                    initialValues={initialValues}
+                    validationSchema={validationSchema}
+                    onSubmit={handleSubmit}
+                >
+                    {({ isSubmitting, setFieldValue, status, errors, touched }) => (
+                        <div className="wrapper">
+                            <Form className="form__career">
+                                <h2 className="form__title">SUBMIT YOUR APPLICATION</h2>
+                                <div className={`row _file ${fileSelected ? "_active" : ""} ${touched.file && errors.file ? "_error" : ""}`}>
+                                    <input
+                                        type="file"
+                                        name="file"
+                                        onChange={(event) => {
+                                            setFieldValue("file", event.currentTarget.files[0]);
+                                            setFileSelected(true);
                                         }}
-                                    >
-                                        Remove File
-                                    </button>
+                                    />
                                 </div>
-                            )}
 
-                            <div className="row">
-                                <Field name="yourName">
-                                    {({ field, form }) => (
-                                        <input
-                                            {...field}
-                                            type="text"
-                                            placeholder="Your name"
-                                            className={form.touched.yourName && form.errors.yourName ? "invalid" : ""}
-                                        />
-                                    )}
-                                </Field>
-                            </div>
-                            <div className="row">
-                                <Field name="email">
-                                    {({ field, form }) => (
-                                        <input
-                                            {...field}
-                                            type="email"
-                                            placeholder="Email"
-                                            className={form.touched.email && form.errors.email ? "invalid" : ""}
-                                        />
-                                    )}
-                                </Field>
-                            </div>
-                            <div className="row">
-                                <Field name="phone">
-                                    {({ field, form }) => (
-                                        <PhoneInput
-                                            country={countryCode}
-                                            value={field.value}
-                                            onChange={(value) => form.setFieldValue("phone", value)}
-                                            placeholder="Your phone"
-                                            className={
-                                                form.touched.phone && form.errors.phone
-                                                    ? "invalid"
-                                                    : ""
-                                            }
-                                        />
-                                    )}
-                                </Field>
-                            </div>
+                                {fileSelected && (
+                                    <div className="row _remove">
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                setFieldValue("file", null);
+                                                setFileSelected(false);
+                                            }}
+                                        >
+                                            Remove File
+                                        </button>
+                                    </div>
+                                )}
 
-                            <div className="row">
-                                <Field name="link1">
-                                    {({ field, form }) => (
-                                        <input
-                                            {...field}
-                                            type="url"
-                                            placeholder="Link 1"
-                                            className={form.touched.link1 && form.errors.link1 ? "invalid" : ""}
-                                        />
-                                    )}
-                                </Field>
-                            </div>
-                            <div className="row">
-                                <Field name="link2">
-                                    {({ field, form }) => (
-                                        <input
-                                            {...field}
-                                            type="url"
-                                            placeholder="Link 2"
-                                            className={form.touched.link2 && form.errors.link2 ? "invalid" : ""}
-                                        />
-                                    )}
-                                </Field>
-                            </div>
-                            <div className="row _textarea">
-                                <Field name="explanation">
-                                    {({ field, form }) => (
-                                        <textarea
-                                            {...field}
-                                            placeholder="Additional Information:"
-                                            className={form.touched.explanation && form.errors.explanation ? "invalid" : ""}
-                                        />
-                                    )}
-                                </Field>
-                            </div>
-                            <div className="row _policy">
-                                <Field name="agreeToPolicy">
-                                    {({ field, form }) => (
-                                        <label className={`checkbox-label ${field.value ? "_active" : ""} ${form.touched.agreeToPolicy && form.errors.agreeToPolicy ? "invalid" : ""}`}>
+                                <div className="row">
+                                    <Field name="yourName">
+                                        {({ field, form }) => (
                                             <input
                                                 {...field}
-                                                type="checkbox"
-                                                checked={field.value}
-                                                className={form.touched.agreeToPolicy && form.errors.agreeToPolicy ? "invalid" : ""}
+                                                type="text"
+                                                placeholder="Your name"
+                                                className={form.touched.yourName && form.errors.yourName ? "invalid" : ""}
                                             />
-                                            <span>
-                                                I agree to the processing of my data in accordance with the <Link href="/privacy-policy">Privacy Policy</Link> and <Link href="/terms-and-conditions">Terms and Conditions</Link>.
-                                            </span>
-                                        </label>
-                                    )}
-                                </Field>
-                            </div>
-                            <button
-                                type="submit"
-                                className="request-button"
-                                disabled={isSubmitting}
-                            >
-                                Submit Application
-                            </button>
-                            {Object.keys(errors).length > 0 && touched && (
-                                <span className="general-error">
-                                    This field is required.
-                                </span>
+                                        )}
+                                    </Field>
+                                </div>
+                                <div className="row">
+                                    <Field name="email">
+                                        {({ field, form }) => (
+                                            <input
+                                                {...field}
+                                                type="email"
+                                                placeholder="Email"
+                                                className={form.touched.email && form.errors.email ? "invalid" : ""}
+                                            />
+                                        )}
+                                    </Field>
+                                </div>
+                                <div className="row">
+                                    <Field name="phone">
+                                        {({ field, form }) => (
+                                            <PhoneInput
+                                                country={countryCode}
+                                                value={field.value}
+                                                onChange={(value) => form.setFieldValue("phone", value)}
+                                                placeholder="Your phone"
+                                                className={
+                                                    form.touched.phone && form.errors.phone
+                                                        ? "invalid"
+                                                        : ""
+                                                }
+                                            />
+                                        )}
+                                    </Field>
+                                </div>
+
+                                <div className="row">
+                                    <Field name="link1">
+                                        {({ field, form }) => (
+                                            <input
+                                                {...field}
+                                                type="url"
+                                                placeholder="Link 1"
+                                                className={form.touched.link1 && form.errors.link1 ? "invalid" : ""}
+                                            />
+                                        )}
+                                    </Field>
+                                </div>
+                                <div className="row">
+                                    <Field name="link2">
+                                        {({ field, form }) => (
+                                            <input
+                                                {...field}
+                                                type="url"
+                                                placeholder="Link 2"
+                                                className={form.touched.link2 && form.errors.link2 ? "invalid" : ""}
+                                            />
+                                        )}
+                                    </Field>
+                                </div>
+                                <div className="row _textarea">
+                                    <Field name="explanation">
+                                        {({ field, form }) => (
+                                            <textarea
+                                                {...field}
+                                                placeholder="Additional Information:"
+                                                className={form.touched.explanation && form.errors.explanation ? "invalid" : ""}
+                                            />
+                                        )}
+                                    </Field>
+                                </div>
+                                <div className="row _policy">
+                                    <Field name="agreeToPolicy">
+                                        {({ field, form }) => (
+                                            <label className={`checkbox-label ${field.value ? "_active" : ""} ${form.touched.agreeToPolicy && form.errors.agreeToPolicy ? "invalid" : ""}`}>
+                                                <input
+                                                    {...field}
+                                                    type="checkbox"
+                                                    checked={field.value}
+                                                    className={form.touched.agreeToPolicy && form.errors.agreeToPolicy ? "invalid" : ""}
+                                                />
+                                                <span>
+                                                    I agree to the processing of my data in accordance with the <Link href="/privacy-policy">Privacy Policy</Link> and <Link href="/terms-and-conditions">Terms and Conditions</Link>.
+                                                </span>
+                                            </label>
+                                        )}
+                                    </Field>
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="request-button"
+                                    disabled={isSubmitting}
+                                >
+                                    Submit Application
+                                </button>
+                                {Object.keys(errors).length > 0 && touched && (
+                                    <span className="general-error">
+                                        This field is required.
+                                    </span>
+                                )}
+                            </Form>
+                            {status && status.success && isSuccess && (
+                                <div className="success-message">
+                                    <span>Application Submitted!</span> Thank you for applying to Velloxia. We will review your application and contact you if your qualifications match our needs.
+                                </div>
                             )}
-                        </Form>
-                        {status && status.success && isSuccess && (
-                            <div className="success-message">
-                                <span>Thank you!</span> Your request has been successfully received. Our team will review your information and contact you shortly.
-                            </div>
-                        )}
-                    </div>
-                )}
-            </Formik>
+                        </div>
+                    )}
+                </Formik>
+            ) : (
+                <div className="success-message">
+                    <span>Application Submitted!</span> Thank you for applying to Velloxia. We will review your application and contact you if your qualifications match our needs.
+                </div>
+            )}
         </div>
     );
 }
