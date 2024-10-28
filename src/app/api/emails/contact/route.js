@@ -76,7 +76,7 @@ sphere: ${sphere}`,
 
     // Отправка электронной почты получателю и клиенту
     await transporter.sendMail(mailOptionsRecipient);
-    await transporter.sendMail(mailOptionsClient);
+    await transporter.sendMail(mailOptionsClient); 
 
     return NextResponse.json({ message: "Success: emails were sent" });
   } catch (error) {
