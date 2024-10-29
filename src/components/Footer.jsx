@@ -48,15 +48,15 @@ const Footer = () => {
               <div className="footer__col-03">
                 <ul className="footer__contacts">
                   <li className="footer__contact">
-                    Email:
+                    Email:{" "}
+                    <Link href="mailto:info@velloxia.com" className="footer__link">info@velloxia.com</Link>
+                  </li>
+                  <li className="footer__contact">
+                    Phone:{" "}
                     <Link href="#" className="footer__link"></Link>
                   </li>
                   <li className="footer__contact">
-                    Phone:
-                    <Link href="#" className="footer__link"></Link>
-                  </li>
-                  <li className="footer__contact">
-                    Address:
+                    Address:{" "}
                     <Link href="#" className="footer__link"></Link>
                   </li>
                 </ul>
@@ -67,16 +67,16 @@ const Footer = () => {
             <nav className="footer__policy">
               <ul className="footer__policy-list">
                 <li className="footer__policy-item">
-                  <Link href="#" className="footer__policy-link">Terms and Conditions</Link>
+                  <Link href="/terms-and-conditions" className="footer__policy-link">Terms and Conditions</Link>
                 </li>
                 <li className="footer__policy-item">
-                  <Link href="#" className="footer__policy-link">Privacy Policy</Link>
+                  <Link href="/privacy-policy" className="footer__policy-link">Privacy Policy</Link>
                 </li>
                 <li className="footer__policy-item">
-                  <Link href="#" className="footer__policy-link">Cookie Policy</Link>
+                  <Link href="/cookie-policy" className="footer__policy-link">Cookie Policy</Link>
                 </li>
                 <li className="footer__policy-item">
-                  <Link href="#" className="footer__policy-link">Refund Policy</Link>
+                  <Link href="/refund-policy" className="footer__policy-link">Refund Policy</Link>
                 </li>
               </ul>
             </nav>
