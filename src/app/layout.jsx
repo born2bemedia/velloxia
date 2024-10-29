@@ -2,11 +2,11 @@ import { Ubuntu } from "next/font/google";
 import "@/styles/base.scss";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-/* import Preloader from "@/components/Preloader"; */
-/* import { GoogleAnalytics } from "@next/third-parties/google"; */
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { PopupsProvider } from "@/context/PopupsContext";
 import CareerPopup from "@/components/CareerPopup";
-import { ToastContainer } from "react-toastify"; 
+import { ToastContainer } from "react-toastify";
+import Preloader from "@/components/Preloader";
 
 
 const ubuntu = Ubuntu({
@@ -23,9 +23,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={ubuntu.className}>
-        {/*  <GoogleAnalytics gaId="" /> */}
+         <GoogleAnalytics gaId="G-GSVJKH10R2" />
         <PopupsProvider>
-          {/*  <Preloader /> */}
+          <Preloader />
           <Header />
           <main className="site">{children}</main>
           <Footer />
