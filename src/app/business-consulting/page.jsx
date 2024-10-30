@@ -1,4 +1,5 @@
 import React from "react";
+import "@/styles/base.scss";
 import "@/styles/business-consulting.scss";
 import ConsultingHero from "./_components/ConsultingHero";
 import useProductStore from "@/stores/productsStore";

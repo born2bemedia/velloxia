@@ -188,7 +188,6 @@ a {
   }
 
   &__title {
-   
   }
 
   &__form {
@@ -551,7 +550,7 @@ a {
             }
           }
 
-          &__title { 
+          &__title {
             grid-column-start: span 2;
             margin-top: 0;
             @include adaptiv-value("margin-bottom", 35, 10, 1);
@@ -610,5 +609,15 @@ a {
         fill: #fff;
       }
     }
+  }
+}
+
+@keyframes bounce-custom {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
   }
 }

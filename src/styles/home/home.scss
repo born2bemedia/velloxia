@@ -2,6 +2,24 @@
 
 .home-hero {
     margin-top: 34px;
+    position: relative;
+    &::before { 
+        content: '';
+        position: absolute;
+        bottom: -2200px;
+        left: 0;
+        width: 100%;
+        height: 1400px;
+        background-image: url('/images/home/home-back-03.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        z-index: -1;
+
+        @media(max-width: 992px) { 
+            bottom: -1200px;
+        }
+    }
     &__container {
     }
 
@@ -80,6 +98,7 @@
         height: fit-content;
         width: 100%;
         object-fit: contain;
+        animation: bounce-custom 2.5s linear infinite;
 
         @media (max-width: 767px) {
             max-width: 300px;
@@ -91,6 +110,7 @@
         width: 100%;
         height: fit-content;
         object-fit: contain;
+        animation: bounce-custom 3.5s linear infinite;
 
         @media (max-width: 767px) {
             max-width: 180px;
@@ -164,6 +184,11 @@
         @media (max-width: 767px) {
             max-width: 100%;
         }
+
+        &:hover {
+            background-color: #1fa169;
+            color: #ffffff;
+        }
     }
 }
 
@@ -226,6 +251,7 @@
 .home-marketing {
     @include adaptiv-value("padding-top", 200, 120, 1);
     overflow: hidden;
+
     &__container {
     }
 
@@ -250,7 +276,6 @@
 
     &__wrapper {
         display: flex;
-        gap: 20px;
     }
 
     &__col-01 {
@@ -482,7 +507,6 @@
 
     &__wrapper {
         display: flex;
-        gap: 20px;
     }
 
     &__col-01 {

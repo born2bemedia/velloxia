@@ -64,6 +64,7 @@
         filter: drop-shadow(12px 3px 23.3px #0000000d);
         &:last-child {
           transform: rotate(15.59deg);
+          animation: bounce-custom 3.5s linear infinite;
           @media (max-width: rem(992)) {
             transform: rotate(-15.59deg);
             max-width: 90%;
@@ -73,6 +74,7 @@
         }
         &:nth-child(2) {
           transform: rotate(-6.24deg);
+          animation: bounce-custom 2.5s linear infinite;
           @media (max-width: rem(992)) {
             transform: rotate(6.24deg);
             max-width: 65%;
@@ -114,12 +116,12 @@
         }
       }
       button {
-        color: #1f1f1f;
+        color: #8d8d8d;
         font-size: rem(30);
         font-weight: 400;
         line-height: 1.2;
         text-align: center;
-        border: 1px solid #000000;
+        border: 1px solid #7f7f7f;
         border-radius: rem(30);
         height: rem(60);
         display: flex;
@@ -127,7 +129,14 @@
         justify-content: center;
         width: rem(420);
         max-width: 100%;
-        background: transparent;
+        background: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+
+        &:hover {
+          background: #1f1f1f;
+          color: #f3f3f3;
+        }
 
         &.active {
           background: #1f1f1f;
@@ -140,7 +149,8 @@
       }
     }
     .tabs-content {
-      max-width: rem(1250);
+      max-width: 1257px;
+      width: 100%;
       margin: 0 auto;
       @media (max-width: rem(992)) {
         display: none;
@@ -224,7 +234,7 @@
             width: 100%;
             padding: rem(24);
           }
-          a {
+          .link {
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -396,6 +406,82 @@
       }
     }
   }
+
+  &__banner {
+    @include adaptiv-value('margin-top', 100, 50, 1);
+    @include adaptiv-value("padding-top", 115, 70, 1);
+    @include adaptiv-value("padding-bottom", 115, 70, 1);
+    background-color: #0a0a0a;
+    border-radius: 30px;
+    background-image: url("/images/career/career-back-04.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    position: relative;
+
+    @media (max-width: 992px) {
+      padding: 42px 0 236px 0;
+    }
+
+    @media (max-width: 767px) {
+      background-image: url("/images/career/career-back-05.png");
+    }
+  }
+
+  &__img-01 {
+    position: absolute;
+    bottom: 0;
+    @include adaptiv-value("left", 200, 0, 1);
+    max-width: 502px;
+    object-fit: cover;
+
+    @media (max-width: 992px) {
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 100%;
+    }
+  }
+
+  &__img-02 {
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    @media (max-width: 992px) {
+      display: none;
+    }
+  }
+
+  &__link-banner {
+    @include adaptiv-value("margin-right", 280, 0, 1);
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 24px;
+    width: 100%;
+    max-width: 246px;
+    border-radius: 100px;
+    border: none;
+    background-color: #fff;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+
+    color: #333333;
+    font-size: 20px;
+    line-height: normal;
+    font-family: "Ubuntu", sans-serif;
+
+    @media (max-width: 992px) {
+      margin: 0 auto;
+      max-width: 304px;
+    }
+
+    &:hover {
+      background-color: #1fa169;
+      color: #fff;
+    }
+  }
 }
 
 .more-insights {
@@ -414,7 +500,7 @@
     @media (max-width: rem(992)) {
       flex-direction: column-reverse;
       padding: rem(40) rem(40) 0 rem(40);
-      gap:rem(20);
+      gap: rem(20);
     }
     img {
       &:first-child {
