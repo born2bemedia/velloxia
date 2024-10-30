@@ -10,64 +10,50 @@ import MenuClose from "@/icons/MenuClose";
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+
   const toggleMenu = () => {
     setIsActive(!isActive);
   };
 
+  const closeMenu = () => {
+    setIsActive(false);
+  };
+
   const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setScrolling(true);
-    } else {
-      setScrolling(false);
-    }
+    setScrolling(window.scrollY > 0);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll); 
-
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll); 
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <header className={scrolling ? '_active' : ''}>
+    <header className={scrolling ? "_active" : ""}>
       <div className="_container">
         <div className="menu-row">
-          <Link href="/">
+          <Link href="/" onClick={closeMenu}>
             <img src="/logo.svg" alt="Logo" />
           </Link>
           <div className="actions">
-            <Link href="/cart" className="cart">
+            <Link href="/cart" className="cart" onClick={closeMenu}>
               <CartIcon />
             </Link>
             <span></span>
-            <nav className={`header__nav ${isActive ? '_active' : ''}`}>
+            <nav className={`header__nav ${isActive ? "_active" : ""}`}>
               <ul className="header__menu">
-                <li className="header__item">
-                  <Link href="/business-consulting" className="header__link">Business Consulting</Link>
-                </li>
-                <li className="header__item">
-                  <Link href="/marketing-consulting" className="header__link">Marketing Consulting</Link>
-                </li>
-                <li className="header__item">
-                  <Link href="/help" className="header__link">Help</Link>
-                </li>
-                <li className="header__item">
-                  <Link href="/our-approach" className="header__link">Our Approach</Link>
-                </li>
-                <li className="header__item">
-                  <Link href="/career" className="header__link">Career</Link>
-                </li>
-                <li className="header__item">
-                  <Link href="/contact" className="header__link">Contact</Link>
-                </li>
-                <li className="header__item">
-                  <Link href="/log-in" className="header__link _account">Account</Link>
-                </li>
+                {["business-consulting", "marketing-consulting", "our-approach", "career", "help", "contact", "log-in"].map((path, index) => (
+                  <li className="header__item" key={index}>
+                    <Link href={`/${path}`} className="header__link" onClick={closeMenu}>
+                      {path.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </nav>
-            <button className={`menu-btn ${isActive ? '_active' : ''}`} onClick={toggleMenu}>
+            <button className={`menu-btn ${isActive ? "_active" : ""}`} onClick={toggleMenu}>
               {isActive ? <MenuClose /> : <MenuIcon />}
             </button>
           </div>

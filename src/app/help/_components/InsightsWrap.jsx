@@ -11,7 +11,7 @@ const InsightsWrap = () => {
   return (
     <div className="posts-row">
       {posts.map((post) => (
-        <div className="post" key={post.id}>
+        <Link href={`/help/${post.slug}`} className="post" key={post.id}>
           <div className="top">
             <div className="img-wrap">
               <img src={post.image?.url} alt={post.title} />
@@ -20,10 +20,10 @@ const InsightsWrap = () => {
             <h2>{post.title}</h2>
             <p>{post.excerpt}</p>
           </div>
-          <Link href={`/help/${post.slug}`}>
+          <div className="link">
             Read the Guide <OrderIcon />
-          </Link>
-        </div>
+          </div>
+        </Link>
       ))}
     </div>
   );

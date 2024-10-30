@@ -69,6 +69,7 @@
         height: fit-content;
         width: 100%;
         object-fit: contain;
+        animation: bounce-custom 3.5s linear infinite;
 
         @media (max-width: 767px) {
             max-width: 300px;
@@ -80,7 +81,7 @@
         width: 100%;
         height: fit-content;
         object-fit: contain;
-
+        animation: bounce-custom 2.5s linear infinite;
         @media (max-width: 767px) {
             max-width: 180px;
             margin-left: auto;
@@ -89,9 +90,9 @@
 }
 
 .career-apply {
-    @include adaptiv-value('padding-top', 230, 120, 1);
-    @include adaptiv-value('padding-bottom', 200, 120, 1);
-    background-image: url('/images/career/career-back-03.png');
+    @include adaptiv-value("padding-top", 230, 120, 1);
+    @include adaptiv-value("padding-bottom", 200, 120, 1);
+    background-image: url("/images/career/career-back-03.png");
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: contain;
@@ -109,7 +110,7 @@
         background-size: cover;
         position: relative;
 
-        @media(max-width: 992px) { 
+        @media (max-width: 992px) {
             padding: 42px 0 236px 0;
         }
 
@@ -121,11 +122,11 @@
     &__img-01 {
         position: absolute;
         bottom: 0;
-        @include adaptiv-value('left', 200, 0, 1);
+        @include adaptiv-value("left", 200, 0, 1);
         max-width: 502px;
         object-fit: cover;
 
-        @media(max-width: 992px) { 
+        @media (max-width: 992px) {
             left: 50%;
             transform: translate(-50%, 0);
             width: 100%;
@@ -137,13 +138,13 @@
         top: 50%;
         left: 53%;
         transform: translate(-50%, -50%);
-        @media(max-width: 992px) { 
+        @media (max-width: 992px) {
             display: none;
         }
     }
 
     &__link {
-        @include adaptiv-value('margin-right', 280, 0, 1);
+        @include adaptiv-value("margin-right", 280, 0, 1);
         margin-left: auto;
         display: flex;
         align-items: center;
@@ -152,6 +153,7 @@
         width: 100%;
         max-width: 246px;
         border-radius: 100px;
+        border: none;
         background-color: #fff;
         transition: all 0.3s ease 0s;
         cursor: pointer;
@@ -161,87 +163,83 @@
         line-height: normal;
         font-family: "Ubuntu", sans-serif;
 
-        @media(max-width: 992px) { 
+        @media (max-width: 992px) {
             margin: 0 auto;
             max-width: 304px;
         }
 
         &:hover {
-            background-color: #1FA169;
+            background-color: #1fa169;
             color: #fff;
         }
     }
 }
 
 .career-why {
-    @include adaptiv-value('padding-top', 200, 120, 1);
-    &__container { 
-
+    @include adaptiv-value("padding-top", 200, 120, 1);
+    &__container {
     }
 
     &__body {
-
     }
 
-    &__title { 
+    &__title {
         margin-top: 0;
-        @include adaptiv-value('margin-bottom', 80, 50, 1);
-        @include adaptiv-value('font-size', 48, 32, 1);
+        @include adaptiv-value("margin-bottom", 80, 50, 1);
+        @include adaptiv-value("font-size", 48, 32, 1);
         line-height: normal;
         text-align: center;
         color: #333333;
         font-weight: 700;
         text-transform: uppercase;
-        font-family: 'Ubuntu', sans-serif;
+        font-family: "Ubuntu", sans-serif;
     }
 }
 
-.career-why-slider { 
-    
-    .swiper-wrapper { 
+.career-why-slider {
+    .swiper-wrapper {
         display: flex;
         align-items: stretch;
     }
 
-    &__item { 
+    &__item {
         height: auto !important;
     }
 
     &__wrapper {
-        background-color: #F3F3F3;
+        background-color: #f3f3f3;
         border-radius: 30px;
         padding: 40px 20px 40px 35px;
         height: 100%;
     }
 
-    &__icon { 
-
+    &__icon {
     }
 
-    &__title { 
+    &__title {
         margin: 30px 0 0 0;
         color: #333333;
-        font-family: 'Ubuntu', sans-serif;
+        font-family: "Ubuntu", sans-serif;
         font-weight: 500;
-        @include adaptiv-value('font-size', 26, 22, 1);
+        @include adaptiv-value("font-size", 26, 22, 1);
     }
 
-    &__text { 
+    &__text {
         max-width: 399px;
         margin: 25px 0 0 0;
         font-size: 19px;
         line-height: 29px;
         font-weight: 300;
 
-        @media(max-width: 767px) { 
+        @media (max-width: 767px) {
             margin: 20px 0 0 0;
             font-size: 16px;
             line-height: 24px;
         }
     }
 
-    &__buttons { 
-        @include adaptiv-value('margin-top', 70, 40, 1);
+    &__buttons {
+        @include adaptiv-value("margin-top", 70, 40, 1);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -254,55 +252,55 @@
         padding: 0;
         cursor: pointer;
 
-        svg { 
+        svg {
             width: 50px;
             height: 50px;
             object-fit: cover;
-            circle { 
+            circle {
                 transition: all 0.3s ease 0s;
             }
-            path { 
+            path {
                 transition: all 0.3s ease 0s;
             }
         }
 
-        &:hover { 
-            svg { 
-                circle { 
-                    stroke: #1FA169;
+        &:hover {
+            svg {
+                circle {
+                    stroke: #1fa169;
                 }
-                path { 
-                    stroke: #1FA169;
+                path {
+                    stroke: #1fa169;
                 }
             }
         }
     }
 
-    &__next { 
+    &__next {
         background-color: transparent;
         border: none;
         padding: 0;
         cursor: pointer;
 
-        svg { 
+        svg {
             width: 50px;
             height: 50px;
             object-fit: cover;
-            circle { 
+            circle {
                 transition: all 0.3s ease 0s;
             }
-            path { 
+            path {
                 transition: all 0.3s ease 0s;
             }
         }
 
-        &:hover { 
-            svg { 
-                circle { 
-                    stroke: #1FA169;
+        &:hover {
+            svg {
+                circle {
+                    stroke: #1fa169;
                 }
-                path { 
-                    stroke: #1FA169;
+                path {
+                    stroke: #1fa169;
                 }
             }
         }

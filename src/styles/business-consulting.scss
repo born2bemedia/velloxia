@@ -64,6 +64,7 @@
         filter: drop-shadow(12px 3px 23.3px #0000000d);
         &:nth-child(2) {
           transform: rotate(-6.24deg);
+          animation: bounce-custom 3.5s linear infinite;
           @media (max-width: rem(992)) {
             max-width: 100%;
             height: auto;
@@ -72,6 +73,7 @@
         }
         &:last-child {
           transform: rotate(15.59deg);
+          animation: bounce-custom 2.5s linear infinite;
           @media (max-width: rem(992)) {
             max-width: 55%;
             height: auto;
@@ -96,7 +98,8 @@
   @media (max-width: rem(992)) {
     margin: rem(100) 0 0 0;
     padding-bottom: rem(100);
-    background-image: none;
+    background-size: cover;
+    /* background-image: none; */
   }
   h2 {
     color: #333333;

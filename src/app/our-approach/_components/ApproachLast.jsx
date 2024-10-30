@@ -12,7 +12,7 @@ const ApproachLast = () => {
               words. Let’s go!
             </h2>
             <div className="approach-need__buttons">
-              <Link href="/contact" className="approach-need__link">
+              <Link href="/contact" className="approach-need__link _last">
                 Contact
               </Link>
             </div>
