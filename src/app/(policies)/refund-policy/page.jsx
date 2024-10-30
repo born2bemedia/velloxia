@@ -15,7 +15,8 @@ const fetchPageBySlugServer = async (slug) => {
         id: post.id,
         slug: post.slug,
         title: post.title,
-        content: post.Texts,
+        content: post.content,
+        date: post.date,
       }
     : null;
 };
@@ -34,62 +35,20 @@ const PolicyInner = async () => {
   const slug = "refund-policy";
   const singlePage = await fetchPageBySlugServer(slug);
 
-
   if (!singlePage) {
     return <div>Page not found</div>; // Handle post not found
   }
 
-  // Option 2: Map over each content block and render individually
-  const renderedContent = singlePage.content.map((block) => (
-    <div className="block" key={block.id}>
-      <ReactMarkdown>{block.contents}</ReactMarkdown>
-    </div>
-  ));
-
   return (
     <>
-      {" "}
-      <section className="policy-hero">
-        <div className="_container">
-          <div className="policy-hero__body">
-            <div className="top">
-              <h1>{singlePage.title}</h1>
-              <p>Last Updated: 29 October, 2024</p>
-            </div>
-          </div>
-        </div>
-      </section>
       <section className="policy-inner">
         <div className="_container">
-          <div className="policy-inner__body">{renderedContent}</div>
-        </div>
-      </section>
-      <section className="policy-contact">
-        <div className="policy-contact__container _container">
-          <div className="policy-contact__body">
-            <div className="policy-contact__content">
-              <h2 className="policy-contact__title">Contact Us</h2>
-              <p className="policy-contact__subtitle">
-                For inquiries regarding the refund process, please reach out to
-                us at:
-              </p>
-              <div className="policy-contact__buttons">
-                <span className="policy-contact__link">
-                  Phone:{" "}
-                  <Link href="tel:">Phone</Link>
-                </span>
-                <span className="policy-contact__link">
-                  Email:{" "}
-                  <Link href="mailto:info@velloxia.com">info@velloxia.com</Link>
-                </span>
-                <span className="policy-contact__link">
-                  Website:{" "}
-                  <Link href="https://velloxia.com/">
-                    https://velloxia.com/
-                  </Link>
-                </span>
-              </div>
+          <div className="policy-inner__body">
+            <div className="top">
+              <h1>{singlePage.title}</h1>
+              <span>{singlePage.date}</span>
             </div>
+            <ReactMarkdown>{singlePage.content}</ReactMarkdown>
           </div>
         </div>
       </section>
