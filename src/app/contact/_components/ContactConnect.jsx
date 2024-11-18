@@ -38,7 +38,7 @@ const ContactConnect = () => {
                                 </div>
                                 <div className="contact-connect__block">
                                     <h3 className="contact-connect__label">Email</h3>
-                                    <Link href="mailto:" className="contact-connect__link">Email</Link>
+                                    <Link href="mailto:info@velloxia.com" className="contact-connect__link">info@velloxia.com</Link>
                                 </div>
                             </div>
                         </div>
