@@ -29,7 +29,7 @@ const ContactConnect = () => {
                                 </div>
                                 <div className="contact-connect__block">
                                     <h3 className="contact-connect__label">Phone</h3>
-                                    <Link href="tel:" className="contact-connect__link">Phone</Link>
+                                    <Link href="tel:+35723010082" className="contact-connect__link">+35723010082</Link>
                                 </div>
                             </div>
                             <div className="contact-connect__item">

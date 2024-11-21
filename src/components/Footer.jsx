@@ -98,9 +98,9 @@ const Footer = () => {
                         </Link>
                       </li>
                       <li className="footer__menu-item">
-                        <Link href="#" className="footer__menu-link">
+                        <Link href="tel:+35723010082" className="footer__menu-link">
                           <img src="images/phone.svg" />
-                          <span>phone</span>
+                          <span>+35723010082</span>
                         </Link>
                       </li>
                     </ul>
@@ -118,9 +118,9 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li className="footer__contact">
-                    <Link href="#" className="footer__menu-link">
+                    <Link href="tel:+35723010082" className="footer__menu-link">
                       <img src="images/phone.svg" />
-                      phone
+                      +35723010082
                     </Link>
                   </li>
                   <li className="footer__contact">
