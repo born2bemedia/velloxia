@@ -14,7 +14,7 @@ const Footer = () => {
                 <Link href="/" className="footer__logo">
                   <img src="/logo-white.svg" alt="logo" />
                 </Link>
-                <h2 className="footer__title">NOSCEMO LTD </h2>
+                <h2 className="footer__title">Noscemo LTD</h2>
                 <div className="footer__text">
                   Business and Marketing Consultancy Leading You to Success.
                 </div>
