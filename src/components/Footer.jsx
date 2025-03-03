@@ -191,7 +191,7 @@ const Footer = () => {
           </div>
           <div className="footer__row-03">
             <div className="footer__copy">
-              © {currentYear} NOSCEMO LTD. All rights reserved.
+              © {currentYear} Noscemo LTD. All rights reserved.
             </div>
           </div>
         </div>
