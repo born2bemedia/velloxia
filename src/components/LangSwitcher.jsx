@@ -105,6 +105,20 @@ const LangSwitcher = () => {
             <img src="/images/IT.svg" />
             Italian
           </li>
+          <li
+            onClick={() => handleLanguageChange("el", "EL")}
+            style={{
+              padding: "7px 0",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              color: "#fff",
+            }}
+          >
+            <img src="/images/EL.svg" />
+            Greek
+          </li>
         </ul>
       )}
 
