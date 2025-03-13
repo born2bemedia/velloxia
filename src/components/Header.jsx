@@ -6,6 +6,7 @@ import Link from "next/link";
 import CartIcon from "@/icons/CartIcon";
 import MenuIcon from "@/icons/MenuIcon";
 import MenuClose from "@/icons/MenuClose";
+import LangSwitcher from "./LangSwitcher";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -38,6 +39,10 @@ const Header = () => {
             <img src="/logo.svg" alt="Logo" />
           </Link>
           <div className="actions">
+            <div className="language">
+              <LangSwitcher />
+            </div>
+            <span></span>
             <Link href="/cart" className="cart" onClick={closeMenu}>
               <CartIcon />
             </Link>

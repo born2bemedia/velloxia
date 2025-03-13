@@ -17,6 +17,7 @@ textarea {
 body {
   margin: 0;
   background: #ffffff;
+  top: 0 !important;
   @media (max-width: rem(992)) {
   }
   &.no-scroll {
@@ -124,6 +125,10 @@ a {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.skiptranslate { 
+  display: none !important;
 }
 
 .fadeInUp {
