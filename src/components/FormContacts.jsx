@@ -7,6 +7,7 @@ import PhoneInput from "react-phone-input-2";
 import useCountryCode from "@/utils/useCountryCode";
 import Select from "react-select";
 import Link from "next/link";
+import {excludedCountries} from "@/utils/countries";
 
 const CustomSelect = ({ name, options, ...props }) => {
   const { setFieldValue, setFieldTouched, errors, touched, values } = useFormikContext();
@@ -139,6 +140,7 @@ function FormContacts() {
                       <PhoneInput
                         country={countryCode}
                         value={field.value}
+                        excludeCountries={excludedCountries}
                         onChange={(value) => form.setFieldValue("phone", value)}
                         placeholder="Phone:"
                         className={form.touched.phone && form.errors.phone ? "invalid" : ""}

@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import ChangePassword from "./ChangePassword";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import {excludedCountries} from "@/utils/countries";
 
 const getCountryOptionByCode = (code) => {
   const countries = countryList().getData();
@@ -236,6 +237,7 @@ const PersonalData = () => {
                         value={values.phone}
                         placeholder="Phone Number"
                         onChange={(phone) => setFieldValue("phone", phone)}
+                        excludeCountries={excludedCountries}
                         className={
                           touched.phone && errors.phone ? "invalid" : ""
                         }
@@ -311,7 +313,9 @@ const PersonalData = () => {
                         {({ field }) => (
                           <Select
                             {...field}
-                            options={countryList().getData()}
+                            options={countryList().getData().filter(country =>
+                              !excludedCountries.includes(country.value.toLowerCase())
+                            )}
                             styles={customStyles}
                             className={`form-field ${
                               touched.country && errors.country ? "invalid" : ""
