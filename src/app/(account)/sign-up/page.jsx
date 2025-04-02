@@ -9,6 +9,7 @@ import Link from "next/link";
 import CheckboxIcon from "@/icons/CheckboxIcon";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import {excludedCountries} from "@/utils/countries";
 
 export default function SignUp() {
   const [thanksPopupShow, setThanksPopupShow] = useState(false);
@@ -153,6 +154,7 @@ export default function SignUp() {
                     country={"us"}
                     value={values.phone}
                     placeholder="Phone Number"
+                    excludeCountries={excludedCountries}
                     onChange={(phone) => setFieldValue("phone", phone)}
                     className={touched.phone && errors.phone ? "invalid" : ""}
                   />

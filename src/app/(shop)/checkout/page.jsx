@@ -12,10 +12,13 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import useCartStore from "@/stores/cartStore"; // Zustand cart store
 import useAuthStore from "@/stores/authStore"; // Zustand auth store
-import useOrderStore from "@/stores/orderStore"; // Zustand order store
+import useOrderStore from "@/stores/orderStore";
+import { excludedCountries } from "@/utils/countries";
 
 const getCountryOptionByCode = (code) => {
-  const countries = countryList().getData();
+  const countries = countryList().getData().filter(country =>
+    !excludedCountries.includes(country.value.toLowerCase())
+  );
   return countries.find((country) => country.value === code);
 };
 
@@ -385,7 +388,9 @@ const CartPage = () => {
                                 {({ field }) => (
                                   <Select
                                     {...field}
-                                    options={countryList().getData()}
+                                    options={countryList().getData().filter(country =>
+                                      !excludedCountries.includes(country.value.toLowerCase())
+                                    )}
                                     styles={customStyles}
                                     className={`form-field ${
                                       touched.country && errors.country
@@ -454,6 +459,7 @@ const CartPage = () => {
                                 onChange={(phone) =>
                                   setFieldValue("phone", phone)
                                 }
+                                excludeCountries={excludedCountries}
                                 className={
                                   touched.phone && errors.phone ? "invalid" : ""
                                 }

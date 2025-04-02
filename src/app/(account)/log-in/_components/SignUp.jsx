@@ -7,7 +7,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import CheckboxIcon from "@/icons/CheckboxIcon";
-import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 export default function SignUp() {

@@ -46,7 +46,7 @@ const CartPage = () => {
                             </button>
                             <span>{item.name}</span>
                           </div>
-                          <div>{item.attributes.price}</div>
+                          <div>{item.attributes?.price}</div>
                           <div>
                             <div className="qt">
                               <img
@@ -63,7 +63,7 @@ const CartPage = () => {
                             </div>
                           </div>
 
-                          <div>{item.quantity * item.attributes.price}</div>
+                          <div>{item.quantity * item.attributes?.price}</div>
                         </div>
                       ))}
                     </div>

@@ -6,6 +6,7 @@ import PhoneInput from "react-phone-input-2";
 import useCountryCode from "@/utils/useCountryCode";
 import "react-phone-input-2/lib/style.css";
 import Link from "next/link";
+import {excludedCountries} from "@/utils/countries";
 
 const readFileAsBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -156,6 +157,7 @@ function CareerForm() {
                                                 value={field.value}
                                                 onChange={(value) => form.setFieldValue("phone", value)}
                                                 placeholder="Your phone"
+                                                excludeCountries={excludedCountries}
                                                 className={
                                                     form.touched.phone && form.errors.phone
                                                         ? "invalid"
