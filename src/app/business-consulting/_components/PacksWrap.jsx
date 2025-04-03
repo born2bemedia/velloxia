@@ -28,7 +28,12 @@ const PacksWrap = ({ products, title }) => {
                   />
                 </div>
                 <div className="bottom">
-                  <div className="price">€{product.price}</div>
+                  <div className="price">
+                    €{product.price}
+                    {product.per_price && (
+                      <span className="per-price">{product.per_price}</span>
+                    )}
+                  </div>
                   <AddToCartButton product={product} />
                 </div>
               </div>
@@ -85,7 +90,9 @@ const PacksWrap = ({ products, title }) => {
         </div>
 
         <div className="buttons fadeInUp">
-          <Link target="_blank" href="/business_consulting_price_list.pdf">Download Price List</Link>
+          <Link target="_blank" href="/business_consulting_price_list.pdf">
+            Download Price List
+          </Link>
           <Link href="/contact">Contact</Link>
         </div>
       </div>

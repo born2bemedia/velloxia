@@ -196,6 +196,15 @@
             font-weight: 500;
             line-height: 1.2;
             text-align: left;
+            span {
+              color: #333333;
+              font-size: rem(14);
+              font-weight: 300;
+              line-height: 1.2;
+              text-align: left;
+              margin-left: rem(5);
+              display: inline-block;
+            }
           }
           button {
             cursor: pointer;

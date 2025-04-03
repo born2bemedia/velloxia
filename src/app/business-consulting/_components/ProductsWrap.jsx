@@ -26,7 +26,12 @@ const ProductsWrap = ({ products, title }) => {
                   />
                 </div>
                 <div className="bottom">
-                  <div className="price">€{product.price}</div>
+                  <div className="price">
+                    €{product.price}
+                    {product.per_price && (
+                      <span className="per-price">{product.per_price}</span>
+                    )}
+                  </div>
                   <AddToCartButton product={product} />
                 </div>
               </div>

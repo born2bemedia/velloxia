@@ -29,6 +29,8 @@ const BusinessConsulting = async () => {
     "marketing-consulting-packs"
   );
 
+  console.log(businessConsultingProducts);
+
 
   return (
     <>
