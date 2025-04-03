@@ -1,6 +1,6 @@
-import { create } from 'zustand'; // Use named import for `create`
-import qs from 'qs';
-import axiosClient from '@/app/api/GlobalApi';
+import { create } from "zustand"; // Use named import for `create`
+import qs from "qs";
+import axiosClient from "@/app/api/GlobalApi";
 
 // Create Zustand store
 const useProductStore = create((set, get) => ({
@@ -10,7 +10,16 @@ const useProductStore = create((set, get) => ({
       const response = await axiosClient.get(
         `products?` +
           qs.stringify({
-            fields: ['id', 'slug', 'title', 'description', 'price', 'category', 'documentId'],
+            fields: [
+              "id",
+              "slug",
+              "title",
+              "description",
+              "price",
+              "category",
+              "documentId",
+              "per_price",
+            ],
             pagination: { pageSize: 9999 },
           })
       );
@@ -22,17 +31,16 @@ const useProductStore = create((set, get) => ({
         description: product.description,
         price: product.price,
         category: product.category,
+        per_price: product.per_price,
       }));
 
       set({ products: response.data.data });
     } catch (error) {
-      console.error('Error fetching products:', error);
+      console.error("Error fetching products:", error);
     }
   },
   getProductByCategory: (category) => {
-    return get().products.filter(
-      (product) => product.category === category
-    );
+    return get().products.filter((product) => product.category === category);
   },
   getProductByCategoryHome: (category, count = 9999) => {
     const products = get().products.filter(
