@@ -1,8 +1,8 @@
 import Script from "next/script";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const LangSwitcher = () => {
-  const [currentLang, setCurrentLang] = useState("EN");
+  const [currentLang, setCurrentLang] = useState("EL");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleLanguageChange = (language, languageCode) => {
@@ -30,6 +30,10 @@ const LangSwitcher = () => {
 
     retryDispatchEvent();
   };
+
+  useEffect(() => {
+    document.cookie = `googtrans=/en/el;path=/;domain=${window.location.hostname}`;
+  }, []);
 
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
