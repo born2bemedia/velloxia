@@ -7,6 +7,7 @@ import CartIcon from "@/icons/CartIcon";
 import MenuIcon from "@/icons/MenuIcon";
 import MenuClose from "@/icons/MenuClose";
 import LangSwitcher from "./LangSwitcher";
+import GTranslateSwitcher from "./GTranslateSwitcher";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -40,7 +41,7 @@ const Header = () => {
           </Link>
           <div className="actions">
             <div className="language">
-              <LangSwitcher />
+              <GTranslateSwitcher />
             </div>
             <span></span>
             <Link href="/cart" className="cart" onClick={closeMenu}>
@@ -49,16 +50,33 @@ const Header = () => {
             <span></span>
             <nav className={`header__nav ${isActive ? "_active" : ""}`}>
               <ul className="header__menu">
-                {["business-consulting", "marketing-consulting", "our-approach", "career", "help", "contact", "log-in"].map((path, index) => (
+                {[
+                  "business-consulting",
+                  "marketing-consulting",
+                  "our-approach",
+                  "career",
+                  "help",
+                  "contact",
+                  "log-in",
+                ].map((path, index) => (
                   <li className="header__item" key={index}>
-                    <Link href={`/${path}`} className="header__link" onClick={closeMenu}>
-                      {path.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
+                    <Link
+                      href={`/${path}`}
+                      className="header__link"
+                      onClick={closeMenu}
+                    >
+                      {path
+                        .replace("-", " ")
+                        .replace(/\b\w/g, (l) => l.toUpperCase())}
                     </Link>
                   </li>
                 ))}
               </ul>
             </nav>
-            <button className={`menu-btn ${isActive ? "_active" : ""}`} onClick={toggleMenu}>
+            <button
+              className={`menu-btn ${isActive ? "_active" : ""}`}
+              onClick={toggleMenu}
+            >
               {isActive ? <MenuClose /> : <MenuIcon />}
             </button>
           </div>
