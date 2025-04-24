@@ -7,7 +7,6 @@ import CartIcon from "@/icons/CartIcon";
 import MenuIcon from "@/icons/MenuIcon";
 import MenuClose from "@/icons/MenuClose";
 import LangSwitcher from "./LangSwitcher";
-import GTranslateSwitcher from "./GTranslateSwitcher";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -41,7 +40,7 @@ const Header = () => {
           </Link>
           <div className="actions">
             <div className="language">
-              <GTranslateSwitcher />
+              <LangSwitcher />
             </div>
             <span></span>
             <Link href="/cart" className="cart" onClick={closeMenu}>
