@@ -32,10 +32,9 @@ const CookiePopup = () => {
       <div className={styles.content}>
         <h2>Cookie settings</h2>
         <p>
-          We use cookies to improve your experience on our website. By
-          continuing to browse, you accept cookies for analytics, personalized
-          content, and ads. For more information, please see our{" "}
-          <a href="/cookie-policy">Cookie Policy</a>.
+          To improve your browsing experience, we use cookies. By continuing to
+          use this website, you consent to our cookie policy. Please check our{" "}
+          <a href="/cookie-policy">Cookie Policy</a>{" "}for more details.
         </p>
       </div>
       <div className={styles.buttons}>
