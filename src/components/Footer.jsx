@@ -18,7 +18,7 @@ const Footer = () => {
                 <div className="footer__text">
                   Business and Marketing Consultancy Leading You to Success.
                 </div>
-                <div className="soc">
+                {/* <div className="soc">
                   <a href="#">
                     <img src="/images/inst.svg" />
                   </a>
@@ -28,7 +28,7 @@ const Footer = () => {
                   <a href="#">
                     <img src="/images/fb.svg" />
                   </a>
-                </div>
+                </div> */}
               </div>
               <div className="footer__col-02">
                 <div className="nav-row">
@@ -143,7 +143,7 @@ const Footer = () => {
                       </Link>
                     </span>
                   </li>
-                  <li className="footer__contact">
+                  {/* <li className="footer__contact">
                     <div className="soc">
                       <a href="#">
                         <img src="/images/inst.svg" />
@@ -155,7 +155,7 @@ const Footer = () => {
                         <img src="/images/fb.svg" />
                       </a>
                     </div>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
