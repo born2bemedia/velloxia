@@ -7,7 +7,7 @@ import { PopupsProvider } from "@/context/PopupsContext";
 import CareerPopup from "@/components/CareerPopup";
 import { ToastContainer } from "react-toastify";
 import Preloader from "@/components/Preloader";
-
+import CookiePopup from "@/components/CookiePopup/CookiePopup";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -32,6 +32,7 @@ export default function RootLayout({ children }) {
           <ToastContainer />
           <CareerPopup />
         </PopupsProvider>
+        <CookiePopup />
       </body>
     </html>
   );

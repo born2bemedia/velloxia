@@ -1,0 +1,120 @@
+.cookiePopup {
+  position: fixed;
+  bottom: 55px;
+  left: 40px;
+  display: flex;
+  width: 1278px;
+  padding: 40px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  z-index: 1000;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0px 2px 18.5px 0px rgba(0, 0, 0, 0.08);
+  display: none;
+  max-width: 100%;
+  background-image: url("/images/cookie.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (max-width: 992px) {
+    padding: 40px 20px;
+    bottom: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    flex-direction: column;
+    background-image: url("/images/cookieMob.svg");
+  }
+
+  &.visible {
+    display: flex;
+  }
+
+  .content {
+    width: 50%;
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+  }
+
+  h2 {
+    color: #333;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2; /* 195% */
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-top: 0;
+    @media (max-width: 992px) {
+      font-size: 36px;
+    }
+  }
+
+  p {
+    color: var(--black, #333);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 26px; /* 144.444% */
+    margin: 0;
+    a {
+      color: #333;
+
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    width: 50%;
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    button {
+      width: calc(50% - 12px);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 16px 24px;
+      @media (max-width: 992px) {
+        width: 100%;
+      }
+      &.decline {
+        border-radius: 30px;
+        border: 1px solid #555;
+        background: #fff;
+        color: #333;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 1;
+        &:hover {
+          background-color: #1fa169;
+          color: #fff;
+        }
+      }
+
+      &.accept {
+        border: 1px solid #1fa169;
+        border-radius: 30px;
+        background: #1fa169;
+        color: #fff;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        &:hover {
+          background-color: #fff;
+          color: #333;
+        }
+      }
+    }
+  }
+}
