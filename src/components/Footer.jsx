@@ -18,17 +18,6 @@ const Footer = () => {
                 <div className="footer__text">
                   Business and Marketing Consultancy Leading You to Success.
                 </div>
-                {/* <div className="soc">
-                  <a href="#">
-                    <img src="/images/inst.svg" />
-                  </a>
-                  <a href="#">
-                    <img src="/images/x.svg" />
-                  </a>
-                  <a href="#">
-                    <img src="/images/fb.svg" />
-                  </a>
-                </div> */}
               </div>
               <div className="footer__col-02">
                 <div className="nav-row">
@@ -143,19 +132,19 @@ const Footer = () => {
                       </Link>
                     </span>
                   </li>
-                  {/* <li className="footer__contact">
+                  <li className="footer__contact">
                     <div className="soc">
-                      <a href="#">
+                      <a href="https://www.instagram.com/velloxiacom">
                         <img src="/images/inst.svg" />
                       </a>
-                      <a href="#">
+                      <a href="https://x.com/Velloxiacom">
                         <img src="/images/x.svg" />
                       </a>
-                      <a href="#">
+                      <a href="https://www.facebook.com/velloxiaconsulting/">
                         <img src="/images/fb.svg" />
                       </a>
                     </div>
-                  </li> */}
+                  </li>
                 </ul>
               </div>
             </div>
