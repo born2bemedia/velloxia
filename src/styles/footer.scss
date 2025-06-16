@@ -74,9 +74,10 @@
   }
 
   &__col-02 {
-    width: 100%;
+    width: calc(100% - 400px);
     @media (max-width: 992px) {
       margin: 0 0 16px 0;
+      width: 100%;
     }
 
     .nav-row {
@@ -115,8 +116,11 @@
         display: flex;
         gap: 10px;
 
+        width: 33.33%;
+        white-space: wrap;
         @media (max-width: 992px) {
           white-space: wrap;
+          width: 100%;
         }
         &:first-child,
         &:nth-child(2) {
@@ -128,13 +132,19 @@
         &:last-child {
           flex-grow: 1;
           @media (max-width: 992px) {
-            display: none;
+            //display: none;
+            justify-content: flex-start;
+            width: 100%;
           }
         }
         > a {
           display: flex;
           gap: 10px;
           align-items: center;
+        }
+        >img{
+          width: 20px;
+          height: 20px;
         }
         span {
           width: calc(100% - 30px);
@@ -154,6 +164,10 @@
           flex-grow: 1;
           gap: 16px;
           margin-right: 72px;
+          @media (max-width: 992px) {
+            margin-right: 0;
+            justify-content: flex-start;
+          }
           a {
             display: flex;
           }
