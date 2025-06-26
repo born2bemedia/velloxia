@@ -39,5 +39,33 @@
       "visitHelpCenter": "Visit Help Center",
       "contact": "Contact"
     }
+  },
+  "contact": {
+    "hero": {
+      "title": "Reach Out for Expert Assistance"
+    },
+    "contact": {
+      "title": {
+        "0": "Connect with",
+        "1": "Velloxia"
+      }
+    },
+    "connect": {
+      "title": {
+        "0": "Direct",
+        "1": "Contact:"
+      },
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "location": {
+      "title": {
+        "0": "Our",
+        "1": "Location:"
+      },
+      "registeredAddress": "Registered address:",
+      "officeAddress": "Office address:",
+      "findUs": "Find us here:"
+    }
   }
 }
