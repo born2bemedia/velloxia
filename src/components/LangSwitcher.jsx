@@ -1,10 +1,19 @@
 import { useLocale } from 'next-intl'
-import Script from 'next/script'
-import { useEffect, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 const LangSwitcher = () => {
   const currentLang = useLocale()
+  const pathname = usePathname()
+  const router = useRouter()
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  const switchLanguage = (value) => {
+    const segments = pathname.split('/')
+    segments[1] = value
+    const newPath = segments.join('/')
+    router.replace(newPath)
+  }
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
@@ -38,6 +47,7 @@ const LangSwitcher = () => {
           }}
         >
           <li
+            onClick={() => switchLanguage('en')}
             style={{
               padding: '7px 0',
               cursor: 'pointer',
@@ -51,6 +61,7 @@ const LangSwitcher = () => {
             English
           </li>
           <li
+            onClick={() => switchLanguage('de')}
             style={{
               padding: '7px 0',
               cursor: 'pointer',
@@ -64,6 +75,7 @@ const LangSwitcher = () => {
             German
           </li>
           <li
+            onClick={() => switchLanguage('it')}
             style={{
               padding: '7px 0',
               cursor: 'pointer',
@@ -77,6 +89,7 @@ const LangSwitcher = () => {
             Italian
           </li>
           <li
+            onClick={() => switchLanguage('el')}
             style={{
               padding: '7px 0',
               cursor: 'pointer',

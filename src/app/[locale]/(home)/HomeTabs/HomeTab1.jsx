@@ -1,83 +1,82 @@
-"use client";
-import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import ArrowRight from "@/icons/slider/ArrowRight";
-import ArrowLeft from "@/icons/slider/ArrowLeft";
-import useProductStore from "@/stores/productsStore";
-import AddToCartButton from "@/components/AddToCartButton";
+'use client'
+import React, { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import ArrowRight from '@/icons/slider/ArrowRight'
+import ArrowLeft from '@/icons/slider/ArrowLeft'
+import useProductStore from '@/stores/productsStore'
+import AddToCartButton from '@/components/AddToCartButton'
+import { useTranslations } from 'next-intl'
 
 const slides = [
   {
-    number: "01.",
-    title: "Business Planning & Strategy",
-    text: "Business Plan Creation, Business Strategy Development, Feasibility Study, Succession Planning",
-    price: "€6,500",
+    number: '01.',
+    title: 'Business Planning & Strategy',
+    text: 'Business Plan Creation, Business Strategy Development, Feasibility Study, Succession Planning',
+    price: '€6,500',
   },
   {
-    number: "02.",
-    title: "Branding & Positioning",
-    text: "Business Name and Branding Consultation, Investor Pitch Deck Development, Partnerships and Networking Strategy",
-    price: "€5,200",
+    number: '02.',
+    title: 'Branding & Positioning',
+    text: 'Business Name and Branding Consultation, Investor Pitch Deck Development, Partnerships and Networking Strategy',
+    price: '€5,200',
   },
   {
-    number: "03.",
-    title: "Legal & Compliance",
-    text: "Legal and Compliance Consultation, Compliance Review and Auditing, Expert Consultations",
-    price: "€4,500",
+    number: '03.',
+    title: 'Legal & Compliance',
+    text: 'Legal and Compliance Consultation, Compliance Review and Auditing, Expert Consultations',
+    price: '€4,500',
   },
   {
-    title: "Custom Slide",
+    title: 'Custom Slide',
   },
-];
+]
 
 const HomeTab1 = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const swiperRef = useRef(null);
-  const { fetchProducts, getProductByCategoryHome } =
-    useProductStore.getState();
-  const [productsArray, setProductsArray] = useState([]);
+  const t = useTranslations('home.solutions')
+
+  const [isMobile, setIsMobile] = useState(false)
+  const swiperRef = useRef(null)
+  const { fetchProducts, getProductByCategoryHome } = useProductStore.getState()
+  const [productsArray, setProductsArray] = useState([])
 
   useEffect(() => {
     const fetchAndSetProducts = async () => {
-      await fetchProducts();
-      const businessConsultingProducts = getProductByCategoryHome(
-        "business-consulting-packs",
-        3
-      );
-      setProductsArray(businessConsultingProducts);
-      console.log("productsArray", businessConsultingProducts);
-    };
+      await fetchProducts()
+      const businessConsultingProducts = getProductByCategoryHome('business-consulting-packs', 3)
+      setProductsArray(businessConsultingProducts)
+      console.log('productsArray', businessConsultingProducts)
+    }
 
-    fetchAndSetProducts();
-  }, []);
+    fetchAndSetProducts()
+  }, [])
 
   const nextSlide = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext();
+      swiperRef.current.swiper.slideNext()
     }
-  };
+  }
 
   const prevSlide = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev();
+      swiperRef.current.swiper.slidePrev()
     }
-  };
+  }
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 992);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    const handleResize = () => setIsMobile(window.innerWidth <= 992)
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
-  const slidesForLoop = [...slides, ...slides];
+  const slidesForLoop = [...slides, ...slides]
 
   return (
     <div className="tabs-home__tab tab1">
       <div className="tabs-home__wrapper">
-        <h3 className="tabs-home__label">Top business packs</h3>
+        <h3 className="tabs-home__label">{t('topBusinessPacks')}</h3>
         {productsArray.length > 0 ? (
           <Swiper
             className="home-solutions-slider"
@@ -90,26 +89,21 @@ const HomeTab1 = () => {
               1200: { slidesPerView: 3 },
             }}
             effect="slide"
-            
           >
             {productsArray.map((product, index) => (
               <SwiperSlide key={index} className="home-solutions-slider__item">
                 <div className="home-solutions-slider__wrapper">
                   <div className="home-solutions-slider__number">
-                    {String(index + 1).padStart(2, "0")}.
+                    {String(index + 1).padStart(2, '0')}.
                   </div>
-                  <h3 className="home-solutions-slider__title">
-                    {product.title}
-                  </h3>
-                  <p className="home-solutions-slider__label">Includes:</p>
+                  <h3 className="home-solutions-slider__title">{product.title}</h3>
+                  <p className="home-solutions-slider__label">{t('includes')}</p>
                   <div
                     className="home-solutions-slider__text"
                     dangerouslySetInnerHTML={{ __html: product.description }}
                   />
                   <div className="home-solutions-slider__bottom">
-                    <div className="home-solutions-slider__price">
-                      €{product.price}
-                    </div>
+                    <div className="home-solutions-slider__price">€{product.price}</div>
                     <AddToCartButton product={product} />
                   </div>
                 </div>
@@ -118,13 +112,13 @@ const HomeTab1 = () => {
             <SwiperSlide className="home-solutions-slider__item">
               <div className="home-solutions-slider__custom">
                 <Link href="/business-consulting/" className="custom-link">
-                  More business packs
+                  {t('more')}
                 </Link>
               </div>
             </SwiperSlide>
           </Swiper>
         ) : (
-          <div>Loading...</div>
+          <div>{t('loading')}</div>
         )}
 
         <div className="home-solutions-slider__buttons">
@@ -137,7 +131,7 @@ const HomeTab1 = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HomeTab1;
+export default HomeTab1

@@ -1,1 +1,43 @@
-{}
+{
+  "home": {
+    "hero": {
+      "title": {
+        "0": "Fuel Your Brand",
+        "1": "with Expert Business & Marketing Solutions"
+      }
+    },
+    "business": {
+      "title": {
+        "0": "Top Business Consulting",
+        "1": "Services"
+      },
+      "loading": "Loading...",
+      "more": "More services"
+    },
+    "marketing": {
+      "title": {
+        "0": "Top Marketing Consulting",
+        "1": "Services"
+      },
+      "loading": "Loading...",
+      "more": "More services"
+    },
+    "solutions": {
+      "title": {
+        "0": "Comprehensive",
+        "1": "Solutions",
+        "2": "for Your Challenges"
+      },
+      "topBusinessPacks": "Top business packs",
+      "topMarketingPacks": "Top marketing packs",
+      "includes": "Includes:",
+      "loading": "Loading...",
+      "more": "More business packs"
+    },
+    "help": {
+      "title": "Need Help?",
+      "visitHelpCenter": "Visit Help Center",
+      "contact": "Contact"
+    }
+  }
+}

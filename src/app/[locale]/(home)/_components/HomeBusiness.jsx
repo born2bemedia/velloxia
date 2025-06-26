@@ -12,6 +12,7 @@ import ArrowLeft from '@/icons/slider/ArrowLeft'
 import ArrowRight from '@/icons/slider/ArrowRight'
 import useProductStore from '@/stores/productsStore'
 import AddToCartButton from '@/components/AddToCartButton'
+import { useTranslations } from 'next-intl'
 
 const slides = [
   {
@@ -35,6 +36,8 @@ const slides = [
 ]
 
 const HomeMarketing = () => {
+  const t = useTranslations('home.business')
+
   const { fetchProducts, getProductByCategoryHome } = useProductStore.getState()
   const [productsArray, setProductsArray] = useState([])
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -74,7 +77,7 @@ const HomeMarketing = () => {
             variants={fadeInUp}
             className="home-business__title"
           >
-            Top Business Consulting <span>Services</span>
+            {t('title.0')} <span>{t('title.1')}</span>
           </motion.h2>
           <div className="home-business__content">
             <div className="home-business__wrapper">
@@ -121,13 +124,13 @@ const HomeMarketing = () => {
                     ))}
                   </Swiper>
                 ) : (
-                  <div>Loading...</div>
+                  <div>{t('loading')}</div>
                 )}
               </div>
               <div className="home-business__col-02">
                 <div className="home-business__banner">
                   <Link href="/business-consulting/" className="home-business__more">
-                    More services
+                    {t('more')}
                   </Link>
                 </div>
               </div>
