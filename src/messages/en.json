@@ -67,5 +67,29 @@
       "officeAddress": "Office address:",
       "findUs": "Find us here:"
     }
+  },
+  "help": {
+    "hero": {
+      "title": {
+        "0": "Common Questions,",
+        "1": "Clear Answers"
+      }
+    },
+    "tabs": {
+      "insights": "Insights"
+    },
+    "accordion": {
+      "0": "Do you offer services beyond what's listed on your website?",
+      "1": "Absolutely. You can contact us directly or order a Common Expert Consultation to discuss your specific case and receive tailored assistance.",
+      "2": "What if I'm not satisfied with your solution?",
+      "3": "We value transparency and open communication. If you're unsatisfied with our solution, let us know what doesn't work for you, and we'll make the necessary adjustments to fit your needs better.",
+      "4": "What if your solution doesn't work in my market?",
+      "5": "Markets are constantly evolving, and successful businesses must adapt to these changes. We offer ongoing support to help you navigate dynamic environments. Our solutions are designed for flexibility, allowing for continued cooperation and adjustments as needed.",
+      "6": "What can I expect as a result of a consultation?",
+      "7": "You'll receive detailed documentation, such as market research, business strategies with step-by-step implementation plans, financial forecasts, and other actionable insights that guide your next steps with clarity."
+    },
+    "insights": {
+      "readTheGuide": "Read the Guide"
+    }
   }
 }

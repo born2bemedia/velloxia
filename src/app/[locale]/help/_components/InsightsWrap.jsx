@@ -1,13 +1,18 @@
-import OrderIcon from "@/icons/OrderIcon";
-import usePostStore from "@/stores/blogStore";
-import Link from "next/link";
-import React, { useEffect } from "react";
+import OrderIcon from '@/icons/OrderIcon'
+import usePostStore from '@/stores/blogStore'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import React, { useEffect } from 'react'
 
 const InsightsWrap = () => {
-  const { posts, fetchPosts, loading, error } = usePostStore();
+  const t = useTranslations('help.insights')
+
+  const { posts, fetchPosts, loading, error } = usePostStore()
+
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    fetchPosts()
+  }, [])
+
   return (
     <div className="posts-row">
       {posts.map((post) => (
@@ -21,12 +26,12 @@ const InsightsWrap = () => {
             <p>{post.excerpt}</p>
           </div>
           <div className="link">
-            Read the Guide <OrderIcon />
+            {t('readTheGuide')} <OrderIcon />
           </div>
         </Link>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default InsightsWrap;
+export default InsightsWrap
