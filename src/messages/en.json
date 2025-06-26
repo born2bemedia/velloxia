@@ -91,5 +91,77 @@
     "insights": {
       "readTheGuide": "Read the Guide"
     }
+  },
+  "ourApproach": {
+    "hero": {
+      "title": {
+        "0": "Understanding Your Needs,",
+        "1": "Delivering Results"
+      }
+    },
+    "second": {
+      "title": "You have a challenge in marketing or business or both. What is next?",
+      "subtitle": "Choose and order a service!",
+      "text": "You can pay it right from our website."
+    },
+    "need": {
+      "title": "I need:",
+      "business": "Business Consulting",
+      "marketing": "Marketing Consulting"
+    },
+    "steps": {
+      "0": {
+        "title": "We review your order and contact you for details.",
+        "text": "You will get a brief that will help us to discover your needs."
+      },
+      "1": {
+        "title": "We assemble a team of experts to cover each aspect of your challenge.",
+        "text": "Only the best business and marketing minds will work for you."
+      },
+      "2": {
+        "title": "Necessary consulting sessions are scheduled.",
+        "text": "We provide our solutions."
+      },
+      "3": {
+        "title": "You get all the necessary documentation so you can follow and consult it.",
+        "text": "You can get our professional guidance in implementation."
+      }
+    },
+    "stepsMob": {
+      "0": {
+        "title": {
+          "0": "We review your order",
+          "1": "and contact you",
+          "2": "for details."
+        },
+        "text": "You will get a brief that will help us to discover your needs."
+      },
+      "1": {
+        "title": "We assemble a team of experts to cover each aspect of your challenge.",
+        "text": "Only the best business and marketing minds will work for you."
+      },
+      "2": {
+        "title": {
+          "0": "Necessary consulting",
+          "1": "sessions are",
+          "2": "scheduled."
+        },
+        "text": {
+          "0": "We provide",
+          "1": "our solutions."
+        }
+      },
+      "3": {
+        "title": "You get all the necessary documentation so you can follow and consult it.",
+        "text": "You can get our professional guidance in implementation."
+      }
+    },
+    "last": {
+      "title": {
+        "0": "Our work is not just",
+        "1": "words. Let’s go!"
+      },
+      "contact": "Contact"
+    }
   }
 }
