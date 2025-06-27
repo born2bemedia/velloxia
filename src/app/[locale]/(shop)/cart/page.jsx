@@ -1,26 +1,23 @@
-"use client";
-import "@/styles/cart.scss";
-import React, { useState, useEffect } from "react";
-import DeleteIcon from "@/icons/DeleteIcon";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import useCartStore from "@/stores/cartStore"; // Імпорт Zustend Store
+'use client'
+import '@/styles/cart.scss'
+import React, { useState, useEffect } from 'react'
+import DeleteIcon from '@/icons/DeleteIcon'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import useCartStore from '@/stores/cartStore'
+import { useTranslations } from 'next-intl'
 
 const CartPage = () => {
-  const {
-    cart,
-    deleteFromCart,
-    clearCart,
-    totalAmount,
-    increaseQuantity,
-    decreaseQuantity,
-  } = useCartStore();
-  const [isMounted, setIsMounted] = useState(false);
-  const router = useRouter();
+  const t = useTranslations('cart')
+
+  const { cart, deleteFromCart, clearCart, totalAmount, increaseQuantity, decreaseQuantity } =
+    useCartStore()
+  const [isMounted, setIsMounted] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    setIsMounted(true)
+  }, [])
 
   return (
     <>
@@ -32,10 +29,10 @@ const CartPage = () => {
                 <div className="_container">
                   <div className="cart">
                     <div className="cart-head">
-                      <div>Service</div>
-                      <div>Price, €</div>
-                      <div>Quantity</div>
-                      <div>Subtotal, €</div>
+                      <div>{t('service')}</div>
+                      <div>{t('price')}</div>
+                      <div>{t('quantity')}</div>
+                      <div>{t('subtotal')}</div>
                     </div>
                     <div className="cart-content">
                       {cart.map((item) => (
@@ -68,10 +65,12 @@ const CartPage = () => {
                       ))}
                     </div>
 
-                    <div className="total">Total: {totalAmount}</div>
+                    <div className="total">
+                      {t('total')}: {totalAmount}
+                    </div>
                     <div className="button-wrap">
                       <Link className="main-button" href="/checkout">
-                        <span>Checkout</span>
+                        <span>{t('checkout')}</span>
                       </Link>
                     </div>
                   </div>
@@ -83,19 +82,16 @@ const CartPage = () => {
               <section className="cart-wrap empty">
                 <div className="_container">
                   <h1>
-                    It looks like you have not added any services to the cart
-                    yet.
-                    <span>
-                      Explore our offerings and choose the services you need.
-                    </span>
+                    {t('noData.0')}
+                    <span>{t('noData.1')}</span>
                   </h1>
                   <img src="/images/arrowDown.svg" />
                   <div className="buttons">
                     <Link href="/business-consulting">
-                      <span>Business Consulting</span>
+                      <span>{t('business')}</span>
                     </Link>
                     <Link href="/marketing-consulting">
-                      <span>Marketing Consulting</span>
+                      <span>{t('marketing')}</span>
                     </Link>
                   </div>
                 </div>
@@ -109,7 +105,7 @@ const CartPage = () => {
         </section>
       )}
     </>
-  );
-};
+  )
+}
 
-export default CartPage;
+export default CartPage

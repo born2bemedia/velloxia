@@ -1,42 +1,45 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { useRouter } from "next/navigation";
-import axios from "axios";
+'use client'
+import React, { useState, useEffect } from 'react'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
+import { useRouter } from 'next/navigation'
+import axios from 'axios'
+import { useTranslations } from 'next-intl'
 
 const ChangePasswordReset = ({ token }) => {
-  const [changePasswordError, setChangePasswordError] = useState("");
-  const [passwordChanged, setPasswordChanged] = useState(false);
-  const router = useRouter();
-  const [userToken, setUserToken] = useState(null);
+  const t = useTranslations('account.changePasswordReset')
+
+  const [changePasswordError, setChangePasswordError] = useState('')
+  const [passwordChanged, setPasswordChanged] = useState(false)
+  const router = useRouter()
+  const [userToken, setUserToken] = useState(null)
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setUserToken(token);
+    if (typeof window !== 'undefined') {
+      setUserToken(token)
     }
-  }, [token]);
+  }, [token])
 
   const initialValues = {
-    newPassword: "",
-    confirmPassword: "",
-  };
+    newPassword: '',
+    confirmPassword: '',
+  }
 
   const validationSchema = Yup.object().shape({
-    newPassword: Yup.string().required("New password is required"),
+    newPassword: Yup.string().required(t('errors.newPassRequired')),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("newPassword"), null], "Passwords must match")
-      .required("Confirm password is required"),
-  });
+      .oneOf([Yup.ref('newPassword'), null], t('errors.newPassMatch'))
+      .required(t('errors.confirmPassRequired')),
+  })
 
   const handleSubmit = async (values, { setSubmitting }) => {
     if (!userToken) {
-      setChangePasswordError("Invalid or expired token.");
-      setSubmitting(false);
-      return;
+      setChangePasswordError('Invalid or expired token.')
+      setSubmitting(false)
+      return
     }
 
-    const { newPassword, confirmPassword } = values;
+    const { newPassword, confirmPassword } = values
 
     try {
       const response = await axios.post(
@@ -45,33 +48,33 @@ const ChangePasswordReset = ({ token }) => {
           code: userToken, // token received in the reset link
           password: newPassword,
           passwordConfirmation: confirmPassword,
-        }
-      );
+        },
+      )
 
       if (response.status === 200) {
-        setPasswordChanged(true);
-        setChangePasswordError("");
+        setPasswordChanged(true)
+        setChangePasswordError('')
         setTimeout(() => {
-          setPasswordChanged(false);
-          router.push("/log-in");
-        }, 3000);
+          setPasswordChanged(false)
+          router.push('/log-in')
+        }, 3000)
       } else {
-        setChangePasswordError("Failed to change password.");
+        setChangePasswordError('Failed to change password.')
       }
     } catch (error) {
-      console.error("Failed to change password", error);
+      console.error('Failed to change password', error)
       setChangePasswordError(
-        error.response?.data?.message || "An error occurred. Please try again."
-      );
+        error.response?.data?.message || 'An error occurred. Please try again.',
+      )
     } finally {
-      setSubmitting(false);
+      setSubmitting(false)
     }
-  };
+  }
 
   return (
     <section className="change-password log-in">
       <div className="_container">
-        <h1>Change Password</h1>
+        <h1>{t('title')}</h1>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -79,63 +82,39 @@ const ChangePasswordReset = ({ token }) => {
         >
           {({ isSubmitting, touched, errors }) => (
             <Form>
-               <div>
-                  <label>
-                    <Field
-                      placeholder="New password"
-                      type="password"
-                      name="newPassword"
-                      className={
-                        touched.newPassword && errors.newPassword
-                          ? "invalid"
-                          : ""
-                      }
-                    />
-                  </label>
-                  <ErrorMessage
-                    className="error"
+              <div>
+                <label>
+                  <Field
+                    placeholder={t('fields.newPassword')}
+                    type="password"
                     name="newPassword"
-                    component="div"
+                    className={touched.newPassword && errors.newPassword ? 'invalid' : ''}
                   />
-                </div>
-                <div>
-                  <label>
-                    <Field
-                      placeholder="Confirm password"
-                      type="password"
-                      name="confirmPassword"
-                      className={
-                        touched.confirmPassword && errors.confirmPassword
-                          ? "invalid"
-                          : ""
-                      }
-                    />
-                  </label>
-                  <ErrorMessage
-                    className="error"
+                </label>
+                <ErrorMessage className="error" name="newPassword" component="div" />
+              </div>
+              <div>
+                <label>
+                  <Field
+                    placeholder={t('fields.confirmPassword')}
+                    type="password"
                     name="confirmPassword"
-                    component="div"
+                    className={touched.confirmPassword && errors.confirmPassword ? 'invalid' : ''}
                   />
-                </div>
-              <button
-                type="submit"
-                className="main-button"
-                disabled={isSubmitting}
-              >
-                <span>Set new password</span>
+                </label>
+                <ErrorMessage className="error" name="confirmPassword" component="div" />
+              </div>
+              <button type="submit" className="main-button" disabled={isSubmitting}>
+                <span>{t('submit')}</span>
               </button>
-              {passwordChanged && (
-                <div className="success">Password changed successfully!</div>
-              )}
-              {changePasswordError && (
-                <div className="error">{changePasswordError}</div>
-              )}
+              {passwordChanged && <div className="success">{t('successMsg')}</div>}
+              {changePasswordError && <div className="error">{changePasswordError}</div>}
             </Form>
           )}
         </Formik>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ChangePasswordReset;
+export default ChangePasswordReset

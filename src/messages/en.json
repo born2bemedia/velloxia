@@ -274,5 +274,163 @@
         "1": "Get it noticed!"
       }
     }
+  },
+  "businessConsulting": {
+    "title": "Business Packs",
+    "hero": {
+      "title": {
+        "0": "Starting a New Business?",
+        "1": "Let’s Get It Right!"
+      }
+    }
+  },
+  "cart": {
+    "service": "Service",
+    "price": "Price, €",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal, €",
+    "total": "Total:",
+    "checkout": "Checkout",
+    "noData": {
+      "0": "It looks like you have not added any services to the cart yet.",
+      "1": "Explore our offerings and choose the services you need."
+    },
+    "business": "Business Consulting",
+    "marketing": "Marketing Consulting"
+  },
+  "checkout": {
+    "errors": {
+      "requiredField": "This field is required.",
+      "email": "Please provide a valid email address.",
+      "terms": "You must accept the terms and conditions.",
+      "refundPolicy": "You must accept the refund policy."
+    },
+    "billingDetails": "Billing Details",
+    "contactDetails": "Contact Details",
+    "paymentMethod": "Payment Method",
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "addressLine1": "Address Line 1",
+      "addressLine2": "Address Line 2",
+      "city": "City",
+      "country": "Country",
+      "zip": "ZIP Code",
+      "email": "Email",
+      "phone": "Phone Number",
+      "payment": {
+        "0": "Bank Transfer*",
+        "1": "Dear user! After you place your order, you will receive an email with payment instructions and our bank details, along with a summary of your order."
+      },
+      "notes": {
+        "0": "Any special notes?",
+        "1": "Message"
+      }
+    },
+    "summary": {
+      "title": "Order Summary",
+      "service": "Service",
+      "price": "Price, €",
+      "subtotal": "Subtotal, €",
+      "total": "Total:",
+      "terms": {
+        "0": "I have read and agree to the website's",
+        "1": "Terms of Use"
+      },
+      "refund": {
+        "0": "I have read and agree to the",
+        "1": "Refund Policy"
+      }
+    },
+    "submit": "Submit",
+    "noData": {
+      "title": {
+        "0": "It looks like you have not added any services to the cart yet.",
+        "1": "Explore our offerings and choose the services you need."
+      },
+      "business": "Business Consulting",
+      "marketing": "Marketing Consulting"
+    }
+  },
+  "thankyou": {
+    "title": "Thank You for Your Order!",
+    "text": "We appreciate your choice of Velloxia. Our team will review your order and reach out shortly to confirm the details.",
+    "thankYou": "Thank you for your trust in us!"
+  },
+  "account": {
+    "hi": "Hi",
+    "myOrders": "My Orders",
+    "myServices": "My Services",
+    "accountSetting": "Account Setting",
+    "loading": "Loading...",
+    "logout": "Log Out",
+    "orders": {
+      "date": "Date",
+      "orderId": "Order ID",
+      "service": "Service",
+      "total": "Total, €",
+      "orderStatus": "Order Status",
+      "invoice": "Invoice",
+      "cancelled": "Cancelled",
+      "completed": "Completed"
+    },
+    "availableFiles": {
+      "date": "Date",
+      "service": "Service",
+      "documents": "Documents",
+      "manage": "Manage",
+      "orderAgain": "Order Again"
+    },
+    "personalData": {
+      "errors": {
+        "requiredField": "This field is required.",
+        "email": "Please provide a valid email address."
+      },
+      "fields": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "phone": "Phone Number",
+        "addressLine1": "Address Line 1",
+        "addressLine2": "Address Line 2",
+        "city": "City",
+        "zip": "ZIP",
+        "country": "Country"
+      },
+      "updateData": "Update Data",
+      "successMsg": "Your personal information has been updated successfully.",
+      "errorMsg": "An error occurred while updating your information."
+    },
+    "changePassword": {
+      "errors": {
+        "currentPassword": "Current password is required.",
+        "newPassRequired": "New password is required.",
+        "newPassMin": "Password must be at least 8 characters.",
+        "newPassMatch": "Passwords must match.",
+        "confirmPassRequired": "Confirm password is required."
+      },
+      "failed": "Failed to change password.",
+      "fields": {
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm Password"
+      },
+      "updateData": "Update Data",
+      "successMsg": "Password changed successfully!"
+    },
+    "changePasswordReset": {
+      "errors": {
+        "newPassRequired": "New password is required.",
+        "newPassMatch": "Passwords must match.",
+        "confirmPassRequired": "Confirm password is required."
+      },
+      "title": "Change Password",
+      "fields": {
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm Password"
+      },
+      "submit": "Set new password",
+      "successMsg": "Password changed successfully!"
+    }
   }
 }

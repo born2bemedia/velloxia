@@ -1,40 +1,43 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import useOrderStore from "@/stores/orderStore"; // Import the Zustand store
-import useAuthStore from "@/stores/authStore"; // Import Auth Zustand store
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
+import useOrderStore from '@/stores/orderStore' // Import the Zustand store
+import useAuthStore from '@/stores/authStore' // Import Auth Zustand store
+import { useTranslations } from 'next-intl'
 
 function AvailableFiles() {
-  const { currentUser } = useAuthStore(); // Access currentUser from Zustand
-  const { getOrdersByUser } = useOrderStore(); // Access orders and actions from Zustand
-  const [orders, setOrders] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const t = useTranslations('account.availableFiles')
+
+  const { currentUser } = useAuthStore() // Access currentUser from Zustand
+  const { getOrdersByUser } = useOrderStore() // Access orders and actions from Zustand
+  const [orders, setOrders] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return new Intl.DateTimeFormat("en-US", {
-      day: "2-digit",
-      month: "long",
-      year: "numeric",
-    }).format(date);
-  };
+    const date = new Date(dateString)
+    return new Intl.DateTimeFormat('en-US', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+    }).format(date)
+  }
 
   useEffect(() => {
-    if (!currentUser) return;
+    if (!currentUser) return
     const fetchOrders = async () => {
-      setLoading(true);
+      setLoading(true)
       try {
-        const ordersData = await getOrdersByUser(currentUser.email); // Fetch orders using Zustand
-        setOrders(ordersData);
+        const ordersData = await getOrdersByUser(currentUser.email) // Fetch orders using Zustand
+        setOrders(ordersData)
       } catch (error) {
-        console.error("Failed to fetch orders:", error);
-        setError("Failed to load orders.");
+        console.error('Failed to fetch orders:', error)
+        setError('Failed to load orders.')
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
-    fetchOrders();
-  }, [currentUser, getOrdersByUser]);
+    }
+    fetchOrders()
+  }, [currentUser, getOrdersByUser])
 
   return (
     <div>
@@ -45,11 +48,10 @@ function AvailableFiles() {
           <table className="orders files">
             <thead>
               <tr>
-                <th>Service</th>
-                <th>Date</th>
-
-                <th>Documents</th>
-                <th>Manage</th>
+                <th>{t('service')}</th>
+                <th>{t('date')}</th>
+                <th>{t('documents')}</th>
+                <th>{t('manage')}</th>
               </tr>
             </thead>
             <tbody>
@@ -59,12 +61,12 @@ function AvailableFiles() {
                   order.files?.length > 0 && (
                     <tr key={order.id}>
                       <td>
-                        {order.order_status !== "cancelled" &&
+                        {order.order_status !== 'cancelled' &&
                           order.products.map((product) => (
                             <span key={product.id}>
-                                {product.title}
-                                <br />
-                              </span>
+                              {product.title}
+                              <br />
+                            </span>
                           ))}
                       </td>
                       <td>{formatDate(order.createdAt)}</td>
@@ -72,11 +74,7 @@ function AvailableFiles() {
                       <td>
                         {order.files.map((file, index) => (
                           <span key={index} className="files-col">
-                            <Link
-                              key={file.id}
-                              href={`${file.url}`}
-                              target="_blank"
-                            >
+                            <Link key={file.id} href={`${file.url}`} target="_blank">
                               <img src="/images/download.svg" />
                               {file.name}
                             </Link>
@@ -85,18 +83,18 @@ function AvailableFiles() {
                       </td>
                       <td>
                         <Link href="/" className="reorder">
-                          Order Again
+                          {t('orderAgain')}
                         </Link>
                       </td>
                     </tr>
-                  )
+                  ),
               )}
             </tbody>
           </table>
         </div>
       )}
     </div>
-  );
+  )
 }
 
-export default AvailableFiles;
+export default AvailableFiles

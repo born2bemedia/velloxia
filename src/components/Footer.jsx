@@ -71,13 +71,13 @@ const Footer = () => {
                     <ul className="footer__menu-list">
                       <li className="footer__menu-item">
                         <Link href="mailto:info@velloxia.com" className="footer__menu-link">
-                          <img src="images/email.svg" />
+                          <img src="/images/email.svg" />
                           <span>info@velloxia.com</span>
                         </Link>
                       </li>
                       <li className="footer__menu-item">
                         <Link href="tel:+35723010082" className="footer__menu-link">
-                          <img src="images/phone.svg" />
+                          <img src="/images/phone.svg" />
                           <span>+35723010082</span>
                         </Link>
                       </li>

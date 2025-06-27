@@ -1,37 +1,38 @@
-"use client";
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import useAuthStore from "@/stores/authStore"; // Zustand store for auth
-import axios from "axios";
-import { useState } from "react";
+'use client'
+import React from 'react'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
+import useAuthStore from '@/stores/authStore' // Zustand store for auth
+import axios from 'axios'
+import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 const ChangePassword = () => {
-  const { getToken } = useAuthStore(); // Zustand function to get token
-  const [changePasswordError, setChangePasswordError] = useState("");
-  const [passwordChanged, setPasswordChanged] = useState(false);
+  const t = useTranslations('account.changePassword')
+
+  const { getToken } = useAuthStore() // Zustand function to get token
+  const [changePasswordError, setChangePasswordError] = useState('')
+  const [passwordChanged, setPasswordChanged] = useState(false)
 
   const initialValues = {
-    currentPassword: "",
-    newPassword: "",
-    confirmPassword: "",
-  };
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: '',
+  }
 
   const validationSchema = Yup.object().shape({
-    currentPassword: Yup.string().required("Current password is required"),
-    newPassword: Yup.string()
-      .min(8, "Password must be at least 8 characters")
-      .required("New password is required"),
+    currentPassword: Yup.string().required(t('errors.currentPassword')),
+    newPassword: Yup.string().min(8, t('errors.newPassMin')).required(t('errors.newPassRequired')),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("newPassword"), null], "Passwords must match")
-      .required("Confirm password is required"),
-  });
+      .oneOf([Yup.ref('newPassword'), null], t('errors.newPassMatch'))
+      .required(t('errors.confirmPassRequired')),
+  })
 
   const handleSubmit = async (values, { setSubmitting }) => {
-    const { currentPassword, newPassword, confirmPassword } = values;
+    const { currentPassword, newPassword, confirmPassword } = values
 
     try {
-      const token = getToken(); // Use Zustand to get JWT token
+      const token = getToken() // Use Zustand to get JWT token
 
       // Sending the change password request using axios
       const response = await axios.post(
@@ -45,28 +46,27 @@ const ChangePassword = () => {
           headers: {
             Authorization: `Bearer ${token}`, // Use the JWT token in the header
           },
-        }
-      );
+        },
+      )
 
       if (response.status === 200) {
-        setPasswordChanged(true);
-        setChangePasswordError("");
+        setPasswordChanged(true)
+        setChangePasswordError('')
         setTimeout(() => {
-          setPasswordChanged(false);
-        }, 3000);
+          setPasswordChanged(false)
+        }, 3000)
       } else {
-        setChangePasswordError("Failed to change password.");
+        setChangePasswordError(t('failed'))
       }
     } catch (error) {
-      console.error("Failed to change password", error);
+      console.error('Failed to change password', error)
       setChangePasswordError(
-        error.response?.data?.message ||
-          "An error occurred while changing the password."
-      );
+        error.response?.data?.message || 'An error occurred while changing the password.',
+      )
     } finally {
-      setSubmitting(false);
+      setSubmitting(false)
     }
-  };
+  }
 
   return (
     <section className="change-password">
@@ -82,80 +82,48 @@ const ChangePassword = () => {
                 <div>
                   <label>
                     <Field
-                      placeholder="Current password"
+                      placeholder={t('fields.currentPassword')}
                       type="password"
                       name="currentPassword"
-                      className={
-                        touched.currentPassword && errors.currentPassword
-                          ? "invalid"
-                          : ""
-                      }
+                      className={touched.currentPassword && errors.currentPassword ? 'invalid' : ''}
                     />
                   </label>
-                  <ErrorMessage
-                    className="error"
-                    name="currentPassword"
-                    component="div"
-                  />
+                  <ErrorMessage className="error" name="currentPassword" component="div" />
                 </div>
                 <div>
                   <label>
                     <Field
-                      placeholder="New password"
+                      placeholder={t('fields.newPassword')}
                       type="password"
                       name="newPassword"
-                      className={
-                        touched.newPassword && errors.newPassword
-                          ? "invalid"
-                          : ""
-                      }
+                      className={touched.newPassword && errors.newPassword ? 'invalid' : ''}
                     />
                   </label>
-                  <ErrorMessage
-                    className="error"
-                    name="newPassword"
-                    component="div"
-                  />
+                  <ErrorMessage className="error" name="newPassword" component="div" />
                 </div>
                 <div>
                   <label>
                     <Field
-                      placeholder="Confirm password"
+                      placeholder={t('fields.confirmPassword')}
                       type="password"
                       name="confirmPassword"
-                      className={
-                        touched.confirmPassword && errors.confirmPassword
-                          ? "invalid"
-                          : ""
-                      }
+                      className={touched.confirmPassword && errors.confirmPassword ? 'invalid' : ''}
                     />
                   </label>
-                  <ErrorMessage
-                    className="error"
-                    name="confirmPassword"
-                    component="div"
-                  />
+                  <ErrorMessage className="error" name="confirmPassword" component="div" />
                 </div>
               </div>
-              <button
-                type="submit"
-                className="main-button"
-                disabled={isSubmitting}
-              >
-                <span>Update Data</span>
+              <button type="submit" className="main-button" disabled={isSubmitting}>
+                <span>{t('updateData')}</span>
               </button>
-              {passwordChanged && (
-                <div className="success">Password changed successfully!</div>
-              )}
-              {changePasswordError && (
-                <div className="error">{changePasswordError}</div>
-              )}
+              {passwordChanged && <div className="success">{t('successMsg')}</div>}
+              {changePasswordError && <div className="error">{changePasswordError}</div>}
             </Form>
           )}
         </Formik>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ChangePassword;
+export default ChangePassword

@@ -1,22 +1,24 @@
-import React from "react";
-import "@/styles/thankyou.scss";
+import React from 'react'
+import '@/styles/thankyou.scss'
+import { useTranslations } from 'next-intl'
 
 const Thankyou = () => {
+  const t = useTranslations('thankyou')
+
   return (
     <section className="thankyou">
       <div className="_container">
         <div className="thankyou__body">
-          <h1>Thank You for Your Order!</h1>
+          <h1>{t('title')}</h1>
           <p>
-            We appreciate your choice of Velloxia. Our team will review <br />
-            your order and reach out shortly to confirm the details.
+            {t('text')}
             <br />
-            <b>Thank you for your trust in us!</b>
+            <b>{t('thankYou')}</b>
           </p>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Thankyou;
+export default Thankyou
