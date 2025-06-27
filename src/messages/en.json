@@ -163,5 +163,35 @@
       },
       "contact": "Contact"
     }
+  },
+  "header": {
+    "menu": {
+      "0": "Business Consulting",
+      "1": "Marketing Consulting",
+      "2": "Our Approach",
+      "3": "Career",
+      "4": "Help",
+      "5": "Contact",
+      "6": "Log In"
+    }
+  },
+  "footer": {
+    "label": "Business and Marketing Consultancy Leading You to Success.",
+    "officeAddress": "Office address:",
+    "registeredAddress": "Registered address:",
+    "menu": {
+      "0": "Business Consulting",
+      "1": "Account",
+      "2": "FAQ",
+      "3": "Our Approach",
+      "4": "Marketing Consulting",
+      "5": "Your Cart",
+      "6": "Insights",
+      "7": "Contact",
+      "8": "Terms and Conditions",
+      "9": "Privacy Policy",
+      "10": "Cookie Policy",
+      "11": "Refund Policy"
+    }
   }
 }
