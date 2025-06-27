@@ -193,5 +193,77 @@
       "10": "Cookie Policy",
       "11": "Refund Policy"
     }
+  },
+  "career": {
+    "hero": {
+      "title": {
+        "0": "Your Next Opportunity",
+        "1": "Starts Here"
+      }
+    },
+    "why": {
+      "title": "Why Work With Us?",
+      "0": {
+        "title": "Flexible Work Arrangements",
+        "text": "Enjoy the freedom to work from home and maintain a healthy work-life balance."
+      },
+      "1": {
+        "title": "Paid Leave",
+        "text": "Benefit from a generous paid leave policy, ensuring time for personal and family needs."
+      },
+      "2": {
+        "title": "Comprehensive Benefits Package",
+        "text": "Access a well-rounded benefits package that supports your health and wellness."
+      },
+      "3": {
+        "title": "Professional Development",
+        "text": "Engage in continuous learning through workshops, training, and skill development programs."
+      },
+      "4": {
+        "title": "Collaborative Team Environment",
+        "text": "Work alongside a supportive and innovative team that values your contributions."
+      },
+      "5": {
+        "title": "Career Growth Potential",
+        "text": "Explore pathways for career advancement within a dynamic and expanding organisation."
+      }
+    },
+    "apply": {
+      "title": "Apply Now",
+      "form": {
+        "errors": {
+          "yourName": "The field is required.",
+          "email": "Please enter a valid email address.",
+          "phone": "The field is required.",
+          "file": "The field is required.",
+          "explanation": "The field is required.",
+          "link1": "Please enter a valid URL.",
+          "link2": "Please enter a valid URL.",
+          "agreeToPolicy": "You must agree to the policies."
+        },
+        "title": "SUBMIT YOUR APPLICATION",
+        "fields": {
+          "removeFile": "Remove File",
+          "yourName": "Your name",
+          "email": "Email",
+          "phone": "Your phone",
+          "link1": "Link 1",
+          "link2": "Link 2",
+          "explanation": "Additional Information:",
+          "agreeToPolicy": {
+            "0": "I agree to the processing of my data in accordance with the",
+            "1": "Privacy Policy",
+            "2": "and",
+            "3": "Terms and Conditions"
+          }
+        },
+        "submit": "Submit Application",
+        "requiredField": "This field is required.",
+        "successMessage": {
+          "0": "Application Submitted!",
+          "1": "Thank you for applying to Velloxia. We will review your application and contact you if your qualifications match our needs."
+        }
+      }
+    }
   }
 }

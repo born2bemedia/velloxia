@@ -1,98 +1,94 @@
-"use client";
-import React, { useState } from "react";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
-import PhoneInput from "react-phone-input-2";
-import useCountryCode from "@/utils/useCountryCode";
-import "react-phone-input-2/lib/style.css";
-import Link from "next/link";
-import { excludedCountries } from "@/utils/countries";
+'use client'
+import React, { useState } from 'react'
+import { Formik, Form, Field } from 'formik'
+import * as Yup from 'yup'
+import PhoneInput from 'react-phone-input-2'
+import useCountryCode from '@/utils/useCountryCode'
+import 'react-phone-input-2/lib/style.css'
+import Link from 'next/link'
+import { excludedCountries } from '@/utils/countries'
+import { useTranslations } from 'next-intl'
 
 const readFileAsBase64 = (file) => {
   return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-    reader.readAsDataURL(file);
-  });
-};
+    const reader = new FileReader()
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = (error) => reject(error)
+    reader.readAsDataURL(file)
+  })
+}
 
 function CareerForm() {
-  const [fileSelected, setFileSelected] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isFormVisible, setIsFormVisible] = useState(true);
-  const countryCode = useCountryCode();
+  const [fileSelected, setFileSelected] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [isFormVisible, setIsFormVisible] = useState(true)
+
+  const t = useTranslations('career.apply.form')
+  const countryCode = useCountryCode()
 
   const validationSchema = Yup.object({
-    yourName: Yup.string().required("The field is required."),
-    email: Yup.string()
-      .email("Please enter a valid email address.")
-      .required("The field is required."),
-    phone: Yup.string().required("The field is required."),
+    yourName: Yup.string().required(t('errors.yourName')),
+    email: Yup.string().email(t('errors.email')).required(t('errors.phone')),
+    phone: Yup.string().required(t('errors.phone')),
     file: Yup.mixed(),
     explanation: Yup.string(),
-    link1: Yup.string().url("Please enter a valid URL."),
-    link2: Yup.string().url("Please enter a valid URL."),
-    agreeToPolicy: Yup.bool().oneOf([true], "You must agree to the policies."),
-  });
+    link1: Yup.string().url(t('errors.link1')),
+    link2: Yup.string().url(t('errors.link2')),
+    agreeToPolicy: Yup.bool().oneOf([true], t('errors.agreeToPolicy')),
+  })
 
   const initialValues = {
-    yourName: "",
-    email: "",
-    phone: "",
+    yourName: '',
+    email: '',
+    phone: '',
     file: null,
-    explanation: "",
-    link1: "",
-    link2: "",
+    explanation: '',
+    link1: '',
+    link2: '',
     agreeToPolicy: false,
-  };
+  }
 
-  const handleSubmit = async (
-    values,
-    { setSubmitting, resetForm, setStatus }
-  ) => {
+  const handleSubmit = async (values, { setSubmitting, resetForm, setStatus }) => {
     try {
-      console.log("Submitting values:", values);
+      console.log('Submitting values:', values)
 
-      const fileBase64 = values.file
-        ? await readFileAsBase64(values.file)
-        : null;
+      const fileBase64 = values.file ? await readFileAsBase64(values.file) : null
 
       const payload = {
         ...values,
         attachFiles: fileBase64 ? [fileBase64] : [],
-      };
+      }
 
-      console.log("Payload:", payload);
+      console.log('Payload:', payload)
 
-      const response = await fetch("/api/emails/career", {
-        method: "POST",
+      const response = await fetch('/api/emails/career', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
-      });
+      })
 
       if (response.ok) {
-        resetForm();
-        setStatus({ success: true });
-        setIsSuccess(true);
-        setIsFormVisible(false);
-        document.querySelector('input[type="file"]').value = "";
-        setFileSelected(false);
+        resetForm()
+        setStatus({ success: true })
+        setIsSuccess(true)
+        setIsFormVisible(false)
+        document.querySelector('input[type="file"]').value = ''
+        setFileSelected(false)
       } else {
-        setStatus({ success: false });
-        setIsSuccess(false);
-        console.error("Failed to submit:", await response.text());
+        setStatus({ success: false })
+        setIsSuccess(false)
+        console.error('Failed to submit:', await response.text())
       }
     } catch (error) {
-      console.error("Error:", error);
-      setStatus({ success: false });
-      setIsSuccess(false);
+      console.error('Error:', error)
+      setStatus({ success: false })
+      setIsSuccess(false)
     } finally {
-      setSubmitting(false);
+      setSubmitting(false)
     }
-  };
+  }
 
   return (
     <div className="request-form">
@@ -105,18 +101,18 @@ function CareerForm() {
           {({ isSubmitting, setFieldValue, status, errors, touched }) => (
             <div className="wrapper">
               <Form className="form__career">
-                <h2 className="form__title">SUBMIT YOUR APPLICATION</h2>
+                <h2 className="form__title">{t('title')}</h2>
                 <div
-                  className={`row _file ${fileSelected ? "_active" : ""} ${
-                    touched.file && errors.file ? "_error" : ""
+                  className={`row _file ${fileSelected ? '_active' : ''} ${
+                    touched.file && errors.file ? '_error' : ''
                   }`}
                 >
                   <input
                     type="file"
                     name="file"
                     onChange={(event) => {
-                      setFieldValue("file", event.currentTarget.files[0]);
-                      setFileSelected(true);
+                      setFieldValue('file', event.currentTarget.files[0])
+                      setFileSelected(true)
                     }}
                   />
                 </div>
@@ -126,11 +122,11 @@ function CareerForm() {
                     <button
                       type="button"
                       onClick={() => {
-                        setFieldValue("file", null);
-                        setFileSelected(false);
+                        setFieldValue('file', null)
+                        setFileSelected(false)
                       }}
                     >
-                      Remove File
+                      {t('fields.removeFile')}
                     </button>
                   </div>
                 )}
@@ -141,12 +137,8 @@ function CareerForm() {
                       <input
                         {...field}
                         type="text"
-                        placeholder="Your name"
-                        className={
-                          form.touched.yourName && form.errors.yourName
-                            ? "invalid"
-                            : ""
-                        }
+                        placeholder={t('fields.yourName')}
+                        className={form.touched.yourName && form.errors.yourName ? 'invalid' : ''}
                       />
                     )}
                   </Field>
@@ -157,12 +149,8 @@ function CareerForm() {
                       <input
                         {...field}
                         type="email"
-                        placeholder="Email"
-                        className={
-                          form.touched.email && form.errors.email
-                            ? "invalid"
-                            : ""
-                        }
+                        placeholder={t('fields.email')}
+                        className={form.touched.email && form.errors.email ? 'invalid' : ''}
                       />
                     )}
                   </Field>
@@ -173,14 +161,10 @@ function CareerForm() {
                       <PhoneInput
                         country={countryCode}
                         value={field.value}
-                        onChange={(value) => form.setFieldValue("phone", value)}
-                        placeholder="Your phone"
+                        onChange={(value) => form.setFieldValue('phone', value)}
+                        placeholder={t('fields.phone')}
                         excludeCountries={excludedCountries}
-                        className={
-                          form.touched.phone && form.errors.phone
-                            ? "invalid"
-                            : ""
-                        }
+                        className={form.touched.phone && form.errors.phone ? 'invalid' : ''}
                       />
                     )}
                   </Field>
@@ -192,12 +176,8 @@ function CareerForm() {
                       <input
                         {...field}
                         type="url"
-                        placeholder="Link 1"
-                        className={
-                          form.touched.link1 && form.errors.link1
-                            ? "invalid"
-                            : ""
-                        }
+                        placeholder={t('fields.link1')}
+                        className={form.touched.link1 && form.errors.link1 ? 'invalid' : ''}
                       />
                     )}
                   </Field>
@@ -208,12 +188,8 @@ function CareerForm() {
                       <input
                         {...field}
                         type="url"
-                        placeholder="Link 2"
-                        className={
-                          form.touched.link2 && form.errors.link2
-                            ? "invalid"
-                            : ""
-                        }
+                        placeholder={t('fields.link2')}
+                        className={form.touched.link2 && form.errors.link2 ? 'invalid' : ''}
                       />
                     )}
                   </Field>
@@ -223,11 +199,9 @@ function CareerForm() {
                     {({ field, form }) => (
                       <textarea
                         {...field}
-                        placeholder="Additional Information:"
+                        placeholder={t('fields.explanation')}
                         className={
-                          form.touched.explanation && form.errors.explanation
-                            ? "invalid"
-                            : ""
+                          form.touched.explanation && form.errors.explanation ? 'invalid' : ''
                         }
                       />
                     )}
@@ -237,13 +211,8 @@ function CareerForm() {
                   <Field name="agreeToPolicy">
                     {({ field, form }) => (
                       <label
-                        className={`checkbox-label ${
-                          field.value ? "_active" : ""
-                        } ${
-                          form.touched.agreeToPolicy &&
-                          form.errors.agreeToPolicy
-                            ? "invalid"
-                            : ""
+                        className={`checkbox-label ${field.value ? '_active' : ''} ${
+                          form.touched.agreeToPolicy && form.errors.agreeToPolicy ? 'invalid' : ''
                         }`}
                       >
                         <input
@@ -251,41 +220,29 @@ function CareerForm() {
                           type="checkbox"
                           checked={field.value}
                           className={
-                            form.touched.agreeToPolicy &&
-                            form.errors.agreeToPolicy
-                              ? "invalid"
-                              : ""
+                            form.touched.agreeToPolicy && form.errors.agreeToPolicy ? 'invalid' : ''
                           }
                         />
                         <span>
-                          I agree to the processing of my data in accordance
-                          with the{" "}
-                          <Link href="/privacy-policy">Privacy Policy</Link> and{" "}
-                          <Link href="/terms-and-conditions">
-                            Terms and Conditions
-                          </Link>
-                          .
+                          {t('fields.agreeToPolicy.0')}{' '}
+                          <Link href="/privacy-policy">{t('fields.agreeToPolicy.1')}</Link>{' '}
+                          {t('fields.agreeToPolicy.2')}{' '}
+                          <Link href="/terms-and-conditions">{t('fields.agreeToPolicy.3')}</Link>.
                         </span>
                       </label>
                     )}
                   </Field>
                 </div>
-                <button
-                  type="submit"
-                  className="request-button"
-                  disabled={isSubmitting}
-                >
-                  Submit Application
+                <button type="submit" className="request-button" disabled={isSubmitting}>
+                  {t('submit')}
                 </button>
                 {Object.keys(errors).length > 0 && touched && (
-                  <span className="general-error">This field is required.</span>
+                  <span className="general-error">{t('requiredField')}</span>
                 )}
               </Form>
               {status && status.success && isSuccess && (
                 <div className="success-message">
-                  <span>Application Submitted!</span> Thank you for applying to
-                  Velloxia. We will review your application and contact you if
-                  your qualifications match our needs.
+                  <span>{t('successMessage.0')}</span> {t('successMessage.1')}
                 </div>
               )}
             </div>
@@ -293,13 +250,11 @@ function CareerForm() {
         </Formik>
       ) : (
         <div className="success-message">
-          <span>Application Submitted!</span> Thank you for applying to
-          Velloxia. We will review your application and contact you if your
-          qualifications match our needs.
+          <span>{t('successMessage.0')}</span> {t('successMessage.1')}
         </div>
       )}
     </div>
-  );
+  )
 }
 
-export default CareerForm;
+export default CareerForm
