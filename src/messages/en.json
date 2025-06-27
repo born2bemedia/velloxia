@@ -265,5 +265,14 @@
         }
       }
     }
+  },
+  "marketingConsulting": {
+    "title": "Marketing Packs",
+    "hero": {
+      "title": {
+        "0": "Building your brand?",
+        "1": "Get it noticed!"
+      }
+    }
   }
 }

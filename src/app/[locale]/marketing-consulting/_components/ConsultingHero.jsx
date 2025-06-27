@@ -1,14 +1,17 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image'
+import React from 'react'
+import { useTranslations } from 'next-intl'
 
 const ConsultingHero = () => {
+  const t = useTranslations('marketingConsulting.hero.title')
+
   return (
     <section className="consulting-hero">
       <div className="_container">
         <div className="consulting-hero__body">
           <h1 className="fadeInUp">
-            Building your brand?
-            <span>Get it noticed!</span>
+            {t('0')}
+            <span>{t('1')}</span>
           </h1>
           <img src="/images/arrowDown.svg" />
           <div className="images">
@@ -29,7 +32,7 @@ const ConsultingHero = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ConsultingHero;
+export default ConsultingHero
