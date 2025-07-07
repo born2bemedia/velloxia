@@ -1,13 +1,16 @@
-"use client";
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import "swiper/swiper-bundle.css"; // Swiper styles
-import OrderIcon from "@/icons/OrderIcon";
-import Link from "next/link";
-import AddToCartButton from "@/components/AddToCartButton";
+'use client'
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Autoplay } from 'swiper/modules'
+import 'swiper/swiper-bundle.css' // Swiper styles
+import OrderIcon from '@/icons/OrderIcon'
+import Link from 'next/link'
+import AddToCartButton from '@/components/AddToCartButton'
+import { useTranslations } from 'next-intl'
 
 const PacksWrap = ({ products, title }) => {
+  const t = useTranslations('packs')
+
   return (
     <section className="packs-wrap">
       <div className="_container">
@@ -19,9 +22,9 @@ const PacksWrap = ({ products, title }) => {
             <div key={product.id} className="product-item fadeInUp">
               <div className="slider-inner">
                 <div>
-                  <span>{String(index + 1).padStart(2, "0")}.</span>
+                  <span>{String(index + 1).padStart(2, '0')}.</span>
                   <h3>{product.title}</h3>
-                  <h4>Includes:</h4>
+                  <h4>{t('includes')}:</h4>
                   <div
                     className="description"
                     dangerouslySetInnerHTML={{ __html: product.description }}
@@ -43,8 +46,8 @@ const PacksWrap = ({ products, title }) => {
             slidesPerView={1}
             modules={[Navigation, Autoplay]}
             navigation={{
-              prevEl: ".arrow-prev",
-              nextEl: ".arrow-next",
+              prevEl: '.arrow-prev',
+              nextEl: '.arrow-next',
             }}
             autoplay={{ delay: 3000, disableOnInteraction: false }} // Autoplay settings
             loop={true}
@@ -54,7 +57,7 @@ const PacksWrap = ({ products, title }) => {
               <SwiperSlide key={product.id}>
                 <div className="slider-inner">
                   <div>
-                    <span>{String(index + 1).padStart(2, "0")}.</span>
+                    <span>{String(index + 1).padStart(2, '0')}.</span>
                     <h3>{product.title}</h3>
                     <h4>Includes:</h4>
                     <div
@@ -65,9 +68,7 @@ const PacksWrap = ({ products, title }) => {
                   <div className="bottom">
                     <div className="price">
                       €{product.price}
-                      {product.per_price && (
-                        <span className="per-price">{product.per_price}</span>
-                      )}
+                      {product.per_price && <span className="per-price">{product.per_price}</span>}
                     </div>
                     <AddToCartButton product={product} />
                   </div>
@@ -76,28 +77,20 @@ const PacksWrap = ({ products, title }) => {
             ))}
           </Swiper>
           <div className="arrows">
-            <img
-              className="arrow-prev"
-              src="/images/arrowPrev.svg"
-              alt="Previous"
-            />
-            <img
-              className="arrow-next"
-              src="/images/arrowNext.svg"
-              alt="Next"
-            />
+            <img className="arrow-prev" src="/images/arrowPrev.svg" alt="Previous" />
+            <img className="arrow-next" src="/images/arrowNext.svg" alt="Next" />
           </div>
         </div>
 
         <div className="buttons fadeInUp">
           <Link target="_blank" href="/marketing_consulting_price_list.pdf">
-            Download Price List
+            {t('downloadPrice')}
           </Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/contact">{t('contact')}</Link>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default PacksWrap;
+export default PacksWrap

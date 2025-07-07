@@ -5,7 +5,7 @@ import axiosClient from '@/app/api/GlobalApi'
 // Create Zustand store
 const useProductStore = create((set, get) => ({
   products: [],
-  fetchProducts: async () => {
+  fetchProducts: async (locale) => {
     try {
       const response = await axiosClient.get(
         `products?` +
@@ -21,6 +21,7 @@ const useProductStore = create((set, get) => ({
               'per_price',
             ],
             pagination: { pageSize: 9999 },
+            locale: locale,
           }),
       )
 

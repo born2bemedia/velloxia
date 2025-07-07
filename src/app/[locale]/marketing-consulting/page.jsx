@@ -18,11 +18,12 @@ export const metadata = {
   },
 }
 
-const MarketingConsulting = async () => {
+const MarketingConsulting = async ({ params }) => {
+  const { locale } = await params
   const t = await getTranslations('marketingConsulting')
   const { fetchProducts, getProductByCategory } = useProductStore.getState()
 
-  await fetchProducts()
+  await fetchProducts(locale)
 
   const businessConsultingProducts = getProductByCategory('marketing-consulting-products')
   const businessConsultingPacks = getProductByCategory('marketing-consulting-packs')
