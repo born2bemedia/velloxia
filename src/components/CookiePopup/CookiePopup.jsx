@@ -1,27 +1,29 @@
-"use client";
-import { useState, useEffect } from "react";
-import styles from "./CookiePopup.module.scss";
-import classNames from "classnames";
+'use client'
+import { useState, useEffect } from 'react'
+import styles from './CookiePopup.module.scss'
+import classNames from 'classnames'
+import { useTranslations } from 'next-intl'
 
 const CookiePopup = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false)
+
+  const t = useTranslations('cookiePopup')
 
   useEffect(() => {
-    // Check if user has already accepted cookies
-    const hasAcceptedCookies = localStorage.getItem("cookiesAccepted");
+    const hasAcceptedCookies = localStorage.getItem('cookiesAccepted')
     if (!hasAcceptedCookies) {
-      setIsVisible(true);
+      setIsVisible(true)
     }
-  }, []);
+  }, [])
 
   const handleAccept = () => {
-    localStorage.setItem("cookiesAccepted", "true");
-    setIsVisible(false);
-  };
+    localStorage.setItem('cookiesAccepted', 'true')
+    setIsVisible(false)
+  }
 
   const handleDecline = () => {
-    setIsVisible(false);
-  };
+    setIsVisible(false)
+  }
 
   return (
     <div
@@ -30,23 +32,21 @@ const CookiePopup = () => {
       })}
     >
       <div className={styles.content}>
-        <h2>Cookie settings</h2>
+        <h2>{t('title')}</h2>
         <p>
-          To improve your browsing experience, we use cookies. By continuing to
-          use this website, you consent to our cookie policy. Please check our{" "}
-          <a href="/cookie-policy">Cookie Policy</a>{" "}for more details.
+          {t('desc.0')} <a href="/cookie-policy">{t('desc.1')}</a> {t('desc.2')}
         </p>
       </div>
       <div className={styles.buttons}>
         <button onClick={handleDecline} className={classNames(styles.decline)}>
-          Decline
+          {t('decline')}
         </button>
         <button onClick={handleAccept} className={classNames(styles.accept)}>
-          Accept
+          {t('accept')}
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CookiePopup;
+export default CookiePopup
