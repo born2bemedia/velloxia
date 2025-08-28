@@ -9,6 +9,8 @@ import Select from "react-select";
 import Link from "next/link";
 import {excludedCountries} from "@/utils/countries";
 
+import ReCaptcha from "react-google-recaptcha";
+
 const CustomSelect = ({ name, options, ...props }) => {
   const { setFieldValue, setFieldTouched, errors, touched, values } = useFormikContext();
 
@@ -38,6 +40,11 @@ function FormContacts() {
   const countryCode = useCountryCode();
   const [isSuccess, setIsSuccess] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(true);
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
+
+  const handleCaptchaVerify = (token) => {
+    setIsCaptchaVerified(!!token);
+  };
 
   const validationSchema = Yup.object({
     yourName: Yup.string().required("The field is required."),
@@ -179,7 +186,12 @@ function FormContacts() {
                   </Field>
                 </div>
 
-                <button type="submit" className="button" disabled={isSubmitting}>
+                <ReCaptcha
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                  onChange={handleCaptchaVerify}
+                />
+
+                <button type="submit" className="button" disabled={isSubmitting || !isCaptchaVerified}>
                   Submit
                 </button>
               </Form>
