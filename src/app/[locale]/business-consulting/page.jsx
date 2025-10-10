@@ -1,42 +1,50 @@
-import React from 'react'
-import '@/styles/base.scss'
-import '@/styles/business-consulting.scss'
-import ConsultingHero from './_components/ConsultingHero'
-import useProductStore from '@/stores/productsStore'
-import ProductsWrap from './_components/ProductsWrap'
-import PacksWrap from './_components/PacksWrap'
-import { getTranslations } from 'next-intl/server'
+import React from "react";
+import "@/styles/base.scss";
+import "@/styles/business-consulting.scss";
+import ConsultingHero from "./_components/ConsultingHero";
+import useProductStore from "@/stores/productsStore";
+import ProductsWrap from "./_components/ProductsWrap";
+import PacksWrap from "./_components/PacksWrap";
+import { getTranslations } from "next-intl/server";
 
 export const metadata = {
-  title: 'Business Consulting Services and Packs | Velloxia',
+  title: "Business Consulting Services and Packs | Velloxia",
   description:
-    'Get expert business consulting services tailored for individuals. Practical solutions for starting and growing your business.',
+    "Get expert business consulting services tailored for individuals. Practical solutions for starting and growing your business.",
   openGraph: {
-    title: 'Business Consulting Services and Packs | Velloxia',
+    title: "Business Consulting Services and Packs | Velloxia",
     description:
-      'Get expert business consulting services tailored for individuals. Practical solutions for starting and growing your business.',
-    images: 'https://velloxia.com/images/meta.png',
+      "Get expert business consulting services tailored for individuals. Practical solutions for starting and growing your business.",
+    images: "https://velloxia.com/images/meta.png",
   },
-}
+};
 
 const BusinessConsulting = async ({ params }) => {
-  const { locale } = await params
-  const t = await getTranslations('businessConsulting')
+  const { locale } = await params;
+  const t = await getTranslations("businessConsulting");
 
-  const { fetchProducts, getProductByCategory } = useProductStore.getState()
+  const { fetchProducts, getProductByCategory } = useProductStore.getState();
 
-  await fetchProducts(locale)
+  await fetchProducts(locale);
 
-  const businessConsultingProducts = getProductByCategory('business-consulting-products')
-  const businessConsultingPacks = getProductByCategory('business-consulting-packs')
+  const businessConsultingProducts = getProductByCategory(
+    "business-consulting-products"
+  );
+  const businessConsultingPacks = getProductByCategory(
+    "business-consulting-packs"
+  );
 
   return (
     <>
       <ConsultingHero />
       <ProductsWrap products={businessConsultingProducts} />
-      <PacksWrap products={businessConsultingPacks} title={t('title')} />
+      <PacksWrap
+        products={businessConsultingPacks}
+        title={t("title")}
+        locale={locale}
+      />
     </>
-  )
-}
+  );
+};
 
-export default BusinessConsulting
+export default BusinessConsulting;

@@ -287,3 +287,173 @@
     }
   }
 }
+
+.pro-plan-wrap {
+  margin: rem(150) 0 rem(70) 0;
+  @media (max-width: rem(992)) {
+    margin: rem(100) 0 rem(70) 0;
+    background-size: cover;
+    /* background-image: none; */
+  }
+  h2 {
+    color: #333333;
+    font-size: rem(48);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    margin: 0 0 rem(40) 0;
+    text-transform: uppercase;
+    text-align: center;
+    span {
+      display: block;
+      color: #1fa169;
+    }
+    @media (max-width: rem(992)) {
+      margin-bottom: rem(50);
+      font-size: rem(32);
+    }
+  }
+  p {
+    margin: 0 auto rem(40) auto;
+    color: var(--black, #333);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 30px; /* 150% */
+    max-width: 655px;
+  }
+
+  &__body {
+    display: flex;
+    gap: 30px;
+    @media (max-width: rem(992)) {
+      flex-direction: column;
+    }
+    > div {
+      width: 50%;
+      @media (max-width: rem(992)) {
+        width: 100%;
+      }
+      &.col-1 {
+        border-radius: 30px;
+        background: var(--gray, #f3f3f3);
+        padding: rem(45);
+        @media (max-width: rem(992)) {
+          padding: rem(24);
+        }
+        h3 {
+          color: var(--black, #333);
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          margin: 0 0 rem(26) 0;
+        }
+        p {
+          color: var(--black, #333);
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: 30px; /* 150% */
+          margin: 0 0 rem(26) 0;
+          text-align: left;
+          width: 100%;
+        }
+        h4 {
+          color: var(--Green, #1fa169);
+          font-size: 20px;
+          font-style: italic;
+          font-weight: 700;
+          line-height: 30px; /* 150% */
+          margin-bottom: rem(45);
+        }
+        .includes {
+          display: flex;
+          align-items: flex-start;
+          align-self: stretch;
+          flex-wrap: wrap;
+          border-radius: 20px;
+          border: 1px solid rgba(0, 0, 0, 0.15);
+          margin-bottom: rem(50);
+          &__item {
+            width: 50%;
+            display: flex;
+            padding: 25px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            align-self: stretch;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            &:nth-child(odd) {
+              border-right: 1px solid rgba(0, 0, 0, 0.15);
+            }
+            &:last-child {
+              border-right: none;
+              border-bottom: none;
+              width: 100%;
+            }
+            @media (max-width: rem(992)) {
+              width: 100%;
+            }
+            h5 {
+              color: var(--black, #333);
+              font-size: 22px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 22px; /* 100% */
+              margin: 0;
+            }
+            ul {
+              margin: 0;
+              padding: 0 0 0 rem(22);
+              width: 100%;
+              li {
+                width: 100%;
+                color: var(--black, #333);
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 30px; /* 150% */
+              }
+            }
+          }
+        }
+        .actions {
+          display: flex;
+          gap: rem(20);
+          align-items: center;
+          justify-content: space-between;
+          .price {
+            color: #1fa169;
+            font-size: rem(26);
+            font-weight: 500;
+            line-height: 1.2;
+            text-align: left;
+            span {
+              color: #333333;
+              font-size: rem(14);
+              font-weight: 300;
+              line-height: 1.2;
+              text-align: left;
+              margin-left: rem(5);
+              display: inline-block;
+            }
+          }
+        }
+      }
+      &.col-2 {
+        border-radius: 30px;
+        background-color: var(--Green, #1fa169);
+        background-image: url(/images/business-consulting/pro.webp);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        @media (max-width: rem(992)) {
+          height: rem(390);
+          background-image: url(/images/business-consulting/proMob.webp);
+        }
+      }
+    }
+  }
+}
