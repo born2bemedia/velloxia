@@ -53,7 +53,8 @@ const useProductStore = create((set, get) => ({
     return products
   },
   getProductBySlug: (slug) => {
-    return get().products.find((product) => product.attributes.slug === slug)
+    console.log(get().products)
+    return get().products.find((product) => product.slug === slug)
   },
 }))
 
