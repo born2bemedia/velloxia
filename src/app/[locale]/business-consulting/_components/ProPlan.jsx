@@ -29,78 +29,71 @@ const ProPlan = ({ locale }) => {
   return (
     <div className="pro-plan-wrap">
       <h2 className="fadeInUp">
-        Starting a New Business?
-        <span>Let’s Build It Right.</span>
+        {t("startingANewBusiness")}
+
+        <span>{t("letsBuildItRight")}</span>
       </h2>
-      <p>
-        From planning and legal setup to branding, marketing, and your first
-        clients — Business Launch Pro™ provides everything you need to
-        establish, promote, and grow your business confidently.
-      </p>
+      <p>{t("proPlanDescription")}</p>
       <div className="pro-plan-wrap__body ">
         <div className="col-1">
           <h3>{product?.title}</h3>
-          <p>
-            A complete solution for establishing and launching your business —
-            from strategy and legal setup to branding, marketing, and your first
-            clients.
-          </p>
-          <h4>The pack includes:</h4>
+          <p>{t("proPlanDescription2")}</p>
+          <h4>{t("thePackIncludes")}:</h4>
           <div className="includes">
             <div className="includes__item">
-              <h5>Business Planning & Strategy</h5>
+              <h5>{t("businessPlanningStrategy")}</h5>
               <ul>
-                <li>Business Plan Creation</li>
-                <li>Business Strategy Development</li>
-                <li>Expert Feasibility Study</li>
-                <li>Financial Forecasting and Budgeting</li>
+                <li>{t("businessPlanCreation")}</li>
+                <li>{t("businessStrategyDevelopment")}</li>
+                <li>{t("expertFeasibilityStudy")}</li>
+                <li>{t("financialForecastingAndBudgeting")}</li>
               </ul>
             </div>
             <div className="includes__item">
-              <h5>Market Research & Positioning</h5>
+              <h5>{t("marketResearchAndPositioning")}</h5>
               <ul>
-                <li>Market Research and Analysis</li>
-                <li>Customer Segmentation and Targeting</li>
-                <li>Brand Messaging and Positioning</li>
-                <li>Business Name and Branding Consultation</li>
+                <li>{t("marketResearchAndAnalysis")}</li>
+                <li>{t("customerSegmentationAndTargeting")}</li>
+                <li>{t("brandMessagingAndPositioning")}</li>
+                <li>{t("businessNameAndBrandingConsultation")}</li>
               </ul>
             </div>
             <div className="includes__item">
-              <h5>Legal & Compliance</h5>
+              <h5>{t("legalAndCompliance")}</h5>
               <ul>
-                <li>Legal and Compliance Consultation</li>
-                <li>Compliance Review and Auditing</li>
-                <li>Documentation Package</li>
+                <li>{t("legalAndComplianceConsultation")}</li>
+                <li>{t("complianceReviewAndAuditing")}</li>
+                <li>{t("documentationPackage")}</li>
               </ul>
             </div>
             <div className="includes__item">
-              <h5>Operations & Leadership</h5>
+              <h5>{t("operationsAndLeadership")}</h5>
               <ul>
-                <li>Operations Efficiency Consulting</li>
-                <li>Risk Management Planning</li>
-                <li>Team Building and Leadership Guidance</li>
-                <li>Succession and Exit Strategy Planning</li>
+                <li>{t("operationsEfficiencyConsulting")}</li>
+                <li>{t("riskManagementPlanning")}</li>
+                <li>{t("teamBuildingAndLeadershipGuidance")}</li>
+                <li>{t("successionAndExitStrategyPlanning")}</li>
               </ul>
             </div>
             <div className="includes__item">
-              <h5>Marketing & Launch</h5>
+              <h5>{t("marketingAndLaunch")}</h5>
               <ul>
-                <li>Social Media Strategy Development</li>
-                <li>Content Marketing Strategy</li>
-                <li>SEO and Content Optimization</li>
-                <li>Paid Advertising Campaigns</li>
-                <li>Video Content Marketing</li>
-                <li>Influencer Marketing Strategy</li>
-                <li>Email Marketing and Automation</li>
-                <li>Market Entry Strategy</li>
-                <li>Online Reputation Management</li>
-                <li>Analytics Setup & Performance Tracking</li>
+                <li>{t("socialMediaStrategyDevelopment")}</li>
+                <li>{t("contentMarketingStrategy")}</li>
+                <li>{t("seoAndContentOptimization")}</li>
+                <li>{t("paidAdvertisingCampaigns")}</li>
+                <li>{t("videoContentMarketing")}</li>
+                <li>{t("influencerMarketingStrategy")}</li>
+                <li>{t("emailMarketingAndAutomation")}</li>
+                <li>{t("marketEntryStrategy")}</li>
+                <li>{t("onlineReputationManagement")}</li>
+                <li>{t("analyticsSetupAndPerformanceTracking")}</li>
               </ul>
             </div>
           </div>
           <div className="actions">
             <div className="price">
-              <span>from</span> €{product?.price}
+              <span>{t("from")}</span> €{product?.price}
             </div>
             <AddToCartButton product={product} />
           </div>

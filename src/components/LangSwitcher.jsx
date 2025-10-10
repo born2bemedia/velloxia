@@ -28,7 +28,7 @@ const LangSwitcher = () => {
           cursor: 'pointer',
         }}
       >
-        <img src={`/images/${currentLang}.svg`} />
+        <img src={`/images/${currentLang.toUpperCase()}.svg`} />
       </button>
       {isDropdownOpen && (
         <ul
