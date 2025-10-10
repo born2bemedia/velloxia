@@ -95,7 +95,7 @@ const ProPlan = ({ locale }) => {
             <div className="price">
               <span>{t("from")}</span> €{product?.price}
             </div>
-            <AddToCartButton product={product} />
+            <AddToCartButton product={product || null} />
           </div>
         </div>
         <div className="col-2"></div>
