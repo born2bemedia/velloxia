@@ -120,7 +120,7 @@ const Footer = () => {
                   </li>
                   <li className="footer__contact">
                     <div className="soc">
-                      <a href="https://www.instagram.com/velloxiacom">
+                      <a href="https://www.instagram.com/velloxiagroup">
                         <img src="/images/inst.svg" />
                       </a>
                       <a href="https://x.com/Velloxiacom">
