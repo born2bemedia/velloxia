@@ -45,7 +45,6 @@ const PolicyInner = async ({ params }) => {
           <div className="policy-inner__body">
             <div className="top">
               <h1>{singlePage.title}</h1>
-              <span>{singlePage.date}</span>
             </div>
             <ReactMarkdown>{singlePage.content}</ReactMarkdown>
           </div>
